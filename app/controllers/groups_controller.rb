@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
     if @group.save
       Member.create(group_id: @group.id, user_id: current_user.id) # 作成者もグループに参加する。
-      redirect_to @group, notice: 'Group was successfully created.'
+      redirect_to groups_path, notice: 'Group was successfully created.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   def update
     if @group.update(group_params)
-      redirect_to @group, notice: 'Group was successfully updated.'
+      redirect_to groups_path, notice: 'Group was successfully updated.'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   def destroy
     @group.destroy
-    redirect_to groups_url, notice: 'Group was successfully destroyed.'
+    redirect_to groups_path, notice: 'Group was successfully destroyed.'
   end
 
   def member_all
