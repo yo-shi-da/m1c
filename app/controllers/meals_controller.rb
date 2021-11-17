@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :set_meal, only: [:edit, :update, :destroy]
+  before_action :authenticate_user! #追加
 
   # GET /meals
   def index
@@ -21,7 +22,7 @@ class MealsController < ApplicationController
 
   # POST /meals
   def create
-    @meal = Meal.new(meal_params)
+    @meal = current_user.meals.new(meal_params)
 
     if @meal.save
       redirect_to @meal, notice: 'Meal was successfully created.'
@@ -45,10 +46,32 @@ class MealsController < ApplicationController
     redirect_to meals_url, notice: 'Meal was successfully destroyed.'
   end
 
+  def read_changes
+    @meal = Meal.find(params[:id])
+    if @meal.read_change == false
+      @meal.update(read_change: 'ture')
+      @meal.save
+      redirect_to meal_path(id: @meal.id), notice: "既読になりました。"
+    else
+      @meal.update(read_change: 'false')
+      @meal.save
+      redirect_to meal_path(id: @meal.id), notice: "未読になりました。"
+    end
+  end
+
+
+  def calendar
+    @meals = current_user.meals
+  end
+  
+  def graph
+    @meals = current_user.meals
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
-      @meal = Meal.find(params[:id])
+      @meal = current_user.meals.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
