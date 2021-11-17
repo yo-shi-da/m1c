@@ -1,2 +1,12 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<h1>「<%= @user.name %>」さんのお気に入り一覧</h1>
+
+<div class="container">
+  <div class="row">
+  <% @favorite_list.each do |favotite| %>
+    <div class="col-lg-6"> 
+    <p><%#= image_tag favotite.image.url %></p>
+    <p>糖質量:<%= favotite.sugar_amount %>g</p>
+    </div>  
+  <% end %>
+  </div>
+</div>

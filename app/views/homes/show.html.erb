@@ -1,2 +1,40 @@
-<h1>Homes#show</h1>
-<p>Find me in app/views/homes/show.html.erb</p>
+<p>食事の詳細</p>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <p>画像：<%= image_tag @meal.image.url %></p>
+    </div>
+
+    <div class="col-sm-6">
+      <table class="table">
+        <tr>
+          <th class="table-primary col-4">No：</th>
+          <td><%= @meal.id %></td>
+        </tr>
+        <tr>
+          <th class="table-primary col-4">糖質量：</th>
+          <td><%= @meal.sugar_amount %></td>
+        </tr>
+        <tr>
+          <th class="table-primary col-4">角砂糖：</th>
+          <td><%= @meal.sugar_cube %></td>
+        </tr>
+        <tr>
+          <th class="table-primary col-4">区分：</th>
+          <td><%= @meal.classification %></td>
+        </tr>
+      </table>
+    </div>
+
+  <% unless @meal.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入りする', favorites_path(meal_id: @meal.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+
+  </div>
+</div>
