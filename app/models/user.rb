@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :favorites, dependent: :destroy
+  has_many :meals, through: :favorites, source: :meal
 
   has_many :meals
   has_many :personals

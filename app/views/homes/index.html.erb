@@ -1,0 +1,31 @@
+<h1>・みんなの食事</h1>
+<br />
+<%#= search_form_for @q, url: homes_path do |f| %>
+  <%#= f.label :sugar_amount, '糖質量：' %>
+  <%#= f.number_field :sugar_amount_gteq %>以上～
+  <%#= f.number_field :sugar_amount_lteq %>以下
+  <%#= f.submit '検索' %>
+<%# end %>
+
+<br />
+
+<div class="mb-3">
+  <%= paginate @meals %>
+  <%= page_entries_info @meals %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @meals.each do |meal| %>
+        <div class="col-sm-6"> 
+          <div class="card" style="width: 35rem;">
+            <div class="card-body">
+              <p class="card-title"><%= image_tag meal.image.url %></p>
+              <p class="card-title">糖質量：<%= meal.sugar_amount %></p>
+              <p class="card-title"><%= link_to '詳細', home_path(id: meal.id), class:"btn btn-outline-primary" %></p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
