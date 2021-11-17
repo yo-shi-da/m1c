@@ -1,24 +1,55 @@
 # README
+## 製品名
+「M1c」 ～糖質管理支援ツール～
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 製品概要
+日々の糖質を管理できるアプリケーション。
 
-Things you may want to cover:
+主に以下の機能があります。
+1. グループ機能：医師と患者といった「管理者とユーザー」に分かれることができる。
+2. お気に入り機能：他のユーザーが投稿した食事をお気に入りすることができる。
+3. グラフ・カレンダー機能：ユーザーは、投稿した食事の情報を視覚的に把握することができる。
 
-* Ruby version
+## 開発言語
+- Ruby 3.0.1
+- Ruby on Rails 6.0.3
 
-* System dependencies
+## 就職Termで学んだ技術
+- device
+- お気に入り機能
 
-* Configuration
+## カリキュラム外の技術
+- ransack
+- chartkick
 
-* Database creation
+## 実行手順
+```
+$ git clone git@github.com:yo-shi-da/m1c.git
+$ cd m1c
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails s
+```
 
-* Database initialization
+## チェックシート
+https://docs.google.com/spreadsheets/d/1cFXNjZf51cxOHMSbpVYCF-waY9ZJr5OQxXb9IBOsayw/edit?usp=sharing
 
-* How to run the test suite
+## カタログ設計
+https://docs.google.com/spreadsheets/d/1M1gBbIcn1rdRvyGmtIOCSv9jCWYSyiHYIKRCmymXPS4/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## テーブル定義書
+https://docs.google.com/spreadsheets/d/11efwvvavH5Xoy9TrsuqO0Cu6GzkbCx7UAlwQmawbLRA/edit?usp=sharing
 
-* ...
+## ER図
+https://drive.google.com/file/d/1RDdLem2BHZr4WnlaeFzDD7JtgA6iSoZW/view?usp=sharing
+![ER図](https://user-images.githubusercontent.com/71182187/141794597-09a372cd-81a2-4e97-89e6-b952d654538f.png)
+
+## 画面遷移図
+https://drive.google.com/file/d/1m8xOQcnRvT3RgXFsyXkLsm6wV5vWv-mp/view?usp=sharing
+![画面遷移図](https://user-images.githubusercontent.com/71182187/141780566-30f499db-94f1-415c-baf1-0f7fa1f294e5.png)
+
+
+## ワイヤーフレーム
+https://drive.google.com/file/d/1IVHmmweH4p1QxgKrH6sGtqwYdnZb5mZa/view?usp=sharing
