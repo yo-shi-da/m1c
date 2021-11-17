@@ -11,7 +11,11 @@ class MealsController < ApplicationController
       @q = @user.meals.ransack(params[:q])
       @meals = @q.result.page(params[:page])
 
-
+      # csv
+      respond_to do |format|
+        format.html
+        format.csv { send_data @meals.generate_csv, filename: "tasks-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+      end
       
     else
       @q = current_user.meals.ransack(params[:q])
