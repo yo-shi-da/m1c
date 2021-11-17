@@ -12,7 +12,7 @@
       <table class="table table-hover">
         <tr>
           <th class="table-primary col-4">年齢　Age</th>
-          <td><%= @personal.age %></td>
+          <td><%= @personal.birth_date %></td>
         </tr>    
         <tr>
           <th class="table-primary col-4">身長　Height</th>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <th class="table-primary">性別</th>
-          <td><%= @personal.sex == 1 ? "男" : "女"  %></td>
+          <td><%= @personal.gender == 1 ? "男" : "女"  %></td>
         </tr>
         <tr>
           <th class="table-primary">BMI　Bmi</th>
