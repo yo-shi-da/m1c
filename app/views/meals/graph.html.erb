@@ -1,0 +1,12 @@
+<h3 class="all_body" > ・日々の合計摂取量 </h3>
+
+<%= column_chart current_user.meals.group_by_day(
+  :start_time, 
+  format: "%m月 %d日", 
+  series: false
+  )
+  .sum(:sugar_amount), 
+  xtitle: "日",
+  ytitle: "糖質",
+  label: "糖質量"
+%>

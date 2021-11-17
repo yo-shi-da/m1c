@@ -12,8 +12,10 @@
   <body>
 
     <% if user_signed_in? %>
-      <%#= link_to "ブログ投稿", blogs_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <p>氏名：<%= current_user.name %>様</p>
+      <%= link_to "グラフ", meal_graph_path(current_user.id), class:"btn btn-outline-primary"  %>
+      <%= link_to "カレンダー", meal_calendar_path(current_user.id), class:"btn btn-outline-primary"  %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>
