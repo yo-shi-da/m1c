@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     current_user.members.create(group_id: params[:group_id])
