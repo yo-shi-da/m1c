@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  root to: 'meals#index'
   
   
+  resources :personals
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'

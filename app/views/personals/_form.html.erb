@@ -1,0 +1,67 @@
+<%= form_with(model: personal, local: true) do |form| %>
+  <% if personal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(personal.errors.count, "error") %> prohibited this personal from being saved:</h2>
+
+      <ul>
+        <% personal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.date_select :birth_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body_weight %>
+    <%= form.text_field :body_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bmi %>
+    <%= form.text_field :bmi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :waist_circumference %>
+    <%= form.text_field :waist_circumference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hba_onec %>
+    <%= form.text_field :hba_onec %>
+  </div>
+
+  <div class="field">
+    <%= form.label :underlying_disease %>
+    <%= form.text_area :underlying_disease %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intake_per_oneday %>
+    <%= form.text_field :intake_per_oneday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
