@@ -1,0 +1,13 @@
+<h3 class="all_body" >日々の摂取量(朝・昼・夜・間食)</h3>
+
+<%= month_calendar events: @meals do |date, meals| %>
+  <%= date.day %>
+  
+  <% meals.each do |meal| %>
+    <div>
+      <%= meal.classification %>
+      <p>摂取量：<%= link_to meal.sugar_amount, meal_path(meal.id) %>g</p>
+    </div>
+  <% end %>
+  
+<% end %>
