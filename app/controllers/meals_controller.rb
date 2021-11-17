@@ -23,7 +23,7 @@ class MealsController < ApplicationController
     end
     
     # 参加しているグループ取得
-    @group_users_middle = GroupUser.find_by(user_id: current_user.id)  
+    @group_users_middle = Member.find_by(user_id: current_user.id)  
     @current_user_group = @group_users_middle.group if @group_users_middle.present?  # current_userが参加しているグループ
     # binding.pry
 

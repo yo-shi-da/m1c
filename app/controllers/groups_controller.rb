@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
     # current_userが参加しているグループ
     @current_user_group = current_user.joined_group.first if current_user.joined_group.length != 0
-    @group_user = GroupUser.find_by(user_id: current_user.id) # 削除に必要。
+    @group_user = Member.find_by(user_id: current_user.id) # 削除に必要。
 
   end
 
