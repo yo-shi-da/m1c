@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
 
   root to: 'meals#index'  
-
+  
+  resources :members
+  resources :groups
   resources :homes
   resources :favorites
   resources :personals
 
+  get '/member_all', to: 'groups#member_all'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
-  }  
+  }
+
+  resources :users
   
   patch 'meals', to: 'meals#read_changes'
 
