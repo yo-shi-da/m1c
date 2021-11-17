@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :set_meal, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /meals
@@ -30,6 +30,12 @@ class MealsController < ApplicationController
 
   # GET /meals/1
   def show
+    @meal = Meal.find(params[:id])
+    @post = @meal.posts.last
+
+    @group_users_middle = Member.find_by(user_id: current_user.id)  
+    @current_user_group = @group_users_middle.group if @group_users_middle.present?  # current_userが参加しているグループ
+
   end
 
   # GET /meals/new
@@ -69,12 +75,12 @@ class MealsController < ApplicationController
 
   def read_changes
     @meal = Meal.find(params[:id])
-    if @meal.read_change == false
-      @meal.update(read_change: 'ture')
+    if @meal.reading_checks == false
+      @meal.update(reading_checks: 'ture')
       @meal.save
       redirect_to meal_path(id: @meal.id), notice: "既読になりました。"
     else
-      @meal.update(read_change: 'false')
+      @meal.update(reading_checks: 'false')
       @meal.save
       redirect_to meal_path(id: @meal.id), notice: "未読になりました。"
     end

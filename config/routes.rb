@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'meals#index'  
   
+  resources :posts
   resources :members
   resources :groups
   resources :homes
