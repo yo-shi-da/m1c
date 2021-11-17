@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @personal.birth_date %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @personal.height %>
+</p>
+
+<p>
+  <strong>Body weight:</strong>
+  <%= @personal.body_weight %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @personal.gender %>
+</p>
+
+<p>
+  <strong>Bmi:</strong>
+  <%= @personal.bmi %>
+</p>
+
+<p>
+  <strong>Waist circumference:</strong>
+  <%= @personal.waist_circumference %>
+</p>
+
+<p>
+  <strong>Hba onec:</strong>
+  <%= @personal.hba_onec %>
+</p>
+
+<p>
+  <strong>Underlying disease:</strong>
+  <%= @personal.underlying_disease %>
+</p>
+
+<p>
+  <strong>Intake per oneday:</strong>
+  <%= @personal.intake_per_oneday %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @personal.remarks %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @personal.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_personal_path(@personal) %> |
+<%= link_to 'Back', personals_path %>

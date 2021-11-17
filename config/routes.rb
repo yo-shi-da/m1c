@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :personals
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
