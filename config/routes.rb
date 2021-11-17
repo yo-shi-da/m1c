@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root to: 'meals#index'  
-  
+
+  resources :homes
+  resources :favorites
   resources :personals
 
   devise_for :users, controllers: {
@@ -10,10 +12,10 @@ Rails.application.routes.draw do
   }  
   
   patch 'meals', to: 'meals#read_changes'
+
   resources :meals do
     get 'calendar', to: 'meals#calendar'
     get 'graph', to: 'meals#graph'
   end
-
   
 end
