@@ -1,19 +1,32 @@
-<p id="notice"><%#= notice %></p>
 
-<h1>Meals</h1>
+<h1>食事一覧</h1>
 
-<table>
+<%= search_form_for @q do |f| %>
+  <%= f.label :sugar_amount, '糖質量:' %>
+  <%= f.number_field :sugar_amount_gteq %>以上～
+  <%= f.number_field :sugar_amount_lteq %>以下
+  <%= f.submit '検索' %>
+<% end %>
+
+<br>
+  <%= link_to '食事投稿', new_meal_path, class:"btn btn-secondary" %>
+<br>
+
+
+<br>
+<div class="mb-3">
+  <%= paginate @meals %>
+  <%= page_entries_info @meals %>
+</div>
+
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th>Sugar amount</th>
-      <th>Sugar cube</th>
-      <th>Classification</th>
-      <th>Image</th>
-      <th>Start time</th>
-      <th>Reading checks</th>
-      <th>Remarks</th>
-      <th>User</th>
-      <th colspan="3"></th>
+    <tr class="table-success">
+      <th><%= sort_link(@q, :sugar_amount) %></th>
+      <th>砂糖(Sugar cube)</th>
+      <th>区分(Classification)</th>
+      <th>既読の有無(Read change)</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -23,19 +36,24 @@
         <td><%= meal.sugar_amount %></td>
         <td><%= meal.sugar_cube %></td>
         <td><%= meal.classification %></td>
-        <td><%= meal.image %></td>
-        <td><%= meal.start_time %></td>
-        <td><%= meal.reading_checks %></td>
-        <td><%= meal.remarks %></td>
-        <td><%= meal.user_id %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if meal.read_change %>
+          <td>既読</td>
+        <% else %>
+          <td>未読</td>
+        <% end %>
+        
+        <%# if @current_user_group&.owner_id != nil %>
+        <% if @current_user_group.present? %>
+          <% if current_user.id == @current_user_group.owner_id %> 
+            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class: 'btn btn-sm btn-danger' } %></td>
+          <% end %>
+        <% end %>
+        
+        <td><%= link_to '詳細', meal, class:"btn btn-outline-primary" %></td>
+        <td><%= link_to '編集', edit_meal_path(meal), class:"btn btn-outline-success" %></td>
+        <td><%= link_to '削除', meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Meal', new_meal_path %>

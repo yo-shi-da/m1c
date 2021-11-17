@@ -4,7 +4,25 @@ class MealsController < ApplicationController
 
   # GET /meals
   def index
-    @meals = Meal.all
+    # グループオーナー、カレントユーザーが見る時で、表示を変える。
+    if params[:id].present?
+    # if params[:user_id].present?
+      @user = User.find(params[:id]) 
+      @q = @user.meals.ransack(params[:q])
+      @meals = @q.result.page(params[:page])
+
+
+      
+    else
+      @q = current_user.meals.ransack(params[:q])
+      @meals = @q.result.page(params[:page])
+    end
+    
+    # 参加しているグループ取得
+    @group_users_middle = GroupUser.find_by(user_id: current_user.id)  
+    @current_user_group = @group_users_middle.group if @group_users_middle.present?  # current_userが参加しているグループ
+    # binding.pry
+
   end
 
   # GET /meals/1

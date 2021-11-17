@@ -2,10 +2,10 @@ class HomesController < ApplicationController
 
   def index
     @meals = Meal.all
-    # @q = Meal.all.ransack(params[:q])
+    @q = Meal.all.ransack(params[:q])
 
     # binding.pry
-    # @meals = @q.result.page(params[:page])
+    @meals = @q.result.page(params[:page])
   end
 
   def show
