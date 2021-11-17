@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :groups
   root to: 'meals#index'  
-
+  
+  resources :groups
   resources :homes
   resources :favorites
   resources :personals
+
+  get '/member_all', to: 'groups#member_all'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
