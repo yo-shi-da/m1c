@@ -6,7 +6,6 @@ class MealsController < ApplicationController
   def index
     # グループオーナー、カレントユーザーが見る時で、表示を変える。
     if params[:id].present?
-    # if params[:user_id].present?
       @user = User.find(params[:id]) 
       @q = @user.meals.ransack(params[:q])
       @meals = @q.result.page(params[:page])
