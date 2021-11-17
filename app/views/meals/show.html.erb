@@ -1,38 +1,94 @@
-<p>
-  <strong>Sugar amount:</strong>
-  <%= @meal.sugar_amount %>
-</p>
+<div class="container">
+  <div class="row">
 
-<p>
-  <strong>Sugar cube:</strong>
-  <%= @meal.sugar_cube %>
-</p>
+    <div class="col-sm-6">
+      <table class="table">
+        <tr>
+          <th class="table-primary col-4">Sugar amount（糖質量）:</th>
+          <td><%= @meal.sugar_amount %></td>
+        </tr>
+        <tr>
+          <th class="table-primary col-4">Sugar cube（角砂糖）:</th>
+          <td><%= @meal.sugar_cube %></td>
+        </tr>
+        <tr>
+          <th class="table-primary col-4">Classification（区分）:</th>
+          <td><%= @meal.classification %></td>
+        </tr>
+        <tr>
+          <th class="table-primary col-4">Remarks（備考）:</th>
+          <td><%= @meal.remarks %></td>
+        </tr>
+      </table>
+    </div>
+      
+    <div class="col-sm-6">
+      <%= image_tag @meal.image.url %>
+    </div>
 
-<p>
-  <strong>Classification:</strong>
-  <%= @meal.classification %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @meal.image %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @meal.start_time %>
-</p>
-
-<p>
-  <strong>Reading checks:</strong>
-  <%= @meal.reading_checks %>
-</p>
-
-<p>
-  <strong>Remarks:</strong>
-  <%= @meal.remarks %>
-</p>
+  <%= link_to 'Edit', edit_meal_path(@meal), class:"btn btn-outline-primary" %>
+  <%= link_to 'Back', meals_path, class:"btn btn-outline-primary" %>
+  </div>
+</div>
 
 
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
-<%= link_to 'Back', meals_path %>
+
+<%# if 所属しているグループのオーナーだった場合、表示する。 %>
+
+<% if @current_user_group&.owner_id != nil %>
+  <% if current_user.id == @current_user_group.owner_id %>    
+    <hr>
+    <%= form_with(model: Post.new, local: true) do |form| %>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="form-group">
+            <%= form.label :owner_comment（グループオーナーからのコメント） %>
+            <%= form.text_area :owner_comment, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <%= form.label :owner_sugar_amount（グループオーナーから見た糖質量） %>
+            <%= form.number_field :owner_sugar_amount, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <%= form.label :difference（糖質差） %>
+            <%= form.number_field :difference, class: 'form-control' %>
+          </div>
+        </div>
+
+      <%= form.hidden_field :meal_id, value: @meal.id %>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+
+      <%= link_to 'メンバー一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-primary" %>
+    <% end %>
+    <hr>
+  <% end %>
+<% end %>
+
+<% if @post.present? %>
+  <hr>
+  <table class="table">
+    <tr>
+      <th class="table-primary col-4">グループオーナーからのコメント：</th>
+      <td><%= @post.owner_comment %></td>
+    </tr>
+    <tr>
+      <th class="table-primary col-4">グループオーナーから見た糖質量：</th>
+      <td><%= @post.owner_sugar_amount %></td>
+    </tr>
+    <tr>
+      <th class="table-primary col-4">糖質差：</th>
+      <td><%= @post.difference %></td>
+    </tr>
+  </table>
+<% end %>
