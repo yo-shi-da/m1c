@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:edit, :update, :destroy]
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! #追加
 
   # GET /meals
