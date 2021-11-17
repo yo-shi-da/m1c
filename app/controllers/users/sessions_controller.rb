@@ -27,7 +27,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # Login後を指定している。
   def after_sign_in_path_for(resource)
-    # meals_path
+    meals_path
   end
 
 end
