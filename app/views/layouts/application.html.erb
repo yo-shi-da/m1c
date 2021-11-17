@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <% if notice %>
+      <div class="alert alert-primary" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert alert-primary" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <div class="all_body">
+      <%= yield %>
+    </div>
+
   </body>
+
 </html>
