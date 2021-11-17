@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sugar amount:</strong>
+  <%= @meal.sugar_amount %>
+</p>
+
+<p>
+  <strong>Sugar cube:</strong>
+  <%= @meal.sugar_cube %>
+</p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @meal.classification %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @meal.image %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @meal.start_time %>
+</p>
+
+<p>
+  <strong>Reading checks:</strong>
+  <%= @meal.reading_checks %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @meal.remarks %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @meal.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'Back', meals_path %>
