@@ -11,15 +11,6 @@ class GroupsController < ApplicationController
 
   end
 
-  # GET /groups/1
-  def show
-    @group_members = @group.users # 参加者一覧
-    @group_owner = User.find(@group.owner_id) # オーナー
-    @current_user_group = current_user.joined_group.first if current_user.joined_group.length != 0  # current_userが参加しているグループ
-    @group_user = GroupUser.find_by(user_id: current_user.id) # 削除に必要。
-
-  end
-
   # GET /groups/new
   def new
     @group = Group.new
