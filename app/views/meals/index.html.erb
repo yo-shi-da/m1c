@@ -1,5 +1,3 @@
-<p id="notice"><%#= notice %></p>
-
 <h1>食事一覧</h1>
 
 <%= search_form_for @q do |f| %>
@@ -31,9 +29,9 @@
   <thead>
     <tr class="table-success">
       <th><%= sort_link(@q, :sugar_amount) %></th>
-      <th>砂糖(Sugar cube)</th>
-      <th>区分(Classification)</th>
-      <th>既読の有無(Read change)</th>
+      <th><%= t('meals.sugar_cube') %></th>
+      <th><%= t('meals.classification') %></th>
+      <th><%= t('meals.reading_checks') %></th>
       <th colspan="5"></th>
     </tr>
   </thead>

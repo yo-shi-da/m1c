@@ -4,19 +4,19 @@
     <div class="col-sm-6">
       <table class="table">
         <tr>
-          <th class="table-primary col-4">Sugar amount（糖質量）:</th>
+          <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
           <td><%= @meal.sugar_amount %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">Sugar cube（角砂糖）:</th>
+          <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
           <td><%= @meal.sugar_cube %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">Classification（区分）:</th>
+          <th class="table-primary col-4"><%= t('meals.classification') %></th>
           <td><%= @meal.classification %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">Remarks（備考）:</th>
+          <th class="table-primary col-4"><%= t('meals.remarks') %></th>
           <td><%= @meal.remarks %></td>
         </tr>
       </table>
@@ -26,8 +26,8 @@
       <%= image_tag @meal.image.url %>
     </div>
 
-  <%= link_to 'Edit', edit_meal_path(@meal), class:"btn btn-outline-primary" %>
-  <%= link_to 'Back', meals_path, class:"btn btn-outline-primary" %>
+  <%= link_to t('button.edit'), edit_meal_path(@meal), class:"btn btn-outline-primary" %>
+  <%= link_to t('button.back'), meals_path, class:"btn btn-outline-primary" %>
   </div>
 </div>
 
@@ -44,21 +44,21 @@
 
         <div class="row">
           <div class="form-group">
-            <%= form.label :owner_comment（グループオーナーからのコメント） %>
+            <%= form.label t('posts.owner_comment') %>
             <%= form.text_area :owner_comment, class: 'form-control' %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group">
-            <%= form.label :owner_sugar_amount（グループオーナーから見た糖質量） %>
+            <%= form.label t('posts.owner_sugar_amount') %>
             <%= form.number_field :owner_sugar_amount, class: 'form-control' %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group">
-            <%= form.label :difference（糖質差） %>
+            <%= form.label t('posts.difference') %>
             <%= form.number_field :difference, class: 'form-control' %>
           </div>
         </div>
@@ -66,7 +66,7 @@
       <%= form.hidden_field :meal_id, value: @meal.id %>
 
       <div class="actions">
-        <%= form.submit %>
+        <%= form.submit class:"btn btn-outline-primary" %>
       </div>
 
       <%= link_to 'メンバー一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-primary" %>
