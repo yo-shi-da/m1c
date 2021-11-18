@@ -1,7 +1,7 @@
-<p>「<%= @user.name %>」さんのMypage(show)</p>
+<p>「<%= @user.name %>」さんのMypage</p>
 
 <% unless @user_personal.present? %>
-  <%= link_to 'New Personal', new_personal_path, class:"btn btn-outline-primary" %>
+  <%= link_to t('button.new'), new_personal_path, class:"btn btn-outline-primary" %>
 <% end %>
 
 <% if @user_personal.present? %>

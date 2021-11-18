@@ -15,70 +15,70 @@
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :birth_date %>
+        <%= form.label t('personals.birth_date') %>
         <%= form.date_select :birth_date, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :height %>
+        <%= form.label t('personals.height') %>
         <%= form.text_field :height, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :body_weight %>
+        <%= form.label t('personals.body_weight') %>
         <%= form.text_field :body_weight, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :gender %>
+        <%= form.label t('personals.gender') %>
         <%= form.check_box :gender, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :bmi %>
+        <%= form.label t('personals.bmi') %>
         <%= form.text_field :bmi, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :waist_circumference %>
+        <%= form.label t('personals.waist_circumference') %>
         <%= form.text_field :waist_circumference, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :hba_onec %>
+        <%= form.label t('personals.hba_onec') %>
         <%= form.text_field :hba_onec, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :underlying_disease %>
+        <%= form.label t('personals.underlying_disease') %>
         <%= form.text_area :underlying_disease, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :intake_per_oneday %>
+        <%= form.label t('personals.intake_per_oneday') %>
         <%= form.text_field :intake_per_oneday, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
-        <%= form.label :remarks %>
+        <%= form.label t('personals.remarks') %>
         <%= form.text_area :remarks, class: 'form-control' %>
       </div>
     </div>
@@ -86,7 +86,7 @@
     <%= form.hidden_field :id, value: personal.id %>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class:"btn btn-outline-primary" %>
     </div>
 
   </div>
