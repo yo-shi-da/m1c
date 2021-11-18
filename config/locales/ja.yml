@@ -204,3 +204,27 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  meals:
+    sugar_amount: 糖質量
+    sugar_cube: 角砂糖
+    classification: 区分（朝・昼・夜・間食）
+    image: 画像
+    start_time: 
+    reading_checks: 変更
+    remarks: 備考
+  personals:
+    birth_date: 生年月日
+    height: 身長
+    body_weight: 体重 
+    gender: 性別
+    bmi: BMI
+    waist_circumference: 腹囲
+    hba_onec: HbA1c
+    underlying_disease: 基礎疾患
+    intake_per_oneday: 1日あたりの目安摂取量
+    remarks: 備考
+  posts:
+    owner_comment: 管理者からのコメント
+    owner_sugar_amount: 管理者から見た糖質量
+    difference: 差
+
