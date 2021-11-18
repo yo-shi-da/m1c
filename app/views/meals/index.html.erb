@@ -14,8 +14,11 @@
 <br>
 
 <% if @current_user_group&.owner_id != nil && current_user.id == @current_user_group.owner_id %>
-  <%= link_to 'CSVエクスポート(owner)', meals_path(format: :csv), class:"btn btn-success" %>
-  <%# binding.pry %>
+  <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
+    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: @user.id), class:"btn btn-success" %>
+  <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
+    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-success" %>
+  <% end %>
 <% end %>
 
 <br>

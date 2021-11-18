@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :users
   
   patch 'meals', to: 'meals#read_changes'
+  get 'export_csv', to: 'meals#export_csv'
   resources :meals do
     get 'calendar', to: 'meals#calendar'
     get 'graph', to: 'meals#graph'

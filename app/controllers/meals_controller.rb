@@ -8,13 +8,6 @@ class MealsController < ApplicationController
       @user = User.find(params[:id]) 
       @q = @user.meals.ransack(params[:q])
       @meals = @q.result.page(params[:page])
-
-      # csv
-      respond_to do |format|
-        format.html
-        binding.pry
-        format.csv { send_data @meals.generate_csv, filename: "meals-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
-      end
       
     else
       @q = current_user.meals.ransack(params[:q])
@@ -24,8 +17,15 @@ class MealsController < ApplicationController
     # 参加しているグループ取得
     @group_users_middle = Member.find_by(user_id: current_user.id)  
     @current_user_group = @group_users_middle.group if @group_users_middle.present?  # current_userが参加しているグループ
-    # binding.pry
 
+  end
+
+  def export_csv
+    @user = User.find(params[:id]) 
+    @meals = @user.meals
+    respond_to do |format|
+      format.csv { send_data @meals.generate_csv, filename: "meals-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
   end
 
   # GET /meals/1
