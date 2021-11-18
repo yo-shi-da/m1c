@@ -1,13 +1,12 @@
 class User < ApplicationRecord
 
   has_one :personal
-  has_one :group
-  has_one :member, dependent: :destroy
-  has_one :joined_group, through: :members, source: :group
-
+  has_many :groups
   has_many :meals
+  has_many :members, dependent: :destroy
+  has_many :joined_group, through: :members, source: :group
   has_many :favorites, dependent: :destroy
-  has_many :meals, through: :favorites, source: :meal
+  has_many :meals_favorites, through: :favorites, source: :meal
   
   # guest
   def self.guest

@@ -6,12 +6,12 @@ class PersonalsController < ApplicationController
   def show
 
     @user = User.find(params[:id])
-    @users_personal = @user.personals #　Personals一覧を配列で取得(has_oneならば、配列ではない。)
-    @users_personal_id = @users_personal.first # 一番目を取得（has_oneの場合、このコードが不要。）
+    @user_personal = @user.personal #　Personals一覧を配列で取得(has_oneならば、配列ではない。)
+    # @users_personal_id = @users_personal.first # 一番目を取得（has_oneの場合、このコードが不要。）
 
-    if @users_personal_id != nil
-      @personal = Personal.find_by(id: @users_personal_id.id) #同じ名前が続くのは避ける。
-    end
+    # if @users_personal_id != nil
+    #   @personal = Personal.find_by(id: @users_personal.id) #同じ名前が続くのは避ける。
+    # end
 
   end
 
@@ -23,17 +23,19 @@ class PersonalsController < ApplicationController
   # GET /personals/1/edit
   def edit
     @user = User.find(params[:id])
-    @users_personal = @user.personals #　Personals一覧を配列で取得(has_oneならば、配列ではない。)
-    @users_personal_id = @users_personal.first # 一番目を取得（has_oneの場合、このコードが不要。）
+    @user_personal = @user.personal #　Personals一覧を配列で取得(has_oneならば、配列ではない。)
+    # @users_personal_id = @users_personal.first # 一番目を取得（has_oneの場合、このコードが不要。）
 
-    if @users_personal_id != nil
-      @personal = Personal.find_by(id: @users_personal_id.id) #同じ名前が続くのは避ける。
-    end
+    # if @users_personal_id != nil
+    #   @personal = Personal.find_by(id: @users_personal_id.id) #同じ名前が続くのは避ける。
+    # end
   end
 
   # POST /personals
   def create
-    @personal = current_user.personals.new(personal_params)
+    # @personal = current_user.personal.new(personal_params)
+    @personal = Personal.new(personal_params)
+    @personal.user_id = current_user.id
 
     if @personal.save
       redirect_to @personal, notice: 'Personal was successfully created.'

@@ -1,10 +1,10 @@
 class Meal < ApplicationRecord
   mount_uploader :image, ImageUploader
   
-  has_many :favorites, dependent: :destroy
-  has_many :users, through: :favorites, source: :user
-  has_one :post  
   belongs_to :user
+  has_one :post
+  has_many :favorites, dependent: :destroy
+  has_many :users_favorites, through: :favorites, source: :user
 
   # CSV
   def self.csv_attributes
