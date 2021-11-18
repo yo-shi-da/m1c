@@ -38,7 +38,7 @@ class PersonalsController < ApplicationController
     @personal.user_id = current_user.id
 
     if @personal.save
-      redirect_to @personal, notice: 'Personal was successfully created.'
+      redirect_to personal_path(current_user.id), notice: 'Personal was successfully created.'
     else
       render :new
     end
@@ -48,7 +48,7 @@ class PersonalsController < ApplicationController
   def update
     @personal = Personal.find(params[:id])
     if @personal.update(personal_params)
-      redirect_to @personal, notice: 'Personal was successfully updated.'
+      redirect_to personal_path(current_user.id), notice: 'Personal was successfully updated.'
     else
       render :edit
     end

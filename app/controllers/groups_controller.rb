@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :member_all]
+  before_action :set_group, only: [:show, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /groups
@@ -19,6 +19,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @group = my_group
   end
 
   # POST /groups
@@ -50,6 +51,7 @@ class GroupsController < ApplicationController
   end
 
   def member_all
+    @group = my_group
     @group_members = @group.users # 参加者一覧
   end
 
