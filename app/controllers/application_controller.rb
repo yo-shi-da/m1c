@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :my_group
 
@@ -7,7 +8,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin])
   end
 
-  # 参加しているグループを取得
   def my_group
     if Member.find_by(user_id: current_user.id).present?
       @current_user_members = Member.find_by(user_id: current_user.id)

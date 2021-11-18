@@ -15,7 +15,7 @@
 - Ruby on Rails 6.0.3
 
 ## 就職Termで学んだ技術
-- device
+- devise
 - お気に入り機能
 
 ## カリキュラム外の技術

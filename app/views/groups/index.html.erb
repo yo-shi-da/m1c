@@ -1,4 +1,3 @@
-<p id="notice"><%#= notice %></p>
 
 <h1>グループ一覧</h1>
 
@@ -45,7 +44,7 @@
 
 <br>
 
-<%# カレントユーザーが、現在のグループでない場合。つまり、グループに所属していない場合のみ表示 %>
+<%# カレントユーザーが、グループに所属していない場合のみ表示 %>
 <% unless my_group.present? %>
   <%= link_to 'グループ作成', new_group_path, class:"btn btn-outline-info" %>
 <% end %>

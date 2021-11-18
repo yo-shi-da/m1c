@@ -1,9 +1,7 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @user = current_user
-    # ログイン中のユーザーのお気に入りのpost_idカラムを取得
     favorites = Favorite.where(user_id: current_user.id).pluck(:meal_id) 
     @favorite_list = Meal.find(favorites) 
   end
