@@ -44,6 +44,7 @@ class PersonalsController < ApplicationController
 
   # PATCH/PUT /personals/1
   def update
+    @personal = Personal.find(params[:id])
     if @personal.update(personal_params)
       redirect_to @personal, notice: 'Personal was successfully updated.'
     else

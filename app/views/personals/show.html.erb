@@ -1,54 +1,63 @@
-<p id="notice"><%= notice %></p>
+<p>「<%= @user.name %>」さんのMypage(show)</p>
 
-<p>
-  <strong>Birth date:</strong>
-  <%= @personal.birth_date %>
-</p>
+<% unless @personal.present? %>
+  <%= link_to 'New Personal', new_personal_path, class:"btn btn-outline-primary" %>
+<% end %>
 
-<p>
-  <strong>Height:</strong>
-  <%= @personal.height %>
-</p>
+<% if @personal.present? %>
 
-<p>
-  <strong>Body weight:</strong>
-  <%= @personal.body_weight %>
-</p>
+  <div class="container">
+    <div class="row">
 
-<p>
-  <strong>Gender:</strong>
-  <%= @personal.gender %>
-</p>
+      <table class="table table-hover">
+        <tr>
+          <th class="table-primary col-4">年齢　Age</th>
+          <td><%= @personal.birth_date %></td>
+        </tr>    
+        <tr>
+          <th class="table-primary col-4">身長　Height</th>
+          <td><%= @personal.height %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">体重　Body weight</th>
+          <td><%= @personal.body_weight %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">性別</th>
+          <td><%= @personal.gender == 1 ? "男" : "女"  %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">BMI　Bmi</th>
+          <td><%= @personal.bmi %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">腹囲　Waist circumference</th>
+          <td><%= @personal.waist_circumference %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">HbA1c　Hba onec</th>
+          <td><%= @personal.hba_onec %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">基礎疾患　Underlying disease</th>
+          <td><%= @personal.underlying_disease %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">1日あたりの摂取量　Intake per oneday</th>
+          <td><%= @personal.intake_per_oneday %></td>
+        </tr>
+        <tr>
+          <th class="table-primary">備考　Remarks</th>
+          <td><%= @personal.remarks %></td>
+        </tr>  
+      </table>
+    </div>
+  </div>
 
-<p>
-  <strong>Bmi:</strong>
-  <%= @personal.bmi %>
-</p>
+  <% if current_user.id == @personal.user_id %>
+    <%= link_to '編集', edit_personal_path(current_user.id), class:"btn btn-outline-primary" %>
+  <% end %>
 
-<p>
-  <strong>Waist circumference:</strong>
-  <%= @personal.waist_circumference %>
-</p>
+<% end %>
 
-<p>
-  <strong>Hba onec:</strong>
-  <%= @personal.hba_onec %>
-</p>
-
-<p>
-  <strong>Underlying disease:</strong>
-  <%= @personal.underlying_disease %>
-</p>
-
-<p>
-  <strong>Intake per oneday:</strong>
-  <%= @personal.intake_per_oneday %>
-</p>
-
-<p>
-  <strong>Remarks:</strong>
-  <%= @personal.remarks %>
-</p>
-
-<%= link_to 'Edit', edit_personal_path(@personal) %> |
-<%= link_to 'Back', personals_path %>
+<%= link_to '食事一覧へ', meals_path(id: @user.id), class:"btn btn-outline-success" %>

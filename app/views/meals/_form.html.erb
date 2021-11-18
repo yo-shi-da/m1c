@@ -11,42 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :sugar_amount %>
-    <%= form.number_field :sugar_amount %>
-  </div>
+  <div class="container">
 
-  <div class="field">
-    <%= form.label :sugar_cube %>
-    <%= form.number_field :sugar_cube %>
-  </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :sugar_amount %>
+        <%= form.number_field :sugar_amount, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :classification %>
-    <%= form.number_field :classification %>
-  </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :sugar_cube %>
+        <%= form.number_field :sugar_cube, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :classification %>
+        <%= form.number_field :classification, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :start_time %>
+        <%= form.date_field :start_time, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :reading_checks %>
-    <%= form.check_box :reading_checks %>
-  </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :remarks %>
+        <%= form.text_area :remarks, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :remarks %>
-    <%= form.text_area :remarks %>
-  </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :image %>
+        <%= form.file_field :image %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="form-group">
+        <%= form.submit %>
+    </div>
+
   </div>
 <% end %>

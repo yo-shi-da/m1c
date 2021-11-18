@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   # 参加しているグループを取得
   def my_group
-    if GroupUser.find_by(user_id: current_user.id).present?
-      @current_user_middle = GroupUser.find_by(user_id: current_user.id)
+    if Member.find_by(user_id: current_user.id).present?
+      @current_user_middle = Member.find_by(user_id: current_user.id)
       @current_user_mygroup = @current_user_middle.group
     end
   end

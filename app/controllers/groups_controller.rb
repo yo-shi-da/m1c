@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :member_all]
+  before_action :authenticate_user!
 
   # GET /groups
   def index
@@ -7,7 +8,7 @@ class GroupsController < ApplicationController
 
     # current_userが参加しているグループ
     @current_user_group = current_user.joined_group.first if current_user.joined_group.length != 0
-    @group_user = GroupUser.find_by(user_id: current_user.id) # 削除に必要。
+    @group_user = Member.find_by(user_id: current_user.id) # 削除に必要。
 
   end
 
@@ -27,7 +28,7 @@ class GroupsController < ApplicationController
 
     if @group.save
       Member.create(group_id: @group.id, user_id: current_user.id) # 作成者もグループに参加する。
-      redirect_to @group, notice: 'Group was successfully created.'
+      redirect_to groups_path, notice: 'Group was successfully created.'
     else
       render :new
     end
@@ -36,7 +37,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   def update
     if @group.update(group_params)
-      redirect_to @group, notice: 'Group was successfully updated.'
+      redirect_to groups_path, notice: 'Group was successfully updated.'
     else
       render :edit
     end
@@ -45,7 +46,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   def destroy
     @group.destroy
-    redirect_to groups_url, notice: 'Group was successfully destroyed.'
+    redirect_to groups_path, notice: 'Group was successfully destroyed.'
   end
 
   def member_all

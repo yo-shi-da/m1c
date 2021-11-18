@@ -8,6 +8,7 @@ class Meal < ApplicationRecord
   belongs_to :user
 
   def self.csv_attributes
+    # ["sugar_amount", "sugar_cube", "classification", "image", "start_time", "reading_checks", "remarks", "created_at", "updated_at"]
     ["sugar_amount", "sugar_cube", "classification", "remarks", "created_at", "updated_at"]
   end
 

@@ -4,7 +4,7 @@ class CreateMeals < ActiveRecord::Migration[6.0]
       t.integer :sugar_amount, null: false
       t.integer :sugar_cube, null: false
       t.integer :classification, null: false
-      t.string :image
+      t.string :image, null: false
       t.datetime :start_time, null: false
       t.boolean :reading_checks, null: false, default: false
       t.text :remarks

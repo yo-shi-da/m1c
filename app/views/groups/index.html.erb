@@ -24,12 +24,12 @@
         <% else %>
             <% if @current_user_group != nil %>
               <% if group == @current_user_group %>
-                <td><%= link_to '解除', group_user_path(id: @group_user.id), method: :delete, class:"btn btn-outline-success" %></td>
+                <td><%= link_to '解除', member_path(id: @group_user.id), method: :delete, class:"btn btn-outline-success" %></td>
               <% else %>
                 <td><p>他のグループに参加中</p></td>
               <% end %>
             <% else %>
-              <td><%= link_to '参加する', group_users_path(group_id: group.id), method: :post, class:"btn btn-outline-success" %></td>
+              <td><%= link_to '参加する', members_path(group_id: group.id), method: :post, class:"btn btn-outline-success" %></td>
             <% end %>
         <% end %>
 

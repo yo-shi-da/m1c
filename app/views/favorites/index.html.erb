@@ -4,7 +4,7 @@
   <div class="row">
   <% @favorite_list.each do |favotite| %>
     <div class="col-lg-6"> 
-    <p><%#= image_tag favotite.image.url %></p>
+    <p><%= image_tag favotite.image.url %></p>
     <p>糖質量:<%= favotite.sugar_amount %>g</p>
     </div>  
   <% end %>
