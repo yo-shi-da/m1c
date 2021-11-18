@@ -1,10 +1,10 @@
 <p>「<%= @user.name %>」さんのMypage(show)</p>
 
-<% unless @personal.present? %>
+<% unless @user_personal.present? %>
   <%= link_to 'New Personal', new_personal_path, class:"btn btn-outline-primary" %>
 <% end %>
 
-<% if @personal.present? %>
+<% if @user_personal.present? %>
 
   <div class="container">
     <div class="row">
@@ -12,49 +12,49 @@
       <table class="table table-hover">
         <tr>
           <th class="table-primary col-4">年齢　Age</th>
-          <td><%= @personal.birth_date %></td>
+          <td><%= @user_personal.birth_date %></td>
         </tr>    
         <tr>
           <th class="table-primary col-4">身長　Height</th>
-          <td><%= @personal.height %></td>
+          <td><%= @user_personal.height %></td>
         </tr>
         <tr>
           <th class="table-primary">体重　Body weight</th>
-          <td><%= @personal.body_weight %></td>
+          <td><%= @user_personal.body_weight %></td>
         </tr>
         <tr>
           <th class="table-primary">性別</th>
-          <td><%= @personal.gender == 1 ? "男" : "女"  %></td>
+          <td><%= @user_personal.gender == 1 ? "男" : "女"  %></td>
         </tr>
         <tr>
           <th class="table-primary">BMI　Bmi</th>
-          <td><%= @personal.bmi %></td>
+          <td><%= @user_personal.bmi %></td>
         </tr>
         <tr>
           <th class="table-primary">腹囲　Waist circumference</th>
-          <td><%= @personal.waist_circumference %></td>
+          <td><%= @user_personal.waist_circumference %></td>
         </tr>
         <tr>
           <th class="table-primary">HbA1c　Hba onec</th>
-          <td><%= @personal.hba_onec %></td>
+          <td><%= @user_personal.hba_onec %></td>
         </tr>
         <tr>
           <th class="table-primary">基礎疾患　Underlying disease</th>
-          <td><%= @personal.underlying_disease %></td>
+          <td><%= @user_personal.underlying_disease %></td>
         </tr>
         <tr>
           <th class="table-primary">1日あたりの摂取量　Intake per oneday</th>
-          <td><%= @personal.intake_per_oneday %></td>
+          <td><%= @user_personal.intake_per_oneday %></td>
         </tr>
         <tr>
           <th class="table-primary">備考　Remarks</th>
-          <td><%= @personal.remarks %></td>
+          <td><%= @user_personal.remarks %></td>
         </tr>  
       </table>
     </div>
   </div>
 
-  <% if current_user.id == @personal.user_id %>
+  <% if current_user.id == @user_personal.user_id %>
     <%= link_to '編集', edit_personal_path(current_user.id), class:"btn btn-outline-primary" %>
   <% end %>
 

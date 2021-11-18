@@ -31,7 +31,7 @@ class MealsController < ApplicationController
   # GET /meals/1
   def show
     @meal = Meal.find(params[:id])
-    @post = @meal.posts.last
+    @post = @meal.post
 
     @group_users_middle = Member.find_by(user_id: current_user.id)  
     @current_user_group = @group_users_middle.group if @group_users_middle.present?  # current_userが参加しているグループ
@@ -102,6 +102,6 @@ class MealsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def meal_params
-      params.require(:meal).permit(:sugar_amount, :sugar_cube, :classification, :image, :start_time, :reading_checks, :remarks, :user_id, :image_cache )
+      params.require(:meal).permit(:sugar_amount, :sugar_cube, :classification, :image, :start_time, :reading_checks, :remarks, :image_cache )
     end
 end
