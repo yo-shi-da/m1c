@@ -1,4 +1,5 @@
 class Group < ApplicationRecord
-  has_many :members, dependent: :destroy
-  has_many :users, through: :members, source: :user
+  has_one :member, dependent: :destroy
+  has_one :users, through: :members, source: :user
+  belongs_to :user
 end

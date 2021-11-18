@@ -3,12 +3,11 @@ class Meal < ApplicationRecord
   
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites, source: :user
-  has_many :posts
-  
+  has_one :post  
   belongs_to :user
 
+  # CSV
   def self.csv_attributes
-    # ["sugar_amount", "sugar_cube", "classification", "image", "start_time", "reading_checks", "remarks", "created_at", "updated_at"]
     ["sugar_amount", "sugar_cube", "classification", "remarks", "created_at", "updated_at"]
   end
 
