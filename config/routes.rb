@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: 'homes#index'
+
+  root to: 'tops#index'
   
   resources :posts
   resources :groups
@@ -16,6 +17,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+
+  # guest
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    post 'users/guest_admin_sign_in', to: 'users/sessions#new_guest_admin'
+  end
 
   resources :users
   
