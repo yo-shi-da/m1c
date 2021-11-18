@@ -1,28 +1,28 @@
-<p>食事の詳細</p>
+<h1><%= t('button.show') %></h1>
 
 <div class="container">
   <div class="row">
 
     <div class="col-sm-6">
-      <p>画像：<%= image_tag @meal.image.url %></p>
+      <%= image_tag @meal.image.url %>
     </div>
 
     <div class="col-sm-6">
       <table class="table">
         <tr>
-          <th class="table-primary col-4">No：</th>
+          <th class="table-primary col-4"><%= t('meals.no') %></th>
           <td><%= @meal.id %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">糖質量：</th>
+          <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
           <td><%= @meal.sugar_amount %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">角砂糖：</th>
+          <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
           <td><%= @meal.sugar_cube %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">区分：</th>
+          <th class="table-primary col-4"><%= t('meals.classification') %></th>
           <td><%= @meal.classification %></td>
         </tr>
       </table>

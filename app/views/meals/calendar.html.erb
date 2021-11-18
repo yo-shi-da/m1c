@@ -5,7 +5,6 @@
   
   <% meals.each do |meal| %>
     <div>
-      <%= meal.classification %>
       <p>摂取量：<%= link_to meal.sugar_amount, meal_path(meal.id) %>g</p>
     </div>
   <% end %>

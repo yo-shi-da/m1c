@@ -205,6 +205,7 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   meals:
+    no: No
     meals: 食事
     sugar_amount: 糖質量
     sugar_cube: 角砂糖
@@ -232,5 +233,6 @@ ja:
     back: 戻る
     edit: 編集
     new: 新規作成
+    show: 詳細
 
 
