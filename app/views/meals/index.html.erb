@@ -14,7 +14,8 @@
 <br>
 
 <% if @current_user_group&.owner_id != nil && current_user.id == @current_user_group.owner_id %>
-    <%= link_to 'CSVエクスポート(owner)', meals_path(format: :csv), class:"btn btn-success" %>
+  <%= link_to 'CSVエクスポート(owner)', meals_path(format: :csv), class:"btn btn-success" %>
+  <%# binding.pry %>
 <% end %>
 
 <br>

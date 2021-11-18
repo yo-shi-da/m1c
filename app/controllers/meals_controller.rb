@@ -4,7 +4,6 @@ class MealsController < ApplicationController
 
   # GET /meals
   def index
-    # グループオーナー、カレントユーザーが見る時で、表示を変える。
     if params[:id].present?
       @user = User.find(params[:id]) 
       @q = @user.meals.ransack(params[:q])
@@ -13,7 +12,8 @@ class MealsController < ApplicationController
       # csv
       respond_to do |format|
         format.html
-        format.csv { send_data @meals.generate_csv, filename: "tasks-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+        binding.pry
+        format.csv { send_data @meals.generate_csv, filename: "meals-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
       end
       
     else
@@ -85,8 +85,7 @@ class MealsController < ApplicationController
       redirect_to meal_path(id: @meal.id), notice: "未読になりました。"
     end
   end
-
-
+  
   def calendar
     @meals = current_user.meals
   end

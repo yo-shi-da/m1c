@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  root to: 'meals#index'  
+  root to: 'homes#index'
   
   resources :posts
-  resources :members
   resources :groups
   resources :homes
   resources :favorites
   resources :personals
+  resources :members
 
   get '/member_all', to: 'groups#member_all'
 
@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :users
   
   patch 'meals', to: 'meals#read_changes'
-
   resources :meals do
     get 'calendar', to: 'meals#calendar'
     get 'graph', to: 'meals#graph'
   end
+
   
 end
