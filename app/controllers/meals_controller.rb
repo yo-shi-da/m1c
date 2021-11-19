@@ -5,13 +5,13 @@ class MealsController < ApplicationController
     if params[:id].present?
       @user = User.find(params[:id]) 
       @q = @user.meals.ransack(params[:q])
-      @meals = @q.result.page(params[:page])      
     else
       @q = current_user.meals.ransack(params[:q])
-      @meals = @q.result.page(params[:page])
     end    
+    @meals = @q.result.page(params[:page])
     @current_user_group = my_group
   end
+  # @meals = @q.result.page(params[:page])      
 
   def export_csv
     @user = User.find(params[:id]) 
@@ -60,13 +60,11 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     if @meal.reading_checks == false
       @meal.update(reading_checks: 'ture')
-      @meal.save
-      redirect_to meal_path(id: @meal.id), notice: "既読になりました。"
     else
       @meal.update(reading_checks: 'false')
-      @meal.save
-      redirect_to meal_path(id: @meal.id), notice: "未読になりました。"
     end
+    @meal.save
+    redirect_to meal_path(id: @meal.id), notice: "変更しました。"
   end
   
   def calendar

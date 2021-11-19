@@ -48,7 +48,7 @@
 
               <% if my_group&.owner_id != nil %>
                 <% if my_group.owner_id == current_user.id %>
-                  <%= link_to "メンバー一覧(owner)", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
+                  <%= link_to "メンバー一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
                 <% end %>
               <% end %>
 

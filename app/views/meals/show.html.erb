@@ -31,10 +31,6 @@
   </div>
 </div>
 
-
-
-<%# if 所属しているグループのオーナーだった場合、表示する。 %>
-
 <% if @current_user_group&.owner_id != nil %>
   <% if current_user.id == @current_user_group.owner_id %>    
     <hr>
@@ -66,10 +62,10 @@
       <%= form.hidden_field :meal_id, value: @meal.id %>
 
       <div class="actions">
-        <%= form.submit class:"btn btn-outline-primary" %>
+        <%= form.submit class:"btn btn-outline-success" %>
       </div>
 
-      <%= link_to 'メンバー一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-primary" %>
+      <%= link_to 'メンバー一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
     <% end %>
     <hr>
   <% end %>
@@ -79,15 +75,15 @@
   <hr>
   <table class="table">
     <tr>
-      <th class="table-primary col-4">グループオーナーからのコメント：</th>
+      <th class="table-primary col-4"><%= t('posts.owner_comment') %></th>
       <td><%= @post.owner_comment %></td>
     </tr>
     <tr>
-      <th class="table-primary col-4">グループオーナーから見た糖質量：</th>
+      <th class="table-primary col-4"><%= t('posts.owner_sugar_amount') %></th>
       <td><%= @post.owner_sugar_amount %></td>
     </tr>
     <tr>
-      <th class="table-primary col-4">糖質差：</th>
+      <th class="table-primary col-4"><%= t('posts.difference') %></th>
       <td><%= @post.difference %></td>
     </tr>
   </table>

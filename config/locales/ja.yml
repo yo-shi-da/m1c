@@ -234,5 +234,12 @@ ja:
     edit: 編集
     new: 新規作成
     show: 詳細
+    destroy: 削除
+  groups:
+    name: グループ名
+    owner: 管理者
+    join: 参加・未参加
+
+
 
 

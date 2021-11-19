@@ -8,14 +8,14 @@
 <% end %>
 
 <br>
-  <%= link_to '食事投稿', new_meal_path, class:"btn btn-secondary" %>
+  <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
 <br>
 
 <% if @current_user_group&.owner_id != nil && current_user.id == @current_user_group.owner_id %>
   <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: @user.id), class:"btn btn-success" %>
+    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
   <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-success" %>
+    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
   <% end %>
 <% end %>
 
@@ -27,7 +27,7 @@
 
 <table class="table table-hover">
   <thead>
-    <tr class="table-success">
+    <tr class="table-primary">
       <th><%= sort_link(@q, :sugar_amount) %></th>
       <th><%= t('meals.sugar_cube') %></th>
       <th><%= t('meals.classification') %></th>
@@ -49,16 +49,15 @@
           <td>未読</td>
         <% end %>
         
-        <%# if @current_user_group&.owner_id != nil %>
         <% if @current_user_group.present? %>
           <% if current_user.id == @current_user_group.owner_id %> 
-            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class: 'btn btn-sm btn-danger' } %></td>
+            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
           <% end %>
         <% end %>
         
-        <td><%= link_to '詳細', meal, class:"btn btn-outline-primary" %></td>
-        <td><%= link_to '編集', edit_meal_path(meal), class:"btn btn-outline-success" %></td>
-        <td><%= link_to '削除', meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+        <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
+        <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

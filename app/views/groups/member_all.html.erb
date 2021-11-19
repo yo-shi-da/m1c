@@ -1,5 +1,13 @@
-<p>参加者一覧</p>
 
-<% @group_members.each do |group_member| %>
-  <li><%= link_to group_member.name, personal_path(id: group_member.id), class:"btn btn-outline-success" %>さんの詳細へ</li>
-<% end %>
+<div class="container">
+  <p>参加者一覧</p>
+ <div class="row">
+    <% @group_members.each do |group_member| %>
+      <div class="col-sm-12">
+      <li>
+        <%= link_to group_member.name, personal_path(id: group_member.id), class:"btn btn-outline-success" %>さんの詳細へ
+      </li>
+      </div>
+    <% end %>
+  </div>
+</div>
