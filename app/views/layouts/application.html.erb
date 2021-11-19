@@ -31,7 +31,7 @@
                 <%= link_to "管理画面へ", rails_admin_path, class:"btn btn-outline-success" %>
               <% end %>
 
-              <p>氏名：<%= current_user.email %>様</p>
+              <p>氏名：<%= current_user.name %>様</p>
               <% if my_group.present? %>
                 <p>所属：<%= my_group.name %></p>
               <% else %>
