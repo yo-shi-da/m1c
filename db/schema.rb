@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_110714) do
     t.date "birth_date", null: false
     t.float "height", null: false
     t.float "body_weight", null: false
-    t.boolean "gender", null: false
+    t.integer "gender", null: false
     t.float "bmi", null: false
     t.float "waist_circumference", null: false
     t.float "hba_onec", null: false
