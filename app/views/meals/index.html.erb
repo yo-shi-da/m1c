@@ -39,8 +39,8 @@
   <tbody>
     <% @meals.each do |meal| %>
       <tr>
-        <td><%= meal.sugar_amount %></td>
-        <td><%= meal.sugar_cube %></td>
+        <td><%= meal.sugar_amount %>g</td>
+        <td>約<%= meal.sugar_cube %>個分</td>
         <td><%= meal.classification %></td>
 
         <% if meal.reading_checks %>

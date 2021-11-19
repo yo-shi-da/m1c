@@ -207,20 +207,20 @@ ja:
   meals:
     no: No
     meals: 食事
-    sugar_amount: 糖質量
-    sugar_cube: 角砂糖
-    classification: 区分（朝・昼・夜・間食）
+    sugar_amount: 糖質量(g)
+    sugar_cube: 角砂糖(個)
+    classification: 区分
     image: 画像
     start_time: 摂取日
-    reading_checks: 読了
+    reading_checks: check
     remarks: 備考
   personals:
     birth_date: 生年月日
-    height: 身長
-    body_weight: 体重 
+    height: 身長(cm)
+    body_weight: 体重(kg) 
     gender: 性別
     bmi: BMI
-    waist_circumference: 腹囲
+    waist_circumference: 腹囲(cm)
     hba_onec: HbA1c
     underlying_disease: 基礎疾患
     intake_per_oneday: 1日あたりの目安摂取量
