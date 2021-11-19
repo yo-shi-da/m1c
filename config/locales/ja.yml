@@ -227,8 +227,8 @@ ja:
     remarks: 備考
   posts:
     owner_comment: 管理者からのコメント
-    owner_sugar_amount: 管理者から見た糖質量
-    difference: 管理者との差
+    owner_sugar_amount: 管理者から見た糖質量(g)
+    difference: 管理者との差(g)
   button:
     back: 戻る
     edit: 編集
