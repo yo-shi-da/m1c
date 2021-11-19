@@ -1,7 +1,7 @@
 <%= form_with(model: meal, local: true) do |form| %>
   <% if meal.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+      <h2><%= pluralize(meal.errors.count, "error") %>のエラーがあります。</h2>
 
       <ul>
         <% meal.errors.full_messages.each do |message| %>
@@ -15,48 +15,48 @@
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :sugar_amount %>
+        <%= form.label t('meals.sugar_amount') %>
         <%= form.number_field :sugar_amount, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :sugar_cube %>
+        <%= form.label t('meals.sugar_cube') %>
         <%= form.number_field :sugar_cube, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :classification %>
-        <%= form.number_field :classification, class: 'form-control' %>
+        <%= form.label t('meals.classification') %><br />
+        <%= form.select :classification, Meal.classifications.keys, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :start_time %>
+        <%= form.label t('meals.start_time') %>
         <%= form.date_field :start_time, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :remarks %>
+        <%= form.label t('meals.remarks') %>
         <%= form.text_area :remarks, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
-        <%= form.label :image %>
-        <%= form.file_field :image %>
+        <%= form.label t('meals.image') %><br />
+        <%= form.file_field :image, class:"btn btn-outline-primary" %>
       </div>
     </div>
 
     <div class="form-group">
-        <%= form.submit %>
+        <%= form.submit class:"btn btn-outline-primary" %>
     </div>
 
   </div>

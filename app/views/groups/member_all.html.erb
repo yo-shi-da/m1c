@@ -1,5 +1,22 @@
-<p>参加者一覧</p>
 
-<% @group_members.each do |group_member| %>
-  <li><%= link_to group_member.name, personal_path(id: group_member.id), class:"btn btn-outline-success" %>さんの詳細へ</li>
-<% end %>
+<h1>参加者一覧</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th>No.</th>
+      <th><%= t('members.name') %></th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_members.each_with_index do |group_member, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= link_to group_member.name, personal_path(id: group_member.id), class:"btn btn-outline-success" %>さんのページへ</td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,17 +1,25 @@
-<% unless user_signed_in? %>
-  <div class="top__button">
-    <%= link_to new_user_session_path, class:"btntextchange" do %>
-      <p>ログイン</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-3">
+    <% unless user_signed_in? %>
+      <div class="top__button">
+        <%= link_to new_user_session_path, class:"btntextchange" do %>
+          <p class="btn btn-outline-info">ログイン</p>
+        <% end %>
+        <%= link_to new_user_registration_path, class:"btntextchange" do %>
+          <p class="btn btn-outline-info">新規登録</p>
+        <% end %>
+        <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
+          <p class="btn btn-outline-info">ゲストログイン（閲覧用）</p>
+        <% end %>
+        <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
+          <p class="btn btn-outline-info">ゲストログイン（管理者）</p>
+        <% end %>
+        <br>
+      </div>
     <% end %>
-    <%= link_to new_user_registration_path, class:"btntextchange" do %>
-      <p>新規登録</p>
-    <% end %>
-    <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
-      <p>ゲストログイン（閲覧用）</p>
-    <% end %>
-    <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
-      <p>ゲストログイン（管理者）</p>
-    <% end %>
-    <br>
+    
+    </div>
   </div>
-<% end %>
+</div>

@@ -1,28 +1,28 @@
-<p>食事の詳細</p>
+<h1><%= t('button.show') %></h1>
 
 <div class="container">
   <div class="row">
 
     <div class="col-sm-6">
-      <p>画像：<%= image_tag @meal.image.url %></p>
+      <%= image_tag @meal.image.url %>
     </div>
 
     <div class="col-sm-6">
       <table class="table">
         <tr>
-          <th class="table-primary col-4">No：</th>
+          <th class="table-primary col-4"><%= t('meals.no') %></th>
           <td><%= @meal.id %></td>
         </tr>
         <tr>
-          <th class="table-primary col-4">糖質量：</th>
-          <td><%= @meal.sugar_amount %></td>
+          <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
+          <td><%= @meal.sugar_amount %>g</td>
         </tr>
         <tr>
-          <th class="table-primary col-4">角砂糖：</th>
-          <td><%= @meal.sugar_cube %></td>
+          <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
+          <td>約<%= @meal.sugar_cube %>個分</td>
         </tr>
         <tr>
-          <th class="table-primary col-4">区分：</th>
+          <th class="table-primary col-4"><%= t('meals.classification') %></th>
           <td><%= @meal.classification %></td>
         </tr>
       </table>
@@ -30,9 +30,9 @@
 
   <% unless @meal.user_id == current_user.id %>
     <% if @favorite.present? %>
-      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class:"btn btn-outline-danger" %>
     <% else %>
-      <%= link_to 'お気に入りする', favorites_path(meal_id: @meal.id), method: :post, class: 'btn btn-primary' %>
+      <%= link_to 'お気に入りする', favorites_path(meal_id: @meal.id), method: :post, class:"btn btn-outline-primary" %>
     <% end %>
   <% end %>
 

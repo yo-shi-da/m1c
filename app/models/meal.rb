@@ -6,6 +6,13 @@ class Meal < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :users_favorites, through: :favorites, source: :user
 
+  enum classification: {
+    朝: 0,
+    昼: 1,
+    夜: 2,
+    間食: 3
+  }
+
   # CSV
   def self.csv_attributes
     ["sugar_amount", "sugar_cube", "classification", "remarks", "created_at", "updated_at"]

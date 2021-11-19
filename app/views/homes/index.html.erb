@@ -1,10 +1,10 @@
 <h1>・みんなの食事</h1>
 <br />
 <%= search_form_for @q, url: homes_path do |f| %>
-  <%= f.label :sugar_amount, '糖質量：' %>
+  <%= f.label :sugar_amount, t('meals.sugar_amount') %>
   <%= f.number_field :sugar_amount_gteq %>以上～
   <%= f.number_field :sugar_amount_lteq %>以下
-  <%= f.submit '検索' %>
+  <%= f.submit '検索', class:"btn btn-outline-primary" %>
 <% end %>
 
 <br />
@@ -21,8 +21,8 @@
           <div class="card" style="width: 35rem;">
             <div class="card-body">
               <p class="card-title"><%= image_tag meal.image.url %></p>
-              <p class="card-title">糖質量：<%= meal.sugar_amount %></p>
-              <p class="card-title"><%= link_to '詳細', home_path(id: meal.id), class:"btn btn-outline-primary" %></p>
+              <p class="card-title"><%= t('meals.sugar_amount') %>：<%= meal.sugar_amount %>g</p>
+              <p class="card-title"><%= link_to t('button.show'), home_path(id: meal.id), class:"btn btn-outline-primary" %></p>
             </div>
           </div>
         </div>
