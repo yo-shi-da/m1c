@@ -12,3 +12,7 @@ User.create(email: 'k@com.jp', name: 'k', password: '000000')
 User.create(email: 'l@com.jp', name: 'l', password: '000000')
 User.create(email: 'm@com.jp', name: 'm', password: '000000')
 User.create(email: 'n@com.jp', name: 'n', password: '000000')
+
+Group.create(name: a_group, owner_id: 1)
+Group.create(name: b_group, owner_id: 2)
+Group.create(name: c_group, owner_id: 3)
