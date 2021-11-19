@@ -238,7 +238,9 @@ ja:
   groups:
     name: グループ名
     owner: 管理者
-    join: 参加・未参加
+    join: 参加状況
+  members:
+    name: 名前
 
 
 

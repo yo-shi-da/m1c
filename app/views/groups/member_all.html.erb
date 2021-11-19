@@ -1,13 +1,28 @@
 
+<h1>参加者一覧</h1>
 <div class="container">
-  <p>参加者一覧</p>
  <div class="row">
-    <% @group_members.each do |group_member| %>
       <div class="col-sm-12">
-      <li>
-        <%= link_to group_member.name, personal_path(id: group_member.id), class:"btn btn-outline-success" %>さんの詳細へ
-      </li>
       </div>
-    <% end %>
   </div>
 </div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th>No.</th>
+      <th><%= t('members.name') %></th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_members.each_with_index do |group_member, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= link_to group_member.name, personal_path(id: group_member.id), class:"btn btn-outline-success" %>さんのページへ</td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

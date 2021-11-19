@@ -1,4 +1,4 @@
-<p>「<%= @user.name %>」さんのMypage</p>
+<h1>「<%= @user.name %>」さんのPersonal</h1>
 
 <% unless @user_personal.present? %>
   <%= link_to t('button.new'), new_personal_path, class:"btn btn-outline-primary" %>
