@@ -212,7 +212,7 @@ ja:
     classification: 区分（朝・昼・夜・間食）
     image: 画像
     start_time: 摂取日
-    reading_checks: 読了の有無
+    reading_checks: 読了
     remarks: 備考
   personals:
     birth_date: 生年月日

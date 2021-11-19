@@ -15,7 +15,7 @@
   <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
     <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
   <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
+    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
   <% end %>
 <% end %>
 
