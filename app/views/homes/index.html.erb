@@ -21,7 +21,7 @@
           <div class="card" style="width: 35rem;">
             <div class="card-body">
               <p class="card-title"><%= image_tag meal.image.url %></p>
-              <p class="card-title"><%= t('meals.sugar_amount') %>：<%= meal.sugar_amount %></p>
+              <p class="card-title"><%= t('meals.sugar_amount') %>：<%= meal.sugar_amount %>g</p>
               <p class="card-title"><%= link_to t('button.show'), home_path(id: meal.id), class:"btn btn-outline-primary" %></p>
             </div>
           </div>
