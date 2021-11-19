@@ -241,6 +241,7 @@ ja:
     join: 参加状況
   members:
     name: 名前
+    email: Email
 
 
 
