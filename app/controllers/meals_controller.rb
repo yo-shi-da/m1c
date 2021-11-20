@@ -11,7 +11,6 @@ class MealsController < ApplicationController
     @meals = @q.result.page(params[:page])
     @current_user_group = my_group
   end
-  # @meals = @q.result.page(params[:page])      
 
   def export_csv
     @user = User.find(params[:id]) 
