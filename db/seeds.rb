@@ -59,13 +59,49 @@ end
 
 # Group
 
-# Group.create(name: 'a_group', owner_id: '1')
-# Group.create(name: 'b_group', owner_id: '2')
-# Group.create(name: 'c_group', owner_id: '3')
+Group.create(name: 'a_group', owner_id: '1')
+Group.create(name: 'b_group', owner_id: '2')
+Group.create(name: 'c_group', owner_id: '3')
+Group.create(name: 'd_group', owner_id: '4')
+Group.create(name: 'e_group', owner_id: '5')
+
+# Member
+Member.create(user_id: '1', group_id: '1')
+Member.create(user_id: '2', group_id: '2')
+Member.create(user_id: '3', group_id: '3')
+Member.create(user_id: '4', group_id: '4')
+Member.create(user_id: '5', group_id: '5')
 
 # Favorite
-# Member
+Favorite.create(user_id: '1', meal_id: '5')
+Favorite.create(user_id: '2', meal_id: '4')
+Favorite.create(user_id: '3', meal_id: '3')
+Favorite.create(user_id: '4', meal_id: '2')
+Favorite.create(user_id: '5', meal_id: '1')
+
 # Post
+
+owner_comments = [
+  'その調子です。', 
+  'いい感じです。',
+  'ちょっと多いですね。',
+  '多いですね。',
+  '摂り過ぎです。'
+]
+
+owner_comments.each_with_index do |owner_comment, i|
+  Post.create(
+    owner_comment: owner_comment,
+    owner_sugar_amount: '10',
+    difference: '10',
+    meal_id: i + 1
+  )
+end
+
+# OK
+# Post.create(owner_comment: 'OK',owner_sugar_amount: '10',difference: '10',meal_id: 1);
+
+
 
 
 
