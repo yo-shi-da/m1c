@@ -1,25 +1,40 @@
-<div class="container">
-  <div class="row">
+<div class="top">
 
-    <div class="col-sm-3">
-    <% unless user_signed_in? %>
-      <div class="top__button">
-        <%= link_to new_user_session_path, class:"btntextchange" do %>
-          <p class="btn btn-outline-info">ログイン</p>
-        <% end %>
-        <%= link_to new_user_registration_path, class:"btntextchange" do %>
-          <p class="btn btn-outline-info">新規登録</p>
-        <% end %>
-        <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
-          <p class="btn btn-outline-info">ゲストログイン（閲覧用）</p>
-        <% end %>
-        <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
-          <p class="btn btn-outline-info">ゲストログイン（管理者）</p>
-        <% end %>
-        <br>
+  <div class="container">
+    <div class="row">
+    <p class="col-sm-8">
+      ご飯茶碗1杯あたりにどのくらいの角砂糖が含まれているか知っていますか？<br />
+      約17個分と言われています。<br />
+      驚きではありませんか？<br />
+      世間一般的にも、健康意識が芽生え、ジュースなどではよく角砂糖何個分と言った写真をよく見ることはありますが、
+      毎日食べている物にこんなに角砂糖が含まれている知って。<br />
+      厚生労働省に発表によると、将来的に糖尿病に罹患する確率は、予備軍を含め8人に1人と言われています。<br />
+      糖尿病は、合併症を引き起こす重大な疾病です。<br />
+      血糖値、HbA1cなどの数値が高い場合、運動・食事などの生活習慣の改善が必要です。<br />
+      そのようなことから日々の食事にフォーカスすることで、<br />
+      生活習慣改善をして欲しいという想いから、糖質管理支援ツール「M1c」が生まれました。
+    </p>
+  </div>  
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+      <% unless user_signed_in? %>
+          <%= link_to new_user_session_path, class:"btntextchange" do %>
+            <p class="btn btn-info" >ログイン</p>
+          <% end %>
+          <%= link_to new_user_registration_path, class:"btntextchange" do %>
+            <p class="btn btn-info">新規登録</p>
+          <% end %>
+          <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
+            <p class="btn btn-info">ゲストログイン（閲覧用）</p>
+          <% end %>
+          <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
+            <p class="btn btn-info">ゲストログイン（管理者）</p>
+          <% end %>
+      <% end %>      
       </div>
-    <% end %>
-    
     </div>
   </div>
+
 </div>

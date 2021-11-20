@@ -32,6 +32,5 @@ Rails.application.routes.draw do
     get 'calendar', to: 'meals#calendar'
     get 'graph', to: 'meals#graph'
   end
-
-  
+    
 end
