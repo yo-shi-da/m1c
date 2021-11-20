@@ -1,31 +1,51 @@
-User.create(email: 'a@com.jp', name: 'a', password: '000000', admin: 'true')
-User.create(email: 'b@com.jp', name: 'b', password: '000000')
-User.create(email: 'c@com.jp', name: 'c', password: '000000')
-User.create(email: 'd@com.jp', name: 'd', password: '000000')
-User.create(email: 'e@com.jp', name: 'e', password: '000000')
-User.create(email: 'f@com.jp', name: 'f', password: '000000')
-User.create(email: 'g@com.jp', name: 'g', password: '000000')
-User.create(email: 'h@com.jp', name: 'h', password: '000000')
-User.create(email: 'i@com.jp', name: 'i', password: '000000')
-User.create(email: 'j@com.jp', name: 'j', password: '000000')
-User.create(email: 'k@com.jp', name: 'k', password: '000000')
-User.create(email: 'l@com.jp', name: 'l', password: '000000')
-User.create(email: 'm@com.jp', name: 'm', password: '000000')
-User.create(email: 'n@com.jp', name: 'n', password: '000000')
+users = { 
+  a: "a@com.jp", b: "b@com.jp", c: "c@com.jp", d: "d@com.jp", e: "e@com.jp", f: "f@com.jp", g: "g@com.jp", 
+  h: "h@com.jp", i: "i@com.jp", j: "j@com.jp", k: "k@com.jp", l: "l@com.jp", m: "m@com.jp", n: "n@com.jp", 
+  o: "o@com.jp", p: "p@com.jp", q: "q@com.jp", r: "r@com.jp", s: "s@com.jp", t: "t@com.jp", u: "u@com.jp", 
+  v: "v@com.jp", w: "w@com.jp", x: "x@com.jp", y: "y@com.jp", z: "z@com.jp",
+}
 
-# Group.create(name: 'a_group', owner_id: '1')
-# Group.create(name: 'b_group', owner_id: '2')
-# Group.create(name: 'c_group', owner_id: '3')
+# Users(26)
+users.each do |key, value|
+  User.create(name: key, email: value, password: '000000', password_confirmation: '000000', admin: false)
+end
 
-# Personal.create(
-#   birth_date: 'Fri, 02 Mar 1956', 
-#   height: '175.5', 
-#   body_weight: '65.5',
-#   gender: '男',
-#   bmi: '22.5',
-#   waist_circumference: '80.3',
-#   hba_onec: '5.2',
-#   underlying_disease: '無し',
-#   intake_per_oneday: '102.5',
-#   remarks: '特になし',
-# )
+# Admin
+User.create(name: admin, email: admin@com.jp, password: '000000', password_confirmation: '000000', admin: true)
+
+names = [
+	"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+]
+
+# Personl(26)
+names.each_with_index do |name, i|
+  Personal.create(
+    birth_date: 'Fri, 02 Mar 1956', 
+    height: '175.5', 
+    body_weight: '65.5',
+    gender: '男',
+    bmi: '22.5',
+    waist_circumference: '80.3',
+    hba_onec: '5.2',
+    underlying_disease: name,
+    intake_per_oneday: '102.5',
+    remarks: user,
+    user_id: i + 1
+  )
+end
+
+# Meal
+
+
+# Group
+
+Group.create(name: 'a_group', owner_id: '1')
+Group.create(name: 'b_group', owner_id: '2')
+Group.create(name: 'c_group', owner_id: '3')
+
+# Favorite
+# Member
+# Post
+
+
+
