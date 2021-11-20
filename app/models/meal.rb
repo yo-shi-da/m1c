@@ -1,4 +1,7 @@
 class Meal < ApplicationRecord
+  validates :sugar_amount, length: { maximum: 3 }
+  validates :sugar_cube, length: { maximum: 3 }
+
   mount_uploader :image, ImageUploader
   
   belongs_to :user

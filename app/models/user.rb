@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  validates :email, uniqueness: true
 
   has_one :personal
   has_many :groups
