@@ -1,31 +1,107 @@
-User.create(email: 'a@com.jp', name: 'a', password: '000000', admin: 'true')
-User.create(email: 'b@com.jp', name: 'b', password: '000000')
-User.create(email: 'c@com.jp', name: 'c', password: '000000')
-User.create(email: 'd@com.jp', name: 'd', password: '000000')
-User.create(email: 'e@com.jp', name: 'e', password: '000000')
-User.create(email: 'f@com.jp', name: 'f', password: '000000')
-User.create(email: 'g@com.jp', name: 'g', password: '000000')
-User.create(email: 'h@com.jp', name: 'h', password: '000000')
-User.create(email: 'i@com.jp', name: 'i', password: '000000')
-User.create(email: 'j@com.jp', name: 'j', password: '000000')
-User.create(email: 'k@com.jp', name: 'k', password: '000000')
-User.create(email: 'l@com.jp', name: 'l', password: '000000')
-User.create(email: 'm@com.jp', name: 'm', password: '000000')
-User.create(email: 'n@com.jp', name: 'n', password: '000000')
+users = { 
+  a: "a@com.jp", b: "b@com.jp", c: "c@com.jp", d: "d@com.jp", e: "e@com.jp", f: "f@com.jp", g: "g@com.jp", 
+  h: "h@com.jp", i: "i@com.jp", j: "j@com.jp", k: "k@com.jp", l: "l@com.jp", m: "m@com.jp", n: "n@com.jp", 
+  o: "o@com.jp", p: "p@com.jp", q: "q@com.jp", r: "r@com.jp", s: "s@com.jp", t: "t@com.jp", u: "u@com.jp", 
+  v: "v@com.jp", w: "w@com.jp", x: "x@com.jp", y: "y@com.jp", z: "z@com.jp",
+}
 
-# Group.create(name: 'a_group', owner_id: '1')
-# Group.create(name: 'b_group', owner_id: '2')
-# Group.create(name: 'c_group', owner_id: '3')
+# Users(26)
+users.each do |key, value|
+  User.create(name: key, email: value, password: '000000', password_confirmation: '000000', admin: false)
+end
 
-# Personal.create(
-#   birth_date: 'Fri, 02 Mar 1956', 
-#   height: '175.5', 
-#   body_weight: '65.5',
-#   gender: '男',
-#   bmi: '22.5',
-#   waist_circumference: '80.3',
-#   hba_onec: '5.2',
-#   underlying_disease: '無し',
-#   intake_per_oneday: '102.5',
-#   remarks: '特になし',
-# )
+# Admin
+User.create(name: 'admin', email: 'admin@com.jp', password: '000000', password_confirmation: '000000', admin: true)
+
+names = [
+	"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+]
+
+# Personl(26)
+names.each_with_index do |name, i|
+  Personal.create(
+    birth_date: 'Fri, 02 Mar 1975', 
+    height: '175', 
+    body_weight: '65',
+    gender: '男',
+    bmi: '22',
+    waist_circumference: '80',
+    hba_onec: '5',
+    underlying_disease: name,
+    intake_per_oneday: '100',
+    remarks: name,
+    user_id: i + 1
+  )
+end
+
+# # NG
+# Personal.create(birth_date: 'Fri, 02 Mar 1956', height: '175', body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "name", intake_per_oneday: '102', remarks: "a", user_id: 3)
+# # OK
+# Personal.create(birth_date: 'Fri, 02 Mar 1956', height: '175', body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "name", intake_per_oneday: '10', remarks: "a", user_id: 5);
+
+# Meal
+names.each_with_index do |name, i|
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/menu5.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: name,
+  user_id: i + 1 
+  )
+end
+
+# OK
+# Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
+
+
+# Group
+
+Group.create(name: 'a_group', owner_id: '1')
+Group.create(name: 'b_group', owner_id: '2')
+Group.create(name: 'c_group', owner_id: '3')
+Group.create(name: 'd_group', owner_id: '4')
+Group.create(name: 'e_group', owner_id: '5')
+
+# Member
+Member.create(user_id: '1', group_id: '1')
+Member.create(user_id: '2', group_id: '2')
+Member.create(user_id: '3', group_id: '3')
+Member.create(user_id: '4', group_id: '4')
+Member.create(user_id: '5', group_id: '5')
+
+# Favorite
+Favorite.create(user_id: '1', meal_id: '5')
+Favorite.create(user_id: '2', meal_id: '4')
+Favorite.create(user_id: '3', meal_id: '3')
+Favorite.create(user_id: '4', meal_id: '2')
+Favorite.create(user_id: '5', meal_id: '1')
+
+# Post
+
+owner_comments = [
+  'その調子です。', 
+  'いい感じです。',
+  'ちょっと多いですね。',
+  '多いですね。',
+  '摂り過ぎです。'
+]
+
+owner_comments.each_with_index do |owner_comment, i|
+  Post.create(
+    owner_comment: owner_comment,
+    owner_sugar_amount: '10',
+    difference: '10',
+    meal_id: i + 1
+  )
+end
+
+# OK
+# Post.create(owner_comment: 'OK',owner_sugar_amount: '10',difference: '10',meal_id: 1);
+
+
+
+
+
