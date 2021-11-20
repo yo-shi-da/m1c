@@ -8,7 +8,7 @@
 <% end %>
 
 <br>
-  <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger",id:"a" %>
+  <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
 <br>
 
 <% if @current_user_group&.owner_id != nil && current_user.id == @current_user_group.owner_id %>
