@@ -15,6 +15,7 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.users.first.name %>様</td>
+        <%# binding.pry %> 
 
         <% if current_user.id == group.owner_id %>
           <td><p>あなたは、Groupオーナーです。</p></td>
