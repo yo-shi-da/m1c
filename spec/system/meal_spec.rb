@@ -72,19 +72,39 @@ describe 'Meal_CRUDテスト' do
   #   end
   # end
 
-  # # # NG
+  # # OK
   # describe 'お気に入り機能' do
   #   context 'お気に入りボタンを押したとき' do			
   #     it '自分のお気に入りページに表示される' do
-  #       meal = FactoryBot.create(:meal) 
-  #       meal = FactoryBot.create(:meal) 
-  #       binding.pry
+  #       user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
+  #       user2 = FactoryBot.create(:user, name: "user2", email: "user2@example.com", password: "password", password_confirmation: "password", admin: "false")
+  #       meal1 = FactoryBot.create(:meal,
+  #         sugar_amount: '10', 
+  #         sugar_cube: '25', 
+  #         classification: '朝', 
+  #         image: File.open("#{Rails.root}/spec/factories/menu5.jpg"), 
+  #         start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', 
+  #         reading_checks: 'false', 
+  #         remarks: 'name', 
+  #         user_id: user1.id
+  #       ) 
+  #       meal2 = FactoryBot.create(:meal,
+  #         sugar_amount: '100', 
+  #         sugar_cube: '25', 
+  #         classification: '朝', 
+  #         image: File.open("#{Rails.root}/spec/factories/menu5.jpg"), 
+  #         start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', 
+  #         reading_checks: 'false', 
+  #         remarks: 'name', 
+  #         user_id: user2.id
+  #       ) 
   #       visit user_session_path
-  #       fill_in :user_email, with: 'test@example.com'
+  #       fill_in :user_email, with: 'user2@example.com'
   #       fill_in :user_password, with: 'password'
   #       click_button 'ログイン'
-  #       visit meal_calendar_path(meal.user_id)
-  #       expect(page).to have_link "100"
+  #       visit home_path(meal1.id)
+  #       click_link 'お気に入り'
+  #       expect(page).to have_content "お気に入り登録しました"
   #     end
   #   end
   # end
