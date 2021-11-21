@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   validates :email, uniqueness: true
 
-  has_one :personal
+  has_one :personal, dependent: :destroy
   has_many :groups
-  has_many :meals
+  has_many :meals, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :joined_group, through: :members, source: :group
   has_many :favorites, dependent: :destroy
