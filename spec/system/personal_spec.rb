@@ -2,20 +2,10 @@ require "rails_helper"
 
 describe 'Personal_CRUDテスト', type: :system do
 
-  # 共通化
-  # before do
-  #   personal_test = FactoryBot.create(:user)
-  #   visit user_session_path
-  #   fill_in :user_email, with: 'test@example.com'
-  #   fill_in :user_password, with: 'password'
-  #   click_button 'ログイン'
-  # end
-
 	# # OK
 	describe 'Create&Read' do
 		context 'Personalを作成したとき' do			
 			it 'Personalを作成をできること' do
-        # binding.pry
         personal_test = FactoryBot.create(:user)
         visit user_session_path
         fill_in :user_email, with: 'test@example.com'
@@ -43,7 +33,6 @@ describe 'Personal_CRUDテスト', type: :system do
 
 	# OK
   # binding.pry
-  # personal_test = FactoryBot.create(:user)
 	describe 'Update' do
 		context 'Personalを編集したとき' do			
 			it 'Personalの編集をできること' do
@@ -60,23 +49,5 @@ describe 'Personal_CRUDテスト', type: :system do
 			end
 		end
 	end
-
-	# # # 不要
-	# describe 'delete' do
-	# 	context 'Personalを削除したとき' do
-	# 		it 'Personalの削除をできること' do
-	# 			a = FactoryBot.create(:user) 
-	# 			visit user_session_path
-  #       fill_in :user_email, with: 'test@example.com'
-  #       fill_in :user_password, with: 'password'
-  #       click_button 'ログイン'
-	# 			visit user_path(a.id)
-	# 			click_link '編集'
-	# 			click_button 'アカウント削除'
-	# 			page.driver.browser.switch_to.alert.accept
-	# 			expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
-	# 		end
-	# 	end
-	# end
 
 end

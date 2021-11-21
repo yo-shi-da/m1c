@@ -58,11 +58,3 @@ describe 'Meal_CRUDテスト' do
   end
   
 end
-  
-  # FactoryBot.create(:user, name: "user_meal", email: "meal@example.com", password: "password", password_confirmation: "password", admin: "false")
-  # FactoryBot.create(:user) 
-  # user_a = FactoryBot.create(:user, name: "user_meal", email: "meal@example.com", password: "password", password_confirmation: "password", admin: "false")
-  # FactoryBot.create(:meal, sugar_amount: '10', sugar_cube: '25', classification: '朝', 
-  # image: File.open("#{Rails.root}/spec/factories/menu5.jpg"), start_time: '2021-11-20', 
-  # reading_checks: 'false', remarks: 'test', user_id: user_a.id )
-  # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/spec/factories/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 45 )
