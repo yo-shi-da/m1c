@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe 'Personal_CRUDテスト', type: :system do
+describe 'Personal_CRUテスト', type: :system do
 
 	# # OK
 	describe 'Create&Read' do
