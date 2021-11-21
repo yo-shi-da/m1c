@@ -72,6 +72,23 @@ describe 'Meal_CRUDテスト' do
   #   end
   # end
 
+  # # # NG
+  # describe 'お気に入り機能' do
+  #   context 'お気に入りボタンを押したとき' do			
+  #     it '自分のお気に入りページに表示される' do
+  #       meal = FactoryBot.create(:meal) 
+  #       meal = FactoryBot.create(:meal) 
+  #       binding.pry
+  #       visit user_session_path
+  #       fill_in :user_email, with: 'test@example.com'
+  #       fill_in :user_password, with: 'password'
+  #       click_button 'ログイン'
+  #       visit meal_calendar_path(meal.user_id)
+  #       expect(page).to have_link "100"
+  #     end
+  #   end
+  # end
+
   
   
 end

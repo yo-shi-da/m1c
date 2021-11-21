@@ -59,4 +59,20 @@ describe 'Post_CRテスト', type: :system do
 	# 	end
 	# end
 
+	describe 'グラフ機能' do
+		context '食事を投稿したとき' do			
+			it 'グラフが表示されていること' do
+        meal = FactoryBot.create(:meal)
+        group = FactoryBot.create(:group, name: "test_group", owner_id: meal.user_id)
+        FactoryBot.create(:member, user_id: meal.user_id, group_id: group.id)
+        visit user_session_path
+        fill_in :user_email, with: 'test@example.com'
+        fill_in :user_password, with: 'password'
+        click_button 'ログイン'
+				visit meal_graph_path(meal.user_id)
+				expect(page).to have_content '日'
+			end
+		end
+	end
+
 end
