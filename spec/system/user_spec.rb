@@ -95,4 +95,20 @@ describe 'User_CRUDテスト', type: :system do
 	# 	end
 	# end
 
+	# 	# # OK
+	# describe 'ログアウト機能' do
+	# 	context 'ログアウトボタンを押したしたとき' do
+	# 		it 'ログアウトできること' do
+	# 			a = FactoryBot.create(:user) 
+	# 			visit user_session_path
+  #       fill_in :user_email, with: 'test@example.com'
+  #       fill_in :user_password, with: 'password'
+  #       click_button 'ログイン'
+  #       visit user_path(a.id)
+  #       click_link 'ログアウト'
+	# 			expect(page).to have_content 'ログアウトしました。'
+	# 		end
+	# 	end
+	# end
+
 end

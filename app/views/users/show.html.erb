@@ -13,6 +13,6 @@
       </table>
     </div>
   <%= link_to t('button.edit'), edit_user_registration_path, class:"btn btn-outline-primary" %>
-  <%= link_to 'All_user', users_path, class:"btn btn-outline-primary" %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger"  %>
 </div>
 
