@@ -79,4 +79,20 @@ describe 'User_CRUDテスト', type: :system do
 	# 	end
 	# end
 
+		# # OK
+	# describe 'アクセス制限' do
+	# 	context '他のUser画面に移動しようとしたとき' do
+	# 		it '移動できないこと' do
+	# 			user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
+	# 			user2 = FactoryBot.create(:user, name: "user2", email: "user2@example.com", password: "password", password_confirmation: "password", admin: "false")
+	# 			visit user_session_path
+  #       fill_in :user_email, with: 'user1@example.com'
+  #       fill_in :user_password, with: 'password'
+  #       click_button 'ログイン'
+	# 			visit user_path(user2.id)
+	# 			expect(page).to have_content 'user1'
+	# 		end
+	# 	end
+	# end
+
 end
