@@ -41,22 +41,22 @@ describe 'Post_CRテスト', type: :system do
 	# 	end
 	# end
 
-		# # OK
-	describe '既読機能' do
-		context '既読ボタンを押したとき' do			
-			it '未読が既読に変わっていること' do
-        meal = FactoryBot.create(:meal)
-        group = FactoryBot.create(:group, name: "test_group", owner_id: meal.user_id)
-        FactoryBot.create(:member, user_id: meal.user_id, group_id: group.id)
-        visit user_session_path
-        fill_in :user_email, with: 'test@example.com'
-        fill_in :user_password, with: 'password'
-        click_button 'ログイン'
-        # click_link 'CSVエクスポート'
-				expect(page).to have_link 'CSVエクスポート'
-				# expect(response.headers["Cache-Control"]).to include "private"
-			end
-		end
-	end
+	# 	# # OK
+	# describe '既読機能' do
+	# 	context '既読ボタンを押したとき' do			
+	# 		it '未読が既読に変わっていること' do
+  #       meal = FactoryBot.create(:meal)
+  #       group = FactoryBot.create(:group, name: "test_group", owner_id: meal.user_id)
+  #       FactoryBot.create(:member, user_id: meal.user_id, group_id: group.id)
+  #       visit user_session_path
+  #       fill_in :user_email, with: 'test@example.com'
+  #       fill_in :user_password, with: 'password'
+  #       click_button 'ログイン'
+  #       click_button '既読にする'
+	# 			visit meals_path
+	# 			expect(page).to have_content '既読'
+	# 		end
+	# 	end
+	# end
 
 end
