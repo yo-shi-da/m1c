@@ -1,10 +1,9 @@
 require "rails_helper"
 
-describe 'Post_Model', type: :system do
+describe 'PostModelTest', type: :system do
 
 	describe 'バリデーションテスト' do
     
-		# OK
 		context '管理者からの糖質量が4文字以上の場合' do			
 			it 'バリデーションが通らない' do
 				user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
@@ -14,7 +13,6 @@ describe 'Post_Model', type: :system do
 			end
 		end
 
-		# OK
 		context '管理者からの糖質量が4文字以下の場合' do			
 			it 'バリデーションが通る' do
         user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
@@ -24,7 +22,6 @@ describe 'Post_Model', type: :system do
 			end
 		end
 
-		# OK
 		context '差が4文字以上の場合' do			
 			it 'バリデーションが通らない' do
 				user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
@@ -34,7 +31,6 @@ describe 'Post_Model', type: :system do
 			end
 		end
 
-		# OK
 		context '差が4文字以下の場合' do			
 			it 'バリデーションが通る' do
         user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")

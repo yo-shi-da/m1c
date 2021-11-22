@@ -1,8 +1,7 @@
 require "rails_helper"
 
-describe 'Group_CRUDテスト', type: :system do
+describe 'GroupSystemTest', type: :system do
 
-	# # OK
 	describe 'Create&Read' do
 		context 'Groupを作成したとき' do			
 			it 'Groupの登録をできること' do
@@ -20,7 +19,6 @@ describe 'Group_CRUDテスト', type: :system do
 		end
 	end
 
-	# # OK
 	describe 'Update' do
 		context 'Groupを編集したとき' do			
 			it 'Groupの編集をできること' do
@@ -40,7 +38,6 @@ describe 'Group_CRUDテスト', type: :system do
 		end
 	end
 	
-	# # OK
 	describe 'delete' do
 		context 'Groupを削除したとき' do
 			it 'Groupを削除をできること' do

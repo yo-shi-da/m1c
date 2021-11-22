@@ -1,8 +1,7 @@
 require "rails_helper"
 
-describe 'Personal_CRUテスト', type: :system do
+describe 'PersonalSystemTest', type: :system do
 
-	# # OK
 	describe 'Create&Read' do
 		context 'Personalを作成したとき' do			
 			it 'Personalを作成をできること' do
@@ -31,8 +30,6 @@ describe 'Personal_CRUテスト', type: :system do
 		end
 	end
 
-	# OK
-  # binding.pry
 	describe 'Update' do
 		context 'Personalを編集したとき' do			
 			it 'Personalの編集をできること' do

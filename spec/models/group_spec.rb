@@ -1,10 +1,9 @@
 require "rails_helper"
 
-describe 'Group_Model', type: :system do
+describe 'GroupModelTest', type: :system do
 
 	describe 'バリデーションテスト' do
     
-		# OK
 		context 'グループ名が255文字以上の場合' do			
 			it 'バリデーションが通らない' do
 				user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
@@ -13,7 +12,6 @@ describe 'Group_Model', type: :system do
 			end
 		end
 
-		# OK
 		context 'グループ名が255文字以下の場合' do			
 			it 'バリデーションが通る' do
 				user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
