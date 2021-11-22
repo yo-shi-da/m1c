@@ -109,6 +109,42 @@ describe 'Meal_CRUDテスト' do
   #   end
   # end
 
-  
+  #  # OK
+  # describe '検索機能' do
+  #   context '検索ボタンを押したとき' do			
+  #     it '特定のMealが表示される' do
+  #       user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
+  #       user2 = FactoryBot.create(:user, name: "user2", email: "user2@example.com", password: "password", password_confirmation: "password", admin: "false")
+  #       meal1 = FactoryBot.create(:meal,
+  #         sugar_amount: '10', 
+  #         sugar_cube: '25', 
+  #         classification: '朝', 
+  #         image: File.open("#{Rails.root}/spec/factories/menu5.jpg"), 
+  #         start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', 
+  #         reading_checks: 'false', 
+  #         remarks: 'name', 
+  #         user_id: user1.id
+  #       ) 
+  #       meal2 = FactoryBot.create(:meal,
+  #         sugar_amount: '100', 
+  #         sugar_cube: '25', 
+  #         classification: '朝', 
+  #         image: File.open("#{Rails.root}/spec/factories/menu5.jpg"), 
+  #         start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', 
+  #         reading_checks: 'false', 
+  #         remarks: 'name', 
+  #         user_id: user2.id
+  #       ) 
+  #       visit user_session_path
+  #       fill_in :user_email, with: 'user2@example.com'
+  #       fill_in :user_password, with: 'password'
+  #       click_button 'ログイン'
+  #       fill_in 'q_sugar_amount_gteq', with: '100'
+  #       fill_in 'q_sugar_amount_lteq', with: '100'
+  #       click_on '検索'
+  #       expect(page).to have_content "100"
+  #     end
+  #   end
+  # end  
   
 end
