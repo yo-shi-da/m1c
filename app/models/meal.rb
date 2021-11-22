@@ -5,7 +5,7 @@ class Meal < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   belongs_to :user
-  has_one :post
+  has_one :post, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :users_favorites, through: :favorites, source: :user
 

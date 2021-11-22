@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   root to: 'tops#index'
   
-  resources :posts
+  resources :posts, except: [:index, :show]
   resources :groups
-  resources :homes
-  resources :favorites
-  resources :personals
-  resources :members
+  resources :homes, only: [:index, :show]
+  resources :favorites, only: [:index, :create, :destroy]
+  resources :personals, except: [:index]
+  resources :members, only: [:create, :destroy]
 
   get '/member_all', to: 'groups#member_all'
 
@@ -18,19 +18,18 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # guest
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     post 'users/guest_admin_sign_in', to: 'users/sessions#new_guest_admin'
   end
 
-  resources :users
+  resources :users, only: [:index, :show]
   
-  patch 'meals', to: 'meals#read_changes'
-  get 'export_csv', to: 'meals#export_csv'
   resources :meals do
     get 'calendar', to: 'meals#calendar'
     get 'graph', to: 'meals#graph'
   end
+  patch 'meals', to: 'meals#read_changes'
+  get 'export_csv', to: 'meals#export_csv'
     
 end

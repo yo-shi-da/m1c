@@ -3,6 +3,11 @@ class PersonalsController < ApplicationController
   before_action :current_user_personal, only: [:show, :edit]
 
   def show
+    if current_user.id == @user.id || current_user.id == my_group&.owner_id
+      @user_personal = @user.personal
+    else
+      redirect_to meals_path, notice: "他のユーザーをみることはできません。"
+    end
   end
 
   def new
@@ -10,6 +15,7 @@ class PersonalsController < ApplicationController
   end
 
   def edit
+    @user_personal = @user.personal
   end
 
   def create
@@ -39,7 +45,6 @@ class PersonalsController < ApplicationController
 
     def current_user_personal
       @user = User.find(params[:id])
-      @user_personal = @user.personal
     end
 
     def set_personal

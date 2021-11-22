@@ -9,7 +9,6 @@ class MealsController < ApplicationController
       @q = current_user.meals.ransack(params[:q])
     end    
     @meals = @q.result.page(params[:page])
-    @current_user_group = my_group
   end
 
   def export_csv

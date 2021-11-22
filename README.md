@@ -43,8 +43,8 @@ https://docs.google.com/spreadsheets/d/1M1gBbIcn1rdRvyGmtIOCSv9jCWYSyiHYIKRCmymX
 https://docs.google.com/spreadsheets/d/11efwvvavH5Xoy9TrsuqO0Cu6GzkbCx7UAlwQmawbLRA/edit?usp=sharing
 
 ## ER図
-https://drive.google.com/file/d/1RDdLem2BHZr4WnlaeFzDD7JtgA6iSoZW/view?usp=sharing
-![ER図](https://user-images.githubusercontent.com/71182187/141794597-09a372cd-81a2-4e97-89e6-b952d654538f.png)
+https://drive.google.com/file/d/16WEwyiIC6awmNoR9GOtxempl2JOO-KBb/view?usp=sharing
+![ER図](https://user-images.githubusercontent.com/71182187/142822136-d37ec0e0-947c-4ec2-beb2-84ae12401778.png)
 
 ## 画面遷移図
 https://drive.google.com/file/d/1m8xOQcnRvT3RgXFsyXkLsm6wV5vWv-mp/view?usp=sharing
