@@ -73,7 +73,7 @@ header {
   height: 15vh;
   width: 100%;
   pointer-events: none;
-  z-index: 2; //これで重なりを解消できる。
+  z-index: 50; //これで重なりを解消できる。
 }
 #nav-container .bg {
   // position: absolute;
