@@ -1,7 +1,7 @@
 <%= form_with(model: meal, local: true) do |form| %>
   <% if meal.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %>のエラーがあります。</h2>
+      <h2><%= pluralize(meal.errors.count, "件") %>のエラーがあります。</h2>
 
       <ul>
         <% meal.errors.full_messages.each do |message| %>
