@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 
-
   def create
     @post = Post.new(post_params)
     @meal = Meal.find(@post.meal_id)
