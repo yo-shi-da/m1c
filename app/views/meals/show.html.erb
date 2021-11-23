@@ -34,9 +34,8 @@
 <% if @current_user_group&.owner_id != nil %>
   <% if current_user.id == @current_user_group.owner_id %>    
     <hr>
-    <%= form_with(model: Post.new, local: true) do |form| %>
-
       <div class="container">
+      <%= form_with(model: Post.new, local: true) do |form| %>
 
         <div class="row">
           <div class="form-group">
