@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MealsController, type: :controller do
 
 	describe 'CSV' do
-		context 'csvをダウンロードしたとき' do
+		context 'CSVをダウンロードしたとき' do
 			before do
 				get :export_csv, format: :csv
 			end

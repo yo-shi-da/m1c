@@ -20,6 +20,22 @@ describe 'GroupModelTest', type: :system do
 			end
 		end
 
+		context 'グループ名が空欄の場合' do			
+			it 'バリデーションが通らない' do
+				user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
+        group = Group.new(name: '', owner_id: user1.id)
+				expect(group).not_to be_valid
+			end
+		end
+
+		context 'グループ名が空欄でない場合' do			
+			it 'バリデーションが通る' do
+				user1 = FactoryBot.create(:user, name: "user1", email: "user1@example.com", password: "password", password_confirmation: "password", admin: "false")
+        group = Group.new(name: 'a', owner_id: user1.id)
+				expect(group).to be_valid
+			end
+		end
+
 	end
 
 end

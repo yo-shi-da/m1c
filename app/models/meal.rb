@@ -3,6 +3,7 @@ class Meal < ApplicationRecord
   validates :sugar_cube, presence: true
   validates :classification, presence: true
   validates :start_time, presence: true
+  validates :image, presence: true
   validates :sugar_amount, length: { maximum: 3 }
   validates :sugar_cube, length: { maximum: 3 }
 
