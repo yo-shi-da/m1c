@@ -1,3 +1,4 @@
+<div class="container">
 <h1>「<%= @user.name %>」さんのPersonal</h1>
 
 <% unless @user_personal.present? %>
@@ -61,3 +62,5 @@
 <% end %>
 
 <%= link_to '食事一覧へ', meals_path(id: @user.id), class:"btn btn-outline-primary" %>
+
+</div>
