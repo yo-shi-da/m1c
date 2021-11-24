@@ -14,7 +14,7 @@
 
 <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id %>
   <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート(owner)', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
+    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
   <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
     <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
   <% end %>
@@ -45,14 +45,14 @@
         <td><%= meal.classification %></td>
 
         <% if meal.reading_checks %>
-          <td>既読</td>
+          <td id="test">Ajax</td>
         <% else %>
-          <td>未読</td>
+          <td id="test">未読</td>
         <% end %>
         
         <% if my_group.present? %>
-          <% if current_user.id == my_group.owner_id %> 
-            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
+          <% if current_user.id == my_group.owner_id %>
+            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes', remote: true}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
           <% end %>
         <% end %>
         
