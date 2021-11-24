@@ -47,8 +47,8 @@ https://drive.google.com/file/d/16WEwyiIC6awmNoR9GOtxempl2JOO-KBb/view?usp=shari
 ![ER図](https://user-images.githubusercontent.com/71182187/142822136-d37ec0e0-947c-4ec2-beb2-84ae12401778.png)
 
 ## 画面遷移図
-https://drive.google.com/file/d/1m8xOQcnRvT3RgXFsyXkLsm6wV5vWv-mp/view?usp=sharing
-![画面遷移図](https://user-images.githubusercontent.com/71182187/141780566-30f499db-94f1-415c-baf1-0f7fa1f294e5.png)
+https://drive.google.com/file/d/1UOc3myi7wHKtUvUIAbHarBFp-KF2vuYi/view?usp=sharing
+![画面遷移図](https://user-images.githubusercontent.com/71182187/143195074-a6f46d68-ed08-4b80-827e-e02b64cd4bc3.png)
 
 
 ## ワイヤーフレーム
