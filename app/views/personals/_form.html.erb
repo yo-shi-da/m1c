@@ -1,17 +1,17 @@
-<%= form_with(model: personal, local: true) do |form| %>
-  <% if personal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(personal.errors.count, "error") %> エラーがあります。</h2>
+<div class="container">
+  <%= form_with(model: personal, local: true) do |form| %>
+    <%# binding.pry %>
+    <% if personal.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(personal.errors.count, "件") %> の未入力があります。</h2>
 
-      <ul>
-        <% personal.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="container">
+        <ul>
+          <% personal.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="row">
       <div class="form-group">
@@ -89,5 +89,5 @@
       <%= form.submit class:"btn btn-outline-primary" %>
     </div>
 
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -15,7 +15,7 @@ class PersonalsController < ApplicationController
   end
 
   def edit
-    @user_personal = @user.personal
+    @personal = @user.personal
   end
 
   def create

@@ -61,8 +61,7 @@ class MealsController < ApplicationController
     else
       @meal.update(reading_checks: 'false')
     end
-    @meal.save
-    redirect_to meal_path(id: @meal.id), notice: "変更しました。"
+    redirect_to personal_path(@meal.user_id), notice: "変更しました。"
   end
   
   def calendar

@@ -1,17 +1,17 @@
-<%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %>のエラーがあります。</h2>
+<div class="container">
 
-      <ul>
-        <% meal.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form_with(model: meal, local: true) do |form| %>
+    <% if meal.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(meal.errors.count, "件") %> の未入力があります。</h2>
 
-  <div class="container">
+        <ul>
+          <% meal.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="row">
       <div class="form-group">
@@ -59,5 +59,5 @@
         <%= form.submit class:"btn btn-outline-primary" %>
     </div>
 
-  </div>
-<% end %>
+  <% end %>
+</div>
