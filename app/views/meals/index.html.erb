@@ -12,7 +12,7 @@
   <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
 <br>
 
-<% if my_group&.owner_id != nil && current_user.id == my_group.owner_id %>
+<% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
   <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
     <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
   <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
