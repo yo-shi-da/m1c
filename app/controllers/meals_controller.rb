@@ -56,7 +56,7 @@ class MealsController < ApplicationController
   def read_changes
     @meal = Meal.find(params[:id])
     if @meal.reading_checks == false
-      @meal.update(reading_checks: 'ture')
+      @meal.update(reading_checks: 'true')
     end
     redirect_to personal_path(@meal.user_id), notice: "変更しました。"
   end
