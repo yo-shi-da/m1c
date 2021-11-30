@@ -1,5 +1,5 @@
-<h1><%= t('button.edit') %></h1>
-
-<%= render 'form', group: @group %>
-
-<%= link_to t('button.back'), groups_path, class:"btn btn-outline-primary" %>
+<div class="container">
+  <h1><%= t('button.edit') %></h1>
+  <%= render 'form', group: @group %>
+  <%= link_to t('button.back'), groups_path, class:"btn btn-outline-primary" %>
+</div>
