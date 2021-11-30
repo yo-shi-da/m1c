@@ -14,7 +14,8 @@ end
 User.create(name: 'admin', email: 'admin@com.jp', password: '000000', password_confirmation: '000000', admin: true)
 
 names = [
-	"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+	"f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+	# "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
 ]
 
 # Personl(26)
@@ -38,7 +39,6 @@ end
 # Personal.create(birth_date: 'Fri, 02 Mar 1956', height: '175', body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "name", intake_per_oneday: '10', remarks: "a", user_id: 5);
 
 # Meal
-names.each_with_index do |name, i|
   Meal.create(
   sugar_amount: '100',
   sugar_cube: '25',
@@ -46,8 +46,64 @@ names.each_with_index do |name, i|
   image: File.open("#{Rails.root}/public/menu/menu5.jpg"),
   start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
   reading_checks: 'false',
+  remarks: 'a',
+  user_id: 1 
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/menu6.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'b',
+  user_id: 2
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/menu7.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'c',
+  user_id: 3
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/menu8.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'd',
+  user_id: 4
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/menu9.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'e',
+  user_id: 5
+  )
+
+names.each_with_index do |name, i|
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
   remarks: name,
-  user_id: i + 1 
+  user_id: i + 5 
   )
 end
 
@@ -55,7 +111,6 @@ end
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
 
 # Group
-
 Group.create(name: 'a_group', owner_id: '1')
 Group.create(name: 'b_group', owner_id: '2')
 Group.create(name: 'c_group', owner_id: '3')
@@ -77,7 +132,6 @@ Favorite.create(user_id: '4', meal_id: '2')
 Favorite.create(user_id: '5', meal_id: '1')
 
 # Post
-
 owner_comments = [
   'その調子です。', 
   'いい感じです。',
