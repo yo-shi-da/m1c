@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_110714) do
     t.integer "sugar_amount", null: false
     t.integer "sugar_cube", null: false
     t.integer "classification", null: false
-    t.string "image", null: false
+    t.text "image", null: false
+    # t.string "image", null: false
     t.datetime "start_time", null: false
     t.boolean "reading_checks", default: false, null: false
     t.text "remarks"
