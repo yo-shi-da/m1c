@@ -94,18 +94,62 @@ end
   user_id: 5
   )
 
-names.each_with_index do |name, i|
   Meal.create(
   sugar_amount: '100',
   sugar_cube: '25',
   classification: '朝',
-  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  image: File.open("#{Rails.root}/public/menu/image/1/menu9.jpg"),
   start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
   reading_checks: 'false',
-  remarks: name,
-  user_id: i + 5 
+  remarks: 'e',
+  user_id: 6
   )
-end
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu9.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'e',
+  user_id: 7
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu9.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'e',
+  user_id: 8
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu9.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: 'e',
+  user_id: 9
+  )
+
+# names.each_with_index do |name, i|
+#   Meal.create(
+#   sugar_amount: '100',
+#   sugar_cube: '25',
+#   classification: '朝',
+#   image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+#   start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+#   reading_checks: 'false',
+#   remarks: name,
+#   user_id: i + 5 
+#   )
+# end
 
 # OK
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
