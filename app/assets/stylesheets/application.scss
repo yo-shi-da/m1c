@@ -15,12 +15,25 @@
  *= require_self
  */
 
+
+ body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
+
+ body {
+  color: darkgray;
+  font-size:20px;
+}
+
  footer{
   height: 70px;
   width: 100%;
-  position: relative;
-  // position: absolute;
-  bottom: 0;
   display: table;
   background:wheat;
 }
@@ -206,9 +219,9 @@ header {
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
+// html, body {
+//   height: 100%;
+// }
 
 a,
 a:visited,
@@ -237,9 +250,4 @@ img {
   vertical-align: middle;
   height: auto;
   width: 100%;
-}
-
-body {
-  color: darkgray;
-  font-size:20px;
 }
