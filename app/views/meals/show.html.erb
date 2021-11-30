@@ -29,11 +29,12 @@
     <%= link_to t('button.edit'), edit_meal_path(id: @meal.id), class:"btn btn-outline-primary" %>
     <%= link_to t('button.back'), meals_path(id: @meal.user_id), class:"btn btn-outline-primary" %>
     <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
+
   </div>
 </div>
 
-<% if @current_user_group&.owner_id != nil %>
-  <% if current_user.id == @current_user_group.owner_id %>    
+<% if my_group&.owner_id != nil %>
+  <% if current_user.id == my_group.owner_id && @post == nil %>    
     <hr>
       <div class="container">
       <%= form_with(model: Post.new, local: true) do |form| %>
@@ -70,9 +71,10 @@
     <hr>
   <% end %>
 <% end %>
-
 <% if @post.present? %>
+<div class="container">
   <hr>
+  <h1>管理者からの投稿</h1>
   <table class="table">
     <tr>
       <th class="table-primary col-4"><%= t('posts.owner_comment') %></th>
@@ -88,3 +90,4 @@
     </tr>
   </table>
 <% end %>
+</div>
