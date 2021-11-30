@@ -38,7 +38,19 @@ end
 # Personal.create(birth_date: 'Fri, 02 Mar 1956', height: '175', body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "name", intake_per_oneday: '10', remarks: "a", user_id: 5);
 
 # Meal
-names.each_with_index do |name, i|
+# names.each_with_index do |name, i|
+#   Meal.create(
+#   sugar_amount: '100',
+#   sugar_cube: '25',
+#   classification: '朝',
+#   image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+#   start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+#   reading_checks: 'false',
+#   remarks: name,
+#   user_id: i + 1 
+#   )
+# end
+
   Meal.create(
   sugar_amount: '100',
   sugar_cube: '25',
@@ -46,10 +58,75 @@ names.each_with_index do |name, i|
   image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
   start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
   reading_checks: 'false',
-  remarks: name,
-  user_id: i + 1 
+  remarks: "a",
+  user_id: 1
   )
-end
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: "b",
+  user_id: 2
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: "c",
+  user_id: 3
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: "d",
+  user_id: 4
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: "e",
+  user_id: 5
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: "f",
+  user_id: 6
+  )
+
+  Meal.create(
+  sugar_amount: '100',
+  sugar_cube: '25',
+  classification: '朝',
+  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  reading_checks: 'false',
+  remarks: "g",
+  user_id: 7
+  )
 
 # OK
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
