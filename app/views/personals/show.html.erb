@@ -2,8 +2,10 @@
 <h1>「<%= @user.name %>」さんのPersonal</h1>
 
 <% unless @user_personal.present? %>
+  <br />
   <%= link_to t('button.new'), new_personal_path, class:"btn btn-outline-primary" %>
 <% end %>
+
 <% if @user_personal.present? %>
   <div class="row">
 

@@ -258,7 +258,7 @@ ja:
     new: 新規作成
     show: 詳細
     destroy: 削除
-    calendar: Myカレンダーに戻る
+    calendar: Myカレンダー
   groups:
     name: グループ名
     owner: 管理者
