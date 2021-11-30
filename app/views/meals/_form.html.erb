@@ -16,14 +16,14 @@
     <div class="row">
       <div class="form-group">
         <%= form.label t('meals.sugar_amount') %>
-        <%= form.number_field :sugar_amount, class: 'form-control' %>
+        <%= form.number_field :sugar_amount, placeholder: "例：100", class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group">
         <%= form.label t('meals.sugar_cube') %>
-        <%= form.number_field :sugar_cube, class: 'form-control' %>
+        <%= form.number_field :sugar_cube, placeholder: "例：25", class: 'form-control' %>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
     <div class="row">
       <div class="form-group">
         <%= form.label t('meals.remarks') %>
-        <%= form.text_area :remarks, class: 'form-control' %>
+        <%= form.text_area :remarks, placeholder: "例：何かあれば入力して下さい。", class: 'form-control' %>
       </div>
     </div>
 

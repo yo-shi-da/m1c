@@ -1,5 +1,28 @@
 ja:
   activerecord:
+    models:
+      meals:
+      meals:
+      groups:
+      personals:
+    attributes:
+      meal:
+        sugar_amount: 糖質量(g)
+        sugar_cube: 角砂糖(個)
+        image: 画像
+        start_time: 摂取日
+      group:
+        name: グループ名
+      personal:
+        birth_date: 生年月日
+        height: 身長(cm)
+        body_weight: 体重(kg) 
+        gender: 性別
+        bmi: BMI
+        waist_circumference: 腹囲(cm)
+        hba_onec: HbA1c
+        underlying_disease: 基礎疾患
+        intake_per_oneday: 1日あたりの目安摂取量
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -235,7 +258,7 @@ ja:
     new: 新規作成
     show: 詳細
     destroy: 削除
-    calendar: カレンダーに戻る
+    calendar: Myカレンダー
   groups:
     name: グループ名
     owner: 管理者

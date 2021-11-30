@@ -1,5 +1,5 @@
-<h1><%= t('button.new') %></h1>
-
-<%= render 'form', personal: @personal %>
-
-<%= link_to t('button.back'), personals_path, class:"btn btn-outline-primary" %>
+<div class="container">
+  <h1><%= t('button.new') %></h1>
+  <%= render 'form', personal: @personal %><br />
+  <%= link_to t('button.back'), personals_path, class:"btn btn-outline-primary" %>
+</div>

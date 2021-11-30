@@ -1,3 +1,5 @@
-<%= render 'form', meal: @meal %>
-
-<%= link_to t('button.back'), meals_path, class:"btn btn-outline-primary" %>
+<div class="container">
+  <h1><%= t('button.new') %></h1>
+  <%= render 'form', meal: @meal %><br />
+  <%= link_to t('button.back'), meals_path, class:"btn btn-outline-primary" %>
+</div>
