@@ -22,7 +22,6 @@ class MealsController < ApplicationController
   def show
     @meal = Meal.find(params[:id])
     @post = @meal.post
-    @current_user_group = my_group
   end
 
   def new

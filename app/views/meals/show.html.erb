@@ -26,9 +26,9 @@
       <%= image_tag @meal.image.url %>
     </div>
 
-  <%= link_to t('button.edit'), edit_meal_path(@meal), class:"btn btn-outline-primary" %>
-  <%= link_to t('button.back'), meals_path, class:"btn btn-outline-primary" %>
-  <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
+    <%= link_to t('button.edit'), edit_meal_path(id: @meal.id), class:"btn btn-outline-primary" %>
+    <%= link_to t('button.back'), meals_path(id: @meal.user_id), class:"btn btn-outline-primary" %>
+    <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
   </div>
 </div>
 
