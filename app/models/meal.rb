@@ -3,6 +3,7 @@ class Meal < ApplicationRecord
   validates :sugar_cube, presence: true
   validates :classification, presence: true
   validates :start_time, presence: true
+  validate :start_time_cannot_be_in_the_future
   validates :image, presence: true
   validates :sugar_amount, length: { maximum: 3 }
   validates :sugar_cube, length: { maximum: 3 }
@@ -20,6 +21,14 @@ class Meal < ApplicationRecord
     夜: 2,
     間食: 3
   }
+
+  private
+  
+  def start_time_cannot_be_in_the_future
+    if start_time&.future?
+      errors.add(:start_time, "は未来の日付は入力できません。")
+    end
+  end 
 
   # CSV
   def self.csv_attributes
