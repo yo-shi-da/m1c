@@ -53,7 +53,7 @@
           <% end %> 
 
           <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
-            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes', remote: true}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
+            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
           <% else %>
             <td></td>
           <% end %>
