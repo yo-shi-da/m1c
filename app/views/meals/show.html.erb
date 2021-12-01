@@ -42,21 +42,21 @@
         <div class="row">
           <div class="form-group">
             <%= form.label t('posts.owner_comment') %>
-            <%= form.text_area :owner_comment, class: 'form-control' %>
+            <%= form.text_area :owner_comment, placeholder: "例：糖質の摂り過ぎです。控えましょう", class: 'form-control' %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group">
             <%= form.label t('posts.owner_sugar_amount') %>
-            <%= form.number_field :owner_sugar_amount, class: 'form-control' %>
+            <%= form.number_field :owner_sugar_amount, placeholder: "例：100", class: 'form-control' %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group">
             <%= form.label t('posts.difference') %>
-            <%= form.number_field :difference, class: 'form-control' %>
+            <%= form.number_field :difference, placeholder: "例：50", class: 'form-control' %>
           </div>
         </div>
 
