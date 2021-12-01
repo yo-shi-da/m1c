@@ -64,6 +64,14 @@
       </div>
     </div>
 
+    <% if user_signed_in? %>
+      <% if Member.find_by(user_id: current_user&.id) == nil %>
+        <div class="alert alert-primary" role="alert">
+          <p>現在グループに所属していません。グループに参加して管理者に食事内容を確認してもらいましょう！</p>
+        </div>
+      <% end %>
+    <% end %>
+
     <% if notice %>
       <div class="alert alert-primary" role="alert">
         <%= notice %>

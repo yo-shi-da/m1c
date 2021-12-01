@@ -1,66 +1,181 @@
-<div class="container">
-<h1>食事一覧</h1>
+<% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
 
-<%= search_form_for @q do |f| %>
-  <%= f.label :sugar_amount, t('meals.sugar_amount') %>
-  <%= f.number_field :sugar_amount_gteq %>以上～
-  <%= f.number_field :sugar_amount_lteq %>以下
-  <%= f.submit '検索', class:"btn btn-outline-primary" %>
-<% end %>
+  <div class="container">
+  <h1>食事一覧</h1>
 
-<br>
-  <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
-<br>
-
-<% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
-  <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
-  <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
+  <%= search_form_for @q do |f| %>
+    <%= f.label :sugar_amount, t('meals.sugar_amount') %>
+    <%= f.number_field :sugar_amount_gteq %>以上～
+    <%= f.number_field :sugar_amount_lteq %>以下
+    <%= f.submit '検索', class:"btn btn-outline-primary" %>
   <% end %>
-<% end %>
 
-<br>
-<div class="mb-3">
-  <%= paginate @meals %>
-  <%= page_entries_info @meals, entry_name:'食事' %>
-</div>
+  <br>
+    <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
+  <br>
 
-<table class="table table-hover">
-  <thead>
-    <tr class="table-primary">
-      <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
-      <th><%= t('meals.sugar_cube') %></th>
-      <th><%= t('meals.classification') %></th>
-      <th><%= t('meals.reading_checks') %></th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @meals.each do |meal| %>
-      <tr>
-        <td><%= meal.sugar_amount %>g</td>
-        <td>約<%= meal.sugar_cube %>個分</td>
-        <td><%= meal.classification %></td>
-
-        <% if meal.reading_checks %>
-          <td id="test">既読</td>
-        <% else %>
-          <td id="test">未読</td>
-        <% end %> 
-
-        <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
-          <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
-        <% else %>
-          <td></td>
-        <% end %>
-        
-        <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
-        <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
-        <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
-      </tr>
+  <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
+    <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
+      <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
+    <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
+      <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
     <% end %>
-  </tbody>
-</table>
-</div>
+  <% end %>
+
+  <br>
+  <div class="mb-3">
+    <%= paginate @meals %>
+    <%= page_entries_info @meals, entry_name:'食事' %>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
+        <th><%= t('meals.sugar_cube') %></th>
+        <th><%= t('meals.classification') %></th>
+        <th><%= t('meals.reading_checks') %></th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @meals.each do |meal| %>
+        <tr>
+          <td><%= meal.sugar_amount %>g</td>
+          <td>約<%= meal.sugar_cube %>個分</td>
+          <td><%= meal.classification %></td>
+
+          <% if meal.reading_checks %>
+            <td>既読</td>
+          <% else %>
+            <td id="test">未読</td>
+          <% end %> 
+
+          <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
+            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes', remote: true}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+
+          <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
+<% elsif my_group&.owner_id == current_user.id %> <!-- GroupOwner -->
+
+  <div class="container">
+  <h1>食事一覧</h1>
+
+  <%= search_form_for @q do |f| %>
+    <%= f.label :sugar_amount, t('meals.sugar_amount') %>
+    <%= f.number_field :sugar_amount_gteq %>以上～
+    <%= f.number_field :sugar_amount_lteq %>以下
+    <%= f.submit '検索', class:"btn btn-outline-primary" %>
+  <% end %>
+
+  <br>
+    <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
+  <br>
+
+  <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
+    <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
+      <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
+    <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
+      <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
+    <% end %>
+  <% end %>
+
+  <br>
+  <div class="mb-3">
+    <%= paginate @meals %>
+    <%= page_entries_info @meals, entry_name:'食事' %>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
+        <th><%= t('meals.sugar_cube') %></th>
+        <th><%= t('meals.classification') %></th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @meals.each do |meal| %>
+        <tr>
+          <td><%= meal.sugar_amount %>g</td>
+          <td>約<%= meal.sugar_cube %>個分</td>
+          <td><%= meal.classification %></td>
+
+          <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
+<% else %><!-- GroupOwner以外 -->
+
+  <div class="container">
+  <h1>食事一覧</h1>
+
+  <%= search_form_for @q do |f| %>
+    <%= f.label :sugar_amount, t('meals.sugar_amount') %>
+    <%= f.number_field :sugar_amount_gteq %>以上～
+    <%= f.number_field :sugar_amount_lteq %>以下
+    <%= f.submit '検索', class:"btn btn-outline-primary" %>
+  <% end %>
+
+  <br>
+    <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
+  <br>
+
+  <br>
+  <div class="mb-3">
+    <%= paginate @meals %>
+    <%= page_entries_info @meals, entry_name:'食事' %>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
+        <th><%= t('meals.sugar_cube') %></th>
+        <th><%= t('meals.classification') %></th>
+        <th><%= t('meals.reading_checks') %></th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @meals.each do |meal| %>
+        <tr>
+          <td><%= meal.sugar_amount %>g</td>
+          <td>約<%= meal.sugar_cube %>個分</td>
+          <td><%= meal.classification %></td>
+
+          <% if meal.reading_checks %>
+            <td>既読</td>
+          <% else %>
+            <td id="test">未読</td>
+          <% end %> 
+
+          <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
+<% end %>
