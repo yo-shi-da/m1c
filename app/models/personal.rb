@@ -15,7 +15,7 @@ class Personal < ApplicationRecord
   private
 
   def birthday_cannot_be_in_the_future
-    if birth_date.future?
+    if birth_date&.future?
       errors.add(:birth_date, "は未来の日付は入力できません。")
     end
   end  
