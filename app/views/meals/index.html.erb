@@ -32,11 +32,7 @@
       <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
       <th><%= t('meals.sugar_cube') %></th>
       <th><%= t('meals.classification') %></th>
-
-      <% if current_user.id == my_group&.owner_id && @meals.first.user_id != current_user.id %>
-        <th><%= t('meals.reading_checks') %></th>
-      <% end %>
-
+      <th><%= t('meals.reading_checks') %></th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -48,24 +44,18 @@
         <td>約<%= meal.sugar_cube %>個分</td>
         <td><%= meal.classification %></td>
 
-        <% if my_group&.owner_id == current_user.id && meal.user_id != current_user.id %>
+        <% if meal.reading_checks %>
+          <td>既読</td>
+        <% else %>
+          <td id="test">未読</td>
+        <% end %> 
 
-          <% if meal.reading_checks %>
-            <td id="test">既読</td>
-          <% else %>
-            <td id="test">未読</td>
-          <% end %> 
-
-          <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
-            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
-          <% else %>
-            <td></td>
-          <% end %>
-
+        <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
+          <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes', remote: true}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
         <% else %>
           <td></td>
         <% end %>
-        
+
         <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
         <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
         <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>

@@ -58,7 +58,8 @@ class MealsController < ApplicationController
     if @meal.reading_checks == false
       @meal.update(reading_checks: 'true')
     end
-    redirect_to personal_path(@meal.user_id), notice: "変更しました。"
+    @user_read = @meal.user
+    redirect_to meals_url(id: @user_read.personal.id), notice: '既読になりました。'
   end
   
   def calendar
