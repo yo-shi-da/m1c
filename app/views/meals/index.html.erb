@@ -33,14 +33,17 @@
         <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
         <th><%= t('meals.sugar_cube') %></th>
         <th><%= t('meals.classification') %></th>
-        
-        <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
+
+        <% if my_group&.owner_id == current_user.id && params[:id].to_i == current_user.id %><!-- GroupOwnerが参加者ページに遷移し、オーナーだった場合 -->
+          <th></th>
+        <% elsif my_group&.owner_id == current_user.id && params[:id].present?  %><!-- GroupOwnerが参加者ページに遷移し、オーナーでない場合 -->
           <th><%= t('meals.reading_checks') %></th>
-        <% elsif my_group&.owner_id != current_user.id %> <!-- GroupOwnerでない場合 -->
+        <% elsif my_group&.owner_id != current_user.id %><!-- ログイン後、GroupOwnerでない場合 -->
           <th><%= t('meals.reading_checks') %></th>
-        <% else %><!-- GroupOwner -->
+        <% else %><!-- ログイン後、GroupOwner -->
           <th></th>
         <% end %>
+
         <th colspan="5"></th>
       </tr>
     </thead>
@@ -51,19 +54,21 @@
           <td>約<%= meal.sugar_cube %>個分</td>
           <td><%= meal.classification %></td>
         
-        <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
-          <% if meal.reading_checks %>
-            <td>既読</td>
-          <% else %>
-            <td id="test">未読</td>
-          <% end %>        
-        <% elsif my_group&.owner_id != current_user.id %><!-- GroupOwnerでない場合 -->
+        <% if my_group&.owner_id == current_user.id && params[:id].to_i == current_user.id %><!-- GroupOwnerが参加者ページに遷移し、オーナーだった場合 -->
+          <td></td>
+        <% elsif my_group&.owner_id == current_user.id && params[:id].present?  %><!-- GroupOwnerが参加者ページに遷移し、オーナーでない場合 -->
           <% if meal.reading_checks %>
             <td>既読</td>
           <% else %>
             <td id="test">未読</td>
           <% end %>
-        <% else %><!-- GroupOwner -->
+        <% elsif my_group&.owner_id != current_user.id %><!-- ログイン後、GroupOwnerでない場合 -->
+          <% if meal.reading_checks %>
+            <td>既読</td>
+          <% else %>
+            <td id="test">未読</td>
+          <% end %>
+        <% else %><!-- ログイン後、GroupOwner -->
           <td></td>
         <% end %>
 
