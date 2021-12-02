@@ -14,7 +14,7 @@ describe 'MealSystemTest' do
         fill_in :meal_sugar_amount, with: '1'
         fill_in :meal_sugar_cube, with: '1'
         select '朝', from: 'meal_classification'
-        fill_in :meal_start_time, with: '2021-11-20'      
+        fill_in :meal_start_time, with: '2020-12-01'      
         fill_in :meal_remarks, with: 'test'      
         attach_file 'meal_image', "#{Rails.root}/spec/factories/menu5.jpg"
         click_button '登録する'

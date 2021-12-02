@@ -27,6 +27,7 @@
 $ git clone git@github.com:yo-shi-da/m1c.git
 $ cd m1c
 $ bundle install
+$ webpacker:install
 $ rails db:create
 $ rails db:migrate
 $ rails s
