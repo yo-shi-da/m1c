@@ -68,12 +68,12 @@
         <% end %>
 
         <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
-          <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
-            <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
-          <% else %>
-            <td></td>
-          <% end %>          
+          <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
         <% end %>
+          <%# if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
+          <%# else %>
+            <!-- <td></td> -->
+          <%# end %>          
 
           <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
