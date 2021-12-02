@@ -1,5 +1,5 @@
 
-  <div class="container">
+<div class="container">
   <h1>食事一覧</h1>
 
   <%= search_form_for @q do |f| %>
@@ -33,32 +33,48 @@
         <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
         <th><%= t('meals.sugar_cube') %></th>
         <th><%= t('meals.classification') %></th>
-        <th><%= t('meals.reading_checks') %></th>
+        
+        <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
+          <th><%= t('meals.reading_checks') %></th>
+        <% elsif my_group&.owner_id != current_user.id %> <!-- GroupOwnerでない場合 -->
+          <th><%= t('meals.reading_checks') %></th>
+        <% else %><!-- GroupOwner -->
+          <th></th>
+        <% end %>
         <th colspan="5"></th>
       </tr>
     </thead>
-
-    <tbody>
-      <!-- GroupOwnerが参加者ページに遷移したとき -->
+    <tbody>      
       <% @meals.each do |meal| %>
         <tr>
           <td><%= meal.sugar_amount %>g</td>
           <td>約<%= meal.sugar_cube %>個分</td>
           <td><%= meal.classification %></td>
-  <% unless my_group&.owner_id == current_user.id %>
+        
+        <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
           <% if meal.reading_checks %>
             <td>既読</td>
           <% else %>
             <td id="test">未読</td>
-          <% end %> 
-  <% end %>
-  <% if my_group&.owner_id == current_user.id && params[:id].present? %>
+          <% end %>        
+        <% elsif my_group&.owner_id != current_user.id %><!-- GroupOwnerでない場合 -->
+          <% if meal.reading_checks %>
+            <td>既読</td>
+          <% else %>
+            <td id="test">未読</td>
+          <% end %>
+        <% else %><!-- GroupOwner -->
+          <td></td>
+        <% end %>
+
+        <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
           <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
             <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
           <% else %>
             <td></td>
-          <% end %>
-  <% end %>
+          <% end %>          
+        <% end %>
+
           <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
@@ -66,4 +82,5 @@
       <% end %>
     </tbody>
   </table>
-  </div>
+
+</div>
