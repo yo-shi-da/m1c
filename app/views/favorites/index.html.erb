@@ -1,12 +1,11 @@
-
 <div class="container">
   <h1 class="text-center">「<%= current_user.name %>」さんのお気に入り一覧</h1><br />
   <div class="row">
-  <% @favorite_lists.each do |favorite| %>
+  <% @favorite_lists.each_with_index do |favorite, i| %>
     <div class="col-lg-6"> 
     <p><%= image_tag favorite.image.url %></p>
     <p>糖質量:<%= favorite.sugar_amount %>g</p>
-      <%= link_to 'お気に入り解除する', favorite_path(id: @favorites.id), method: :delete, class:"btn btn-outline-danger" %>
+      <%= link_to 'お気に入り解除する', favorite_path(id: @favorites[i].id), method: :delete, class:"btn btn-outline-danger" %>
     </div>  
   <% end %>
   </div>

@@ -3,11 +3,7 @@ class FavoritesController < ApplicationController
   def index
     favorites = Favorite.where(user_id: current_user.id).pluck(:meal_id) 
     @favorite_lists = Meal.find(favorites) 
-
-    @favorite_lists.each do |favorite_list|
-      @meal = Meal.find(favorite_list.id)
-      @favorites = current_user.favorites.find_by(meal_id: @meal.id)
-    end
+    @favorites = current_user.favorites
   end
 
   def create
