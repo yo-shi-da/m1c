@@ -60,7 +60,8 @@
           <% if meal.reading_checks %>
             <td>既読</td>
           <% else %>
-            <td id="test">未読</td>
+            <%# binding.pry %>
+            <td id="meal_<%= meal.id %>">未読</td>
           <% end %>
         <% elsif my_group&.owner_id != current_user.id %><!-- ログイン後、GroupOwnerでない場合 -->
           <% if meal.reading_checks %>
@@ -75,13 +76,13 @@
         <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
           <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
           <%#= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %>
-            <td><%= link_to '既読にする', meal_meals_path(meal.id), method: :patch, remote: true, class:"btn btn-outline-success" %></td>
+            <td><%= link_to '既読にする', meal_meals_path(meal.id), method: :patch, remote: true, data: { confirm: '既読にしますか？' }, class:"btn btn-outline-success" %></td>
           <% end %>          
         <% end %>
 
           <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
-          <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, data: { confirm: '削除しますか？' } %></td>
+          <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, remote: true, data: { confirm: '削除しますか？' } %></td>
         </tr>
       <% end %>
     </tbody>

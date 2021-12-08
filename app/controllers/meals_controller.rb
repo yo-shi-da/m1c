@@ -59,6 +59,8 @@ class MealsController < ApplicationController
       @meal.update(reading_checks: 'true')
     end
   end
+  # else
+  #   @meal.update(reading_checks: 'false')
   # redirect_to meals_url(id: @meal.user_id), notice: '既読になりました。'
   
   def calendar
