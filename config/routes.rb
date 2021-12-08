@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   resources :meals do
     get 'calendar', to: 'meals#calendar'
     get 'graph', to: 'meals#graph'
+    patch 'meals', to: 'meals#read_changes'
   end
-  patch 'meals', to: 'meals#read_changes'
   get 'export_csv', to: 'meals#export_csv'
     
 end
