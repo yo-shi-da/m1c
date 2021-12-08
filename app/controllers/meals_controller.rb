@@ -50,7 +50,7 @@ class MealsController < ApplicationController
 
   def destroy
     @meal.destroy
-    redirect_to meals_url, notice: '削除しました。'
+    # redirect_to meals_url, notice: '削除しました。'
   end
 
   def read_changes

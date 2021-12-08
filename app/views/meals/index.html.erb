@@ -49,7 +49,7 @@
     </thead>
     <tbody>      
       <% @meals.each do |meal| %>
-        <tr>
+        <tr id="meal_d<%= meal.id %>">
           <td><%= meal.sugar_amount %>g</td>
           <td>約<%= meal.sugar_cube %>個分</td>
           <td><%= meal.classification %></td>
@@ -60,14 +60,13 @@
           <% if meal.reading_checks %>
             <td>既読</td>
           <% else %>
-            <%# binding.pry %>
-            <td id="meal_<%= meal.id %>">未読</td>
+            <td id="meal_r<%= meal.id %>">未読</td>
           <% end %>
         <% elsif my_group&.owner_id != current_user.id %><!-- ログイン後、GroupOwnerでない場合 -->
           <% if meal.reading_checks %>
             <td>既読</td>
           <% else %>
-            <td id="test">未読</td>
+            <td>未読</td>
           <% end %>
         <% else %><!-- ログイン後、GroupOwner -->
           <td></td>
