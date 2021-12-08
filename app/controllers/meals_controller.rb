@@ -54,12 +54,12 @@ class MealsController < ApplicationController
   end
 
   def read_changes
-    @meal = Meal.find(params[:id])
+    @meal = Meal.find(params[:meal_id])
     if @meal.reading_checks == false
       @meal.update(reading_checks: 'true')
     end
-    redirect_to meals_url(id: @meal.user_id), notice: '既読になりました。'
   end
+  # redirect_to meals_url(id: @meal.user_id), notice: '既読になりました。'
   
   def calendar
     @meals = current_user.meals

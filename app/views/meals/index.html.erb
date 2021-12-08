@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1>a食事一覧</h1>
+  <h1>食事一覧</h1>
 
   <%= search_form_for @q do |f| %>
     <%= f.label :sugar_amount, t('meals.sugar_amount') %>
@@ -74,11 +74,10 @@
 
         <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
           <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
-          <td><%= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %></td>
+          <%#= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %>
+            <td><%= link_to '既読にする', meal_meals_path(meal.id), method: :patch, remote: true, class:"btn btn-outline-success" %></td>
           <% end %>          
         <% end %>
-          <%# else %>
-            <!-- <td></td> -->
 
           <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
