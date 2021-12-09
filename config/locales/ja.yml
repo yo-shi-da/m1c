@@ -12,7 +12,7 @@ ja:
         image: 画像
         start_time: 摂取日
       group:
-        name: グループ名
+        name: 組織名
       personal:
         birth_date: 生年月日
         height: 身長(cm)
@@ -264,7 +264,7 @@ ja:
     destroy: 削除
     calendar: Myカレンダー
   groups:
-    name: グループ名
+    name: 組織名
     owner: 管理者
     join: 参加状況
   members:

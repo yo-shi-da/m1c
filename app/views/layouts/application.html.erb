@@ -46,17 +46,17 @@
               <% if current_user.try(:admin?) %>
                 <%= link_to "管理画面へ", rails_admin_path, class:"btn btn-outline-success" %>
               <% end %>
-              <%= link_to "Mypersonal", personal_path(id: current_user.id), class:"btn btn-outline-primary" %>
+              <%= link_to "個人属性", personal_path(id: current_user.id), class:"btn btn-outline-primary" %>
               <%= link_to "食事投稿", meals_path, class:"btn btn-outline-primary"  %>
               <%= link_to "お気に入り一覧", favorites_path, class:"btn btn-outline-primary" %>
               <%= link_to "グラフ", meal_graph_path(current_user.id), class:"btn btn-outline-primary"  %>
               <%= link_to "カレンダー", meal_calendar_path(current_user.id), class:"btn btn-outline-primary"  %>
               <%= link_to "みんなの食事", homes_path, class:"btn btn-outline-primary"  %>
-              <%= link_to "グループ参加・作成", groups_path, class:"btn btn-outline-primary"  %>
+              <%= link_to "病院・会社へ参加・作成", groups_path, class:"btn btn-outline-primary"  %>
 
               <% if my_group&.owner_id != nil %>
                 <% if my_group.owner_id == current_user.id %>
-                  <%= link_to "メンバー一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
+                  <%= link_to "組織一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
                 <% end %>
               <% end %>
 
