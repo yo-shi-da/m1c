@@ -19,7 +19,8 @@
         <%= form.number_field :sugar_amount, placeholder: "例：100", class: 'form-control' %>
       </div>
     </div>
-
+    
+    <!-- JavaScriptによる自動計算。DBに保存するか否かは、そのデータを使うかどうかで判断？ -->
     <div class="row">
       <div class="form-group">
         <%= form.label t('meals.sugar_cube') %>

@@ -14,8 +14,13 @@
   <body>
     <div id="wrapper">
       <div class="page">
-        <header tabindex="0">
-        <a href="/meals">M1c</a>
+        <header>
+          <div>
+          <a href="/meals">M1c</a>
+          </div>
+          <div class="header_test">
+            <%#= link_to "糖質一覧", personal_path(id: current_user.id), class:"btn btn-outline-primary" %>
+          </div>
         </header>
       <div id="nav-container">
         <div class="bg"></div>
@@ -27,7 +32,6 @@
         <div id="nav-content" tabindex="0">
           <ul>
             <% if user_signed_in? %>
-
 
               <p>氏名：<%= current_user.name %>様</p>
               <% if my_group.present? %>
