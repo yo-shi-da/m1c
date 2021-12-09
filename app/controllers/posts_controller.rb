@@ -4,9 +4,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @meal = Meal.find(@post.meal_id)
     @posts = Post.find_by(meal_id: @meal.id)
-    if @posts != nil
-      redirect_to meal_path(id: @meal.id), notice: '1件のみ投稿可能になります。'
-    elsif @post.save
+    if @post.save
       redirect_to meal_path(id: @meal.id), notice: '投稿しました。'
     else
       redirect_to meal_path(id: @meal.id), notice: '未入力項目があります'
