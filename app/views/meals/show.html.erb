@@ -56,7 +56,8 @@
         <div class="row">
           <div class="form-group">
             <%= form.label t('posts.difference') %>
-            <%= form.number_field :difference, placeholder: "例：50", class: 'form-control' %>
+            <p>「管理者から見た糖質量(g)-糖質量(g)」で自動計算しております。修正する場合、入力して下さい。</p>
+            <%= form.number_field :difference, placeholder: "例：50　→　100", class: 'form-control' %>
           </div>
         </div>
 
