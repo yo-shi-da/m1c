@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2021_12_09_050722) do
   create_table "foods", force: :cascade do |t|
     t.integer "classification"
     t.string "food_name"
-    t.integer "food_amount"
-    t.integer "sugar_amount"
+    t.float "food_amount"
+    t.float "sugar_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
