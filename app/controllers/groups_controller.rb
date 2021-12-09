@@ -3,7 +3,6 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-    @current_user_group = my_group
     @group_user = Member.find_by(user_id: current_user.id)
   end
 

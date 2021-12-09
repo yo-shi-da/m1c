@@ -19,8 +19,8 @@
           <% if current_user.id == group.owner_id %>
             <td><p>あなたは、この組織の管理者です。</p></td>
           <% else %>
-              <% if @current_user_group != nil %>
-                <% if group == @current_user_group %>
+              <% if my_group != nil %>
+                <% if group == my_group %>
                   <td><%= link_to '解除', member_path(id: @group_user.id), method: :delete, class:"btn btn-outline-danger" %></td>
                   <td></td>
                   <td></td>
