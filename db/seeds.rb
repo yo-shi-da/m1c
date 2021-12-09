@@ -18,33 +18,57 @@ names = [
 ]
 
 # Personl(26)
+# binding.pry
+# birth_dates = ['Fri, 01 Mar 1975', 'Mon, 02 Mar 1976']
 names.each_with_index do |name, i|
+  genders = %w(男 女)
+  birth_dates = [
+    '01 Mar 1975', 
+    '02 Mar 1976', 
+    '03 Mar 1977',
+    '04 Mar 1978',
+    '05 Mar 1979',
+    '06 Mar 1980',
+    '07 Mar 1981',
+    '08 Mar 1982',
+    '09 Mar 1983',
+    '10 Mar 1984',
+    '11 Mar 1985',
+    '12 Mar 1986',
+    '13 Mar 1987',
+    '14 Mar 1988',
+    '15 Mar 1989',
+    '16 Mar 1990'
+  ]
   Personal.create(
-    birth_date: 'Fri, 02 Mar 1975', 
-    height: '175', 
-    body_weight: '65',
-    gender: '男',
-    bmi: '22',
-    waist_circumference: '80',
-    hba_onec: '5',
+    birth_date: birth_dates.sample, 
+    height: rand(160..190), 
+    body_weight: rand(50..99),
+    gender: genders.sample,
+    bmi: rand(18..30),
+    waist_circumference: rand(65..99),
+    hba_onec: rand(5..7),
     underlying_disease: name,
-    intake_per_oneday: '100',
+    intake_per_oneday: rand(100..400),
     remarks: name,
     user_id: i + 1
   )
 end
 
 # # OK
-# Personal.create(birth_date: 'Fri, 02 Mar 1956', height: '175', body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "name", intake_per_oneday: '10', remarks: "a", user_id: 5);
+# Personal.create(birth_date: 'Fri, 02 Mar 1956', height: rand(100..150), body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "test", intake_per_oneday: '10', remarks: "test", user_id: 5);
 
 # Meal
+# start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
 names.each_with_index do |name, i|
+  classifications = %w(朝 昼 夜 間食)
   Meal.create(
-  sugar_amount: '100',
-  sugar_cube: '25',
-  classification: '朝',
-  image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
-  start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+  sugar_amount: rand(100..400),
+  sugar_cube: rand(10..100),
+  classification: classifications.sample,
+  image: File.open("#{Rails.root}/public/menu#{rand(1..9)}.jpg"),
+  # image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  start_time: Date.today,
   reading_checks: 'false',
   remarks: name,
   user_id: i + 1 
@@ -164,8 +188,8 @@ owner_comments = [
 owner_comments.each_with_index do |owner_comment, i|
   Post.create(
     owner_comment: owner_comment,
-    owner_sugar_amount: '10',
-    difference: '10',
+    owner_sugar_amount: rand(300..500),
+    difference: rand(100..300),
     meal_id: i + 1
   )
 end
