@@ -1,6 +1,8 @@
 <div class="container">
   <h1 class="text-center">糖質一覧表</h1>
   <%= link_to t('button.new'), new_food_path, class:"btn btn-outline-primary" %><br>
+  <p>糖質量をクリックすることで並び替えすることができます。</p>
+  <p>右上の「糖質一覧」を押すと元に戻ります。</p>
 
   <table class="table table-hover">
     <thead>
@@ -9,7 +11,7 @@
         <th><%= t('foods.classification') %></th>
         <th><%= t('foods.food_name') %></th>
         <th><%= t('foods.food_amount') %></th>
-        <th><%= t('foods.sugar_amount') %></th>
+        <th><%= sort_link(@q, :sugar_amount, t('foods.sugar_amount')) %></th>
         <th colspan="3"></th>
       </tr>
     </thead>

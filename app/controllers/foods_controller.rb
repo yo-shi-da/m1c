@@ -1,12 +1,11 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
-  # GET /foods
   def index
-    @foods = Food.all
+    @q = Food.all.ransack(params[:q])
+    @foods = @q.result
   end
 
-  # GET /foods/new
   def new
     @food = Food.new
   end
@@ -14,11 +13,9 @@ class FoodsController < ApplicationController
   def show
   end
 
-  # GET /foods/1/edit
   def edit
   end
 
-  # POST /foods
   def create
     @food = Food.new(food_params)
 
@@ -29,7 +26,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /foods/1
   def update
     if @food.update(food_params)
       redirect_to @food, notice: '編集しました。'
@@ -38,7 +34,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # DELETE /foods/1
   def destroy
     @food.destroy
     redirect_to foods_url, notice: '削除しました。'
