@@ -23,6 +23,10 @@ ja:
         hba_onec: HbA1c
         underlying_disease: 基礎疾患
         intake_per_oneday: 1日あたりの目安摂取量
+      food:
+        food_name: 食品名
+        food_amount: 量
+        sugar_amount: 糖質量
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -266,7 +270,10 @@ ja:
   members:
     name: 名前
     email: Email
-
-
+  foods:
+    classification: 区分
+    food_name: 食品名
+    food_amount: 量
+    sugar_amount: 糖質量
 
 

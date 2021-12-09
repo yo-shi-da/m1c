@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="text-center">糖質一覧表</h1>
+  <%= link_to t('button.new'), new_food_path, class:"btn btn-outline-primary" %><br>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th>No.</th>
+        <th><%= t('foods.classification') %></th>
+        <th><%= t('foods.food_name') %></th>
+        <th><%= t('foods.food_amount') %></th>
+        <th><%= t('foods.sugar_amount') %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @foods.each_with_index do |food, i| %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td><%= food.classification %></td>
+          <td><%= food.food_name %></td>
+          <td><%= food.food_amount %>g</td>
+          <td><%= food.sugar_amount %>g</td>
+          <td><%= link_to t('button.edit'), edit_food_path(food), class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.destroy'), food, method: :delete, data: { confirm: '削除しますか?' }, class:"btn btn-outline-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
