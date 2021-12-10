@@ -52,10 +52,10 @@
       </tr>  
     </table>
   </div>
-
   <% if current_user.id == @user_personal.user_id %>
     <%= link_to t('button.edit'), edit_personal_path(current_user.id), class:"btn btn-outline-primary" %>
   <% end %>
+  
 <% end %>
 <%= link_to '食事一覧へ', meals_path(id: @user.id), class:"btn btn-outline-primary" %>
 

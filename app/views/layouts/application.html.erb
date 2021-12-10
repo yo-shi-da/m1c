@@ -38,7 +38,7 @@
 
               <p>氏名：<%= current_user.name %>様</p>
               <% if my_group.present? %>
-                <p>所属：<%= my_group.name %></p>
+                <p>会社名：<%= my_group.name %></p>
               <% else %>
                 <p>未所属</p>
               <% end %>
@@ -52,11 +52,11 @@
               <%= link_to "グラフ", meal_graph_path(current_user.id), class:"btn btn-outline-primary"  %>
               <%= link_to "カレンダー", meal_calendar_path(current_user.id), class:"btn btn-outline-primary"  %>
               <%= link_to "みんなの食事", homes_path, class:"btn btn-outline-primary"  %>
-              <%= link_to "病院・会社へ参加・作成", groups_path, class:"btn btn-outline-primary"  %>
+              <%= link_to "会社へ参加・作成", groups_path, class:"btn btn-outline-primary"  %>
 
               <% if my_group&.owner_id != nil %>
                 <% if my_group.owner_id == current_user.id %>
-                  <%= link_to "組織一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
+                  <%= link_to "社員一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
                 <% end %>
               <% end %>
 
@@ -74,7 +74,7 @@
     <% if user_signed_in? %>
       <% if Member.find_by(user_id: current_user&.id) == nil %>
         <div class="alert alert-primary" role="alert">
-          <p>現在グループに所属していません。グループに参加して管理者に食事内容を確認してもらいましょう！</p>
+          <p>現在どの会社に所属していません。会社に参加して管理者に食事内容を確認してもらいましょう！</p>
         </div>
       <% end %>
     <% end %>

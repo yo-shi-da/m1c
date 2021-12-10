@@ -1,7 +1,7 @@
-
 <div class="container">
   <h1>食事一覧</h1>
 
+  <!--ransack-->
   <%= search_form_for @q do |f| %>
     <%= f.label :sugar_amount, t('meals.sugar_amount') %>
     <%= f.number_field :sugar_amount_gteq, min: '0' %>以上～
@@ -13,6 +13,7 @@
     <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
   <br>
 
+  <!--csv-->
   <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
     <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
       <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
@@ -35,15 +36,7 @@
         <th><%= t('meals.sugar_cube') %></th>
         <th><%= t('meals.classification') %></th>
 
-        <% if my_group&.owner_id == current_user.id && params[:id].to_i == current_user.id %><!-- GroupOwnerが参加者ページに遷移し、オーナーだった場合 -->
-          <th></th>
-        <% elsif my_group&.owner_id == current_user.id && params[:id].present?  %><!-- GroupOwnerが参加者ページに遷移し、オーナーでない場合 -->
-          <th><%= t('meals.reading_checks') %></th>
-        <% elsif my_group&.owner_id != current_user.id %><!-- ログイン後、GroupOwnerでない場合 -->
-          <th><%= t('meals.reading_checks') %></th>
-        <% else %><!-- ログイン後、GroupOwner -->
-          <th></th>
-        <% end %>
+        <th><%= view_user_ownser_check_helper %></th>
 
         <th colspan="5"></th>
       </tr>
@@ -54,24 +47,8 @@
           <td><%= meal.sugar_amount %>g</td>
           <td>約<%= meal.sugar_cube %>個分</td>
           <td><%= meal.classification %></td>
-        
-        <% if my_group&.owner_id == current_user.id && params[:id].to_i == current_user.id %><!-- GroupOwnerが参加者ページに遷移し、オーナーだった場合 -->
-          <td></td>
-        <% elsif my_group&.owner_id == current_user.id && params[:id].present?  %><!-- GroupOwnerが参加者ページに遷移し、オーナーでない場合 -->
-          <% if meal.reading_checks %>
-            <td>既読</td>
-          <% else %>
-            <td id="meal_r<%= meal.id %>">未読</td>
-          <% end %>
-        <% elsif my_group&.owner_id != current_user.id %><!-- ログイン後、GroupOwnerでない場合 -->
-          <% if meal.reading_checks %>
-            <td>既読</td>
-          <% else %>
-            <td>未読</td>
-          <% end %>
-        <% else %><!-- ログイン後、GroupOwner -->
-          <td></td>
-        <% end %>
+
+          <td><%= view_user_ownser_read_changes_helper %></td>
 
         <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
           <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>

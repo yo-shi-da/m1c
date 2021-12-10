@@ -13,9 +13,8 @@ end
 # Admin
 User.create(name: 'admin', email: 'admin@com.jp', password: '000000', password_confirmation: '000000', admin: true)
 
-names = [
-	"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
-]
+names = %w(a b c d e f g h i j k l m n o p q r s t u v w x y)
+# "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
 
 # Personl(26)
 # binding.pry
