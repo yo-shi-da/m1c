@@ -1,8 +1,30 @@
 users = { 
-  a: "a@com.jp", b: "b@com.jp", c: "c@com.jp", d: "d@com.jp", e: "e@com.jp", f: "f@com.jp", g: "g@com.jp", 
-  h: "h@com.jp", i: "i@com.jp", j: "j@com.jp", k: "k@com.jp", l: "l@com.jp", m: "m@com.jp", n: "n@com.jp", 
-  o: "o@com.jp", p: "p@com.jp", q: "q@com.jp", r: "r@com.jp", s: "s@com.jp", t: "t@com.jp", u: "u@com.jp", 
-  v: "v@com.jp", w: "w@com.jp", x: "x@com.jp", y: "y@com.jp", z: "z@com.jp",
+  "ザビエル(a)": "a@com.jp", 
+  "中大兄皇子(b)": "b@com.jp", 
+  "大塩平八郎(c)": "c@com.jp", 
+  "近松門左衛門(d)": "d@com.jp", 
+  "小野妹子(e)": "e@com.jp", 
+  "卑弥呼(f)": "f@com.jp", 
+  "釈迦(g)": "g@com.jp", 
+  "ハイデガー(h)": "h@com.jp", 
+  "イエス・キリスト(i)": "i@com.jp", 
+  "マックスウェーバー(j)": "j@com.jp", 
+  "カント(k)": "k@com.jp", 
+  "レイチェルカーソン(l)": "l@com.jp", 
+  "マザーテレサ(m)": "m@com.jp", 
+  "ニーチェ(n)": "n@com.jp", 
+  "ケネディ(o)": "o@com.jp", 
+  "ピタゴラス(p)": "p@com.jp", 
+  "ドストエフスキー(q)": "q@com.jp", 
+  "ルソー(r)": "r@com.jp", 
+  "リンカーン(s)": "s@com.jp", 
+  "トルストイ(t)": "t@com.jp", 
+  "ヘーゲル(u)": "u@com.jp", 
+  "プラトン(v)": "v@com.jp", 
+  "ウィトゲンシュタイン(w)": "w@com.jp", 
+  "ソクラテス(x)": "x@com.jp", 
+  "ガリレオ・ガリレイ(y)": "y@com.jp", 
+  "ケインズ(z)": "z@com.jp"
 }
 
 # Users(26)
@@ -13,7 +35,34 @@ end
 # Admin
 User.create(name: 'admin', email: 'admin@com.jp', password: '000000', password_confirmation: '000000', admin: true)
 
-names = %w(a b c d e f g h i j k l m n o p q r s t u v w x y)
+names = %w(
+  ザビエル(a) 
+  中大兄皇子(b) 
+  大塩平八郎(c) 
+  近松門左衛門(d) 
+  小野妹子(e) 
+  卑弥呼(f) 
+  釈迦(g) 
+  ハイデガー(h) 
+  イエス・キリスト(i) 
+  マックスウェーバー(j) 
+  カント(k) 
+  レイチェルカーソン(l) 
+  マザーテレサ(m) 
+  ニーチェ(n) 
+  ケネディ(o) 
+  ピタゴラス(p) 
+  ドストエフスキー(q) 
+  ルソー(r) 
+  リンカーン(s) 
+  トルストイ(t) 
+  ヘーゲル(u) 
+  プラトン(v) 
+  ウィトゲンシュタイン(w) 
+  ソクラテス(x) 
+  ガリレオ・ガリレイ(y) 
+  ケインズ(z)
+)
 # "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
 
 # Personl(26)
@@ -155,11 +204,11 @@ end
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
 
 # Group
-Group.create(name: 'a_group', owner_id: '1')
-Group.create(name: 'b_group', owner_id: '2')
-Group.create(name: 'c_group', owner_id: '3')
-Group.create(name: 'd_group', owner_id: '4')
-Group.create(name: 'e_group', owner_id: '5')
+Group.create(name: '県立A病院', owner_id: '1')
+Group.create(name: '県立B病院', owner_id: '2')
+Group.create(name: '県立C病院', owner_id: '3')
+Group.create(name: '県立D病院', owner_id: '4')
+Group.create(name: '県立E病院', owner_id: '5')
 
 # Member
 Member.create(user_id: '1', group_id: '1')
