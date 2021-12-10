@@ -23,6 +23,15 @@
             <th class="table-primary col-4"><%= t('meals.classification') %></th>
             <td><%= @meal.classification %></td>
           </tr>
+          <tr>
+            <th class="table-primary col-4"><%= t('groups.name') %></th>
+              <%# binding.pry %>
+            <% if @group.any? %>
+              <td><%= @group.first.name %></td>
+            <% else %>
+              <td>病院参加しておりませんので、表示されません。</td>
+            <% end %>
+          </tr>
         </table>
         <% unless @meal.user_id == current_user.id %>
           <% if @favorite.nil? %>

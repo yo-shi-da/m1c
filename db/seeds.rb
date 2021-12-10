@@ -1,5 +1,5 @@
 users = { 
-  "ザビエル(a)": "a@com.jp", 
+  "チンギス・ハーン(a)": "a@com.jp", 
   "中大兄皇子(b)": "b@com.jp", 
   "大塩平八郎(c)": "c@com.jp", 
   "近松門左衛門(d)": "d@com.jp", 
@@ -9,21 +9,21 @@ users = {
   "後醍醐天皇(h)": "h@com.jp", 
   "イエス・キリスト(i)": "i@com.jp", 
   "ペリー(j)": "j@com.jp", 
-  "カント(k)": "k@com.jp", 
+  "源頼朝(k)": "k@com.jp", 
   "レイチェルカーソン(l)": "l@com.jp", 
   "マザーテレサ(m)": "m@com.jp", 
   "ニーチェ(n)": "n@com.jp", 
-  "ケネディ(o)": "o@com.jp", 
-  "ピタゴラス(p)": "p@com.jp", 
+  "サビエル(o)": "o@com.jp", 
+  "与謝蕪村(p)": "p@com.jp", 
   "ドストエフスキー(q)": "q@com.jp", 
-  "ルソー(r)": "r@com.jp", 
+  "足利尊氏(r)": "r@com.jp", 
   "リンカーン(s)": "s@com.jp", 
-  "トルストイ(t)": "t@com.jp", 
-  "ヘーゲル(u)": "u@com.jp", 
+  "(t)": "t@com.jp", 
+  "伊藤博文(u)": "u@com.jp", 
   "プラトン(v)": "v@com.jp", 
   "ウィトゲンシュタイン(w)": "w@com.jp", 
   "ソクラテス(x)": "x@com.jp", 
-  "ガリレオ・ガリレイ(y)": "y@com.jp", 
+  "坂上田村麻呂(y)": "y@com.jp", 
   "ケインズ(z)": "z@com.jp"
 }
 
@@ -99,6 +99,7 @@ names.each_with_index do |name, i|
     underlying_disease: name,
     intake_per_oneday: rand(100..400),
     examination_ticket_number: rand(100000..999999),
+    image: File.open("#{Rails.root}/public/great_man#{i}.jpg"),
     remarks: name,
     user_id: i + 1
   )

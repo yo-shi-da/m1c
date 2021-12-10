@@ -21,7 +21,7 @@
           <td></td>
           <% if current_user.id == group.owner_id %>
             <td><%= link_to t('button.edit'), edit_group_path(group), class:"btn btn-outline-primary" %></td>
-            <td><%= link_to t('button.destroy'), group, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'グループメンバー全員消えますよ?' } %></td>
+            <td><%= link_to t('button.destroy'), group, class:"btn btn-outline-danger", method: :delete, data: { confirm: '参加している患者一覧が消去されますが、よろしいですか？（患者様の情報は削除されません。）' } %></td>
           <% end %>
         </tr>
       <% end %>
