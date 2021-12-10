@@ -15,7 +15,6 @@ class Meal < ApplicationRecord
   has_one :post, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :users_favorites, through: :favorites, source: :user
-  # validate :sugar_amount_test
   
   enum classification: {
     朝: 0,
@@ -25,12 +24,6 @@ class Meal < ApplicationRecord
   }  
   
   private
-
-  # def sugar_amount_test
-  #   if q[sugar_amount_gteq] == 1
-  #     errors.add(:sugar_amount_gteq, "Error")
-  #   end
-  # end
   
   def start_time_cannot_be_in_the_future
     if start_time&.future?
