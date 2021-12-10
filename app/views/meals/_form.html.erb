@@ -19,11 +19,12 @@
         <%= form.number_field :sugar_amount, placeholder: "例：100", class: 'form-control' %>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="form-group">
         <%= form.label t('meals.sugar_cube') %>
-        <%= form.number_field :sugar_cube, placeholder: "例：25", class: 'form-control' %>
+        <p>糖質量（g）から「糖質4g＝1角砂糖」で自動計算（四捨五入）しております。修正する場合、入力して下さい。</p>
+        <%= form.number_field :sugar_cube, placeholder: "例：25個　→　30個", class: 'form-control' %>
       </div>
     </div>
 

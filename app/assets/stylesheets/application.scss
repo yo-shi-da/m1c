@@ -27,7 +27,9 @@ footer {
 }
 
  body {
-  color: darkgray;
+  color: black;
+  font-family:'メイリオ', 'Meiryo', sans-serif;
+  // color: darkgray;
   font-size:20px;
 }
 
@@ -83,6 +85,22 @@ header {
   justify-content: center;
   align-items: center;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  // margin-right: 250px;
+}
+
+.header1 {
+  font-style: italic;
+  font-size: 50px;
+  margin-left: 700px;
+}
+
+.header2 {
+  margin-left: 700px;
+}
+
+.header3 {
+  // margin-right: 10px;
+  margin-left: 30px;
 }
 
 #nav-container {

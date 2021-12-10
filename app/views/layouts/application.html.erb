@@ -14,8 +14,16 @@
   <body>
     <div id="wrapper">
       <div class="page">
-        <header tabindex="0">
-        <a href="/meals">M1c</a>
+        <header>
+          <div class="header1">
+            <a href="/meals">M1c</a>
+          </div>
+          <div class="header2">
+            <%= link_to "糖質ガイド", foods_path, class:"btn btn-outline-danger" %>
+          </div>
+          <div class="header3">
+            <%= link_to "困ったときガイド", foods_path, class:"btn btn-outline-dark" %>
+          </div>
         </header>
       <div id="nav-container">
         <div class="bg"></div>
@@ -28,10 +36,9 @@
           <ul>
             <% if user_signed_in? %>
 
-
               <p>氏名：<%= current_user.name %>様</p>
               <% if my_group.present? %>
-                <p>所属：<%= my_group.name %></p>
+                <p>病院名：<%= my_group.name %></p>
               <% else %>
                 <p>未所属</p>
               <% end %>
@@ -39,17 +46,17 @@
               <% if current_user.try(:admin?) %>
                 <%= link_to "管理画面へ", rails_admin_path, class:"btn btn-outline-success" %>
               <% end %>
-              <%= link_to "Mypersonal", personal_path(id: current_user.id), class:"btn btn-outline-primary" %>
+              <%= link_to "あなたの情報", personal_path(id: current_user.id), class:"btn btn-outline-primary" %>
               <%= link_to "食事投稿", meals_path, class:"btn btn-outline-primary"  %>
               <%= link_to "お気に入り一覧", favorites_path, class:"btn btn-outline-primary" %>
               <%= link_to "グラフ", meal_graph_path(current_user.id), class:"btn btn-outline-primary"  %>
               <%= link_to "カレンダー", meal_calendar_path(current_user.id), class:"btn btn-outline-primary"  %>
               <%= link_to "みんなの食事", homes_path, class:"btn btn-outline-primary"  %>
-              <%= link_to "グループ参加・作成", groups_path, class:"btn btn-outline-primary"  %>
+              <%= link_to "病院へ参加・作成", groups_path, class:"btn btn-outline-primary"  %>
 
               <% if my_group&.owner_id != nil %>
                 <% if my_group.owner_id == current_user.id %>
-                  <%= link_to "メンバー一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
+                  <%= link_to "患者一覧", member_all_path(id: my_group.id), class:"btn btn-outline-success", method: :get %>
                 <% end %>
               <% end %>
 
@@ -67,7 +74,7 @@
     <% if user_signed_in? %>
       <% if Member.find_by(user_id: current_user&.id) == nil %>
         <div class="alert alert-primary" role="alert">
-          <p>現在グループに所属していません。グループに参加して管理者に食事内容を確認してもらいましょう！</p>
+          <p>現在どの病院に所属していません。診察券を見て病院に参加して医師に食事内容を確認してもらいましょう！</p>
         </div>
       <% end %>
     <% end %>

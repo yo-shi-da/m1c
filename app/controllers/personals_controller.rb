@@ -1,6 +1,6 @@
 class PersonalsController < ApplicationController
-  before_action :set_personal, only: [:destroy]
-  before_action :current_user_personal, only: [:show, :edit]
+  before_action :set_personal, only: %i[destroy]
+  before_action :current_user_personal, only: %i[show edit]
 
   def show
     if current_user.id == @user.id || current_user.id == my_group&.owner_id

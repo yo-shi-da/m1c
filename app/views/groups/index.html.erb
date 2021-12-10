@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>グループ一覧</h1>
+  <h1><%= t('groups.group_all') %></h1>
 
   <table class="table table-hover">
     <thead>
@@ -14,33 +14,15 @@
     <tbody>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= group.name %></td>
-          <td><%= group.users.first.name %>様</td>
+          <td><%= group.name %> 様</td>
+          <td><%= group.users.first.name %> 様</td>
+          <td><%= group_participation_helper(group) %></td>
+          <td></td>
+          <td></td>
           <% if current_user.id == group.owner_id %>
-            <td><p>あなたは、Groupオーナーです。</p></td>
-          <% else %>
-              <% if @current_user_group != nil %>
-                <% if group == @current_user_group %>
-                  <td><%= link_to '解除', member_path(id: @group_user.id), method: :delete, class:"btn btn-outline-danger" %></td>
-                  <td></td>
-                  <td></td>
-                <% else %>
-                  <td><p>他グループに参加中の為、このグループには参加不可です。</p></td>
-                  <td></td>
-                  <td></td>
-                <% end %>
-              <% else %>
-                <td><%= link_to '参加する', members_path(group_id: group.id), method: :post, class:"btn btn-outline-danger" %></td>
-                  <td></td>
-                  <td></td>
-              <% end %>
-          <% end %>
-
-          <% if group.owner_id == current_user.id %>
             <td><%= link_to t('button.edit'), edit_group_path(group), class:"btn btn-outline-primary" %></td>
             <td><%= link_to t('button.destroy'), group, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'グループメンバー全員消えますよ?' } %></td>
           <% end %>
-
         </tr>
       <% end %>
     </tbody>

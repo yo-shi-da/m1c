@@ -1,9 +1,8 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :update, :destroy]
+  before_action :set_group, only: %i[show update destroy]
 
   def index
     @groups = Group.all
-    @current_user_group = my_group
     @group_user = Member.find_by(user_id: current_user.id)
   end
 
@@ -40,8 +39,7 @@ class GroupsController < ApplicationController
   end
 
   def member_all
-    @group = my_group
-    @group_members = @group.users
+    @group_members = my_group.users
   end
 
   private

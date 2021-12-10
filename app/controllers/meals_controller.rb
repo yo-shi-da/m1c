@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:edit, :update, :destroy]
+  before_action :set_meal, only: %i[edit update destroy]
 
   def index
     if params[:id].present?
@@ -50,7 +50,6 @@ class MealsController < ApplicationController
 
   def destroy
     @meal.destroy
-    redirect_to meals_url, notice: '削除しました。'
   end
 
   def read_changes
@@ -59,7 +58,6 @@ class MealsController < ApplicationController
       @meal.update(reading_checks: 'true')
     end
   end
-  # redirect_to meals_url(id: @meal.user_id), notice: '既読になりました。'
   
   def calendar
     @meals = current_user.meals
