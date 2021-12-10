@@ -1,5 +1,5 @@
 <div class="container">
-<h1>「<%= @user.name %>」さんの情報</h1>
+<h1 class="text-center">「<%= @user.name %>」さんの情報</h1>
 
 <% unless @user_personal.present? %>
   <br />
@@ -8,49 +8,63 @@
 
 <% if @user_personal.present? %>
   <div class="row">
+    <div class="col-sm-6">
+      <h3>プロフィール画像</h3>
+      <% if @user_personal.image.present? %>
+        <%= image_tag @user_personal.image.url %>
+      <% else %>
+        <p>画像はありません。</p>
+      <% end %>
+    </div>
 
-    <table class="table table-hover">
-      <tr>
-        <th class="table-primary col-4"><%= t('personals.birth_date') %></th>
-        <td><%= @user_personal.birth_date.strftime("%Y年%m月%d日") %></td>
-      </tr>    
-      <tr>
-        <th class="table-primary col-4"><%= t('personals.height') %></th>
-        <td><%= @user_personal.height %>cm</td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.body_weight') %></th>
-        <td><%= @user_personal.body_weight %>kg</td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.gender') %></th>
-        <td><%= @user_personal.gender %></td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.bmi') %></th>
-        <td><%= @user_personal.bmi %></td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.waist_circumference') %></th>
-        <td><%= @user_personal.waist_circumference %>cm</td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.hba_onec') %></th>
-        <td><%= @user_personal.hba_onec %></td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.underlying_disease') %></th>
-        <td><%= @user_personal.underlying_disease %></td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.intake_per_oneday') %></th>
-        <td><%= @user_personal.intake_per_oneday %>g</td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('personals.remarks') %></th>
-        <td><%= @user_personal.remarks %></td>
-      </tr>  
-    </table>
+    <div class="col-sm-6">
+      <table class="table table-hover">
+        <tr>
+          <th class="table-primary col-4"><%= t('personals.birth_date') %></th>
+          <td><%= @user_personal.birth_date.strftime("%Y年%m月%d日") %></td>
+        </tr>    
+        <tr>
+          <th class="table-primary col-4"><%= t('personals.height') %></th>
+          <td><%= @user_personal.height %>cm</td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.body_weight') %></th>
+          <td><%= @user_personal.body_weight %>kg</td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.gender') %></th>
+          <td><%= @user_personal.gender %></td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.bmi') %></th>
+          <td><%= @user_personal.bmi %></td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.waist_circumference') %></th>
+          <td><%= @user_personal.waist_circumference %>cm</td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.hba_onec') %></th>
+          <td><%= @user_personal.hba_onec %></td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.underlying_disease') %></th>
+          <td><%= @user_personal.underlying_disease %></td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.intake_per_oneday') %></th>
+          <td><%= @user_personal.intake_per_oneday %>g</td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.intake_per_oneday') %></th>
+          <td><%= @user_personal.examination_ticket_number %>g</td>
+        </tr>
+        <tr>
+          <th class="table-primary"><%= t('personals.remarks') %></th>
+          <td><%= @user_personal.remarks %></td>
+        </tr>  
+      </table>
+    </div>
   </div>
   <% if current_user.id == @user_personal.user_id %>
     <%= link_to t('button.edit'), edit_personal_path(current_user.id), class:"btn btn-outline-primary" %>

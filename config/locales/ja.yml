@@ -251,6 +251,8 @@ ja:
     hba_onec: HbA1c
     underlying_disease: 基礎疾患
     intake_per_oneday: 1日あたりの目安摂取量
+    examination_ticket_number: 診察券番号
+    image: 画像
     remarks: 備考
   posts:
     owner_comment: 管理者からのコメント

@@ -22,14 +22,14 @@
     <div class="row">
       <div class="form-group">
         <%= form.label t('personals.height') %>
-        <%= form.text_field :height, placeholder: "例：175", class: 'form-control' %>
+        <%= form.number_field :height, placeholder: "例：175", class: 'form-control' %>
       </div>
     </div>
 
     <div class="row">
       <div class="field">
         <%= form.label t('personals.body_weight') %>
-        <%= form.text_field :body_weight, placeholder: "例：65", class: 'form-control' %>
+        <%= form.number_field :body_weight, placeholder: "例：65", class: 'form-control' %>
       </div>
     </div>
 
@@ -43,7 +43,8 @@
     <div class="row">
       <div class="field">
         <%= form.label t('personals.bmi') %>
-        <%= form.text_field :bmi, placeholder: "例：22", class: 'form-control' %>
+        <p>「身長と体重」から自動計算（四捨五入）しております。修正する場合、入力して下さい。</p>
+        <%= form.number_field :bmi, placeholder: "例：22", class: 'form-control' %>
       </div>
     </div>
 
@@ -72,6 +73,20 @@
       <div class="field">
         <%= form.label t('personals.intake_per_oneday') %>
         <%= form.text_field :intake_per_oneday, placeholder: "例：100", class: 'form-control' %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="field">
+        <%= form.label t('personals.examination_ticket_number') %>
+        <%= form.number_field :examination_ticket_number, placeholder: "例：123456", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <%= form.label t('personals.image') %><br />
+        <%= form.file_field :image, class:"btn btn-outline-primary" %>
       </div>
     </div>
 

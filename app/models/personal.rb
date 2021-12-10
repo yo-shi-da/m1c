@@ -9,6 +9,9 @@ class Personal < ApplicationRecord
   validates :underlying_disease, presence: true
   validates :intake_per_oneday, presence: true
   validates :intake_per_oneday, length: { maximum: 6 }
+  validates :examination_ticket_number, presence: true
+  validates :examination_ticket_number, length: { maximum: 6 }
+  mount_uploader :image, ImageUploader
   
   belongs_to :user
 

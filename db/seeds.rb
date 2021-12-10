@@ -98,6 +98,7 @@ names.each_with_index do |name, i|
     hba_onec: rand(5..7),
     underlying_disease: name,
     intake_per_oneday: rand(100..400),
+    examination_ticket_number: rand(100000..999999),
     remarks: name,
     user_id: i + 1
   )
