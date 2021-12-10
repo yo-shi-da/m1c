@@ -12,7 +12,7 @@ ja:
         image: 画像
         start_time: 摂取日
       group:
-        name: 会社名
+        name: 病院名
       personal:
         birth_date: 生年月日
         height: 身長(cm)
@@ -264,11 +264,11 @@ ja:
     destroy: 削除
     calendar: Myカレンダー
   groups:
-    name: 会社名
+    name: 病院名
     owner: 管理者
     join: 参加状況
-    group_all: 会社一覧
-    user_all: 参加社員一覧
+    group_all: 病院一覧
+    user_all: 患者一覧
   members:
     name: 名前
     email: Email

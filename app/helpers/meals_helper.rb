@@ -13,30 +13,25 @@ module MealsHelper
     end
   end
 
-  def view_user_ownser_read_changes_helper
+  def view_user_ownser_read_changes_helper(meal)
     # binding.pry
-    @meals.each do |meal|
-      if my_group&.owner_id == current_user.id && params[:id].to_i == current_user.id
-        p 'a'
-      elsif my_group&.owner_id == current_user.id && params[:id].present?
-        if meal.reading_checks
-          p 'b既読'
-        else
-          p 'c<td id="meal_r<%= meal.id %>">未読</td>'
-          # p '未読'
-        end
-      elsif my_group&.owner_id != current_user.id
-        if meal.reading_checks
-          p 'c既読'
-        else
-          p 'e未読'
-        end
+    if my_group&.owner_id == current_user.id && params[:id].to_i == current_user.id
+      p ''
+    elsif my_group&.owner_id == current_user.id && params[:id].present?
+      if meal.reading_checks
+        p '既読'
       else
-        p 'f'
+        p '未読'
       end
-      
-    end
-
+    elsif my_group&.owner_id != current_user.id
+      if meal.reading_checks
+        p '既読'
+      else
+        p '未読'
+      end
+    else
+      p ''
+    end      
   end
 
 end

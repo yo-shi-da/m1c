@@ -18,7 +18,6 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-
     if @food.save
       redirect_to @food, notice: '作成しました。'
     else
