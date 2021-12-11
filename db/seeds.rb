@@ -116,7 +116,7 @@ names.each_with_index do |name, i|
   sugar_amount: rand(100..400),
   sugar_cube: rand(10..100),
   classification: classifications.sample,
-  image: File.open("#{Rails.root}/public/menu#{rand(1..9)}.jpg"),
+  image: File.open("#{Rails.root}/public/menu/menu#{rand(1..9)}.jpg"),
   # image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
   start_time: Date.today,
   reading_checks: 'false',
