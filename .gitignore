@@ -40,4 +40,4 @@ yarn-debug.log*
 # private
 /his.txt
 /routes.txt
-/public/uploads
+# /public/uploads
