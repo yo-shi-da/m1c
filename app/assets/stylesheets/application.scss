@@ -291,3 +291,8 @@ img {
   padding-top: 30px;
   padding-left: 100px;
 }
+
+.alert alert-primary {
+  z-index: 500; //これで重なりを解消できる。
+  position:fixed;
+}
