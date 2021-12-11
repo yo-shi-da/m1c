@@ -13,8 +13,7 @@
       <% if @user_personal.image.present? %>
         <%= image_tag @user_personal.image.url %>
       <% else %>
-        <p>画像はありません。</p>
-        <%#= image_tag @user_personal.image.url 画像がない場合、画像がない画像を表示する。%> 
+        <%= image_tag '/noimage.png' %> 
       <% end %>
     </div>
 
@@ -57,8 +56,8 @@
           <td><%= @user_personal.intake_per_oneday %>g</td>
         </tr>
         <tr>
-          <th class="table-primary"><%= t('personals.intake_per_oneday') %></th>
-          <td><%= @user_personal.examination_ticket_number %>g</td>
+          <th class="table-primary"><%= t('personals.examination_ticket_number') %></th>
+          <td><%= @user_personal.examination_ticket_number %></td>
         </tr>
         <tr>
           <th class="table-primary"><%= t('personals.remarks') %></th>

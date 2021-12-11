@@ -10,7 +10,7 @@ users = {
   "イエス・キリスト(i)": "i@com.jp", 
   "北条政子(j)": "j@com.jp", 
   "源頼朝(k)": "k@com.jp", 
-  "レイチェルカーソン(l)": "l@com.jp", 
+  "聖徳太子(l)": "l@com.jp", 
   "北条時宗(m)": "m@com.jp", 
   "ニーチェ大先生(n)": "n@com.jp", 
   "サビエル(o)": "o@com.jp", 
@@ -36,32 +36,32 @@ end
 User.create(name: 'admin', email: 'admin@com.jp', password: '000000', password_confirmation: '000000', admin: true)
 
 names = %w(
-  チンギス・ハーン(a)
-  中大兄皇子(b) 
-  大塩平八郎(c) 
-  近松門左衛門(d) 
-  小野妹子(e) 
-  卑弥呼(f) 
-  釈迦(g) 
-  後醍醐天皇(h) 
-  イエス・キリスト(i) 
-  北条政子(j) 
-  源頼朝(k) 
-  レイチェルカーソン(l) 
-  北条時宗(m) 
-  ニーチェ大先生(n) 
-  サビエル(o) 
-  与謝蕪村(p) 
-  ドストエフスキー(q) 
-  足利尊氏(r) 
-  桂太郎(s) 
-  西園寺公望(t)
-  伊藤博文(u)
-  紫式部(v) 
-  ウィトゲンシュタイン(w) 
-  リットン調査団(x) 
-  坂上田村麻呂(y) 
-  リヴァイ兵長(z)
+  チンギス・ハーン(1a)
+  中大兄皇子(2b) 
+  大塩平八郎(3c) 
+  近松門左衛門(4d) 
+  小野妹子(5e) 
+  卑弥呼(6f) 
+  釈迦(7g) 
+  後醍醐天皇(8h) 
+  イエス・キリスト(9i) 
+  北条政子(10j) 
+  源頼朝(11k) 
+  聖徳太子(12l) 
+  北条時宗(13m) 
+  ニーチェ大先生(14n) 
+  サビエル(15o) 
+  与謝蕪村(16p) 
+  ドストエフスキー(17q) 
+  足利尊氏(18r) 
+  桂太郎(19s) 
+  西園寺公望(20t)
+  伊藤博文(21u)
+  紫式部(22v) 
+  ウィトゲンシュタイン(23w) 
+  リットン調査団(24x) 
+  坂上田村麻呂(25y) 
+  リヴァイ兵長(26z)
 )
 # "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
 
@@ -99,7 +99,7 @@ names.each_with_index do |name, i|
     underlying_disease: name,
     intake_per_oneday: rand(100..400),
     examination_ticket_number: rand(100000..999999),
-    # image: File.open("#{Rails.root}/public/great_man#{i}.jpg"),
+    image: File.open("#{Rails.root}/public/great_man/#{i + 1}.jpg"),
     remarks: name,
     user_id: i + 1
   )
