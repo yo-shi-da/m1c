@@ -5,12 +5,12 @@ class Personal < ApplicationRecord
   validates :body_weight, presence: true
   validates :bmi, presence: true
   validates :waist_circumference, presence: true
-  validates :hba_onec, presence: true
-  validates :underlying_disease, presence: true
-  validates :intake_per_oneday, presence: true
+  # validates :hba_onec, presence: true
+  # validates :underlying_disease, presence: true
+  # validates :intake_per_oneday, presence: true
   validates :intake_per_oneday, length: { maximum: 6 }
   validates :examination_ticket_number, presence: true
-  validates :examination_ticket_number, length: { maximum: 6 }
+  validates :examination_ticket_number, length: { maximum: 10 }
   mount_uploader :image, ImageUploader
   
   belongs_to :user

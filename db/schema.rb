@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 2021_12_09_050722) do
     t.integer "gender", null: false
     t.float "bmi", null: false
     t.float "waist_circumference", null: false
-    t.float "hba_onec", null: false
-    t.text "underlying_disease", null: false
-    t.float "intake_per_oneday", null: false
+    t.float "hba_onec"
+    t.text "underlying_disease"
+    t.float "intake_per_oneday"
     t.integer "examination_ticket_number", null: false
     t.string "image"
     t.text "remarks"

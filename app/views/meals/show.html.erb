@@ -37,6 +37,7 @@
   <% if current_user.id == my_group.owner_id && @post == nil %>    
     <hr>
       <div class="container">
+      <h3 class="text-center">管理者からの投稿</h3>
       <%= form_with(model: Post.new, local: true) do |form| %>
 
         <div class="row">
@@ -67,7 +68,7 @@
         <%= form.submit class:"btn btn-outline-success" %>
       </div>
 
-      <%= link_to 'メンバー一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
+      <%= link_to '患者一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
     <% end %>
     <hr>
   <% end %>

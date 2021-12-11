@@ -65,9 +65,9 @@ names = %w(
 )
 # "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
 
-# Personl(26)
 # binding.pry
 # birth_dates = ['Fri, 01 Mar 1975', 'Mon, 02 Mar 1976']
+# Personl(26)
 names.each_with_index do |name, i|
   genders = %w(男 女)
   birth_dates = [
@@ -108,8 +108,9 @@ end
 # # OK
 # Personal.create(birth_date: 'Fri, 02 Mar 1956', height: rand(100..150), body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "test", intake_per_oneday: '10', remarks: "test", user_id: 5);
 
-# Meal
 # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+# image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+# Meal：各Userに対して1件のみ
 names.each_with_index do |name, i|
   classifications = %w(朝 昼 夜 間食)
   Meal.create(
@@ -117,7 +118,6 @@ names.each_with_index do |name, i|
   sugar_cube: rand(10..100),
   classification: classifications.sample,
   image: File.open("#{Rails.root}/public/menu/menu#{i + 1}.jpg"),
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
   start_time: Date.today,
   reading_checks: 'false',
   remarks: name,
@@ -125,82 +125,35 @@ names.each_with_index do |name, i|
   )
 end
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu1.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "a",
-  # user_id: 1
-  # )
+# Groupに対して5件追加。
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu2.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "b",
-  # user_id: 2
-  # )
+group_owners = %w(
+  チンギス・ハーン(1a)
+  中大兄皇子(2b) 
+  大塩平八郎(3c) 
+  近松門左衛門(4d) 
+  小野妹子(5e) 
+)
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu3.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "c",
-  # user_id: 3
-  # )
+5.times do
+  group_owners.each_with_index do |name, i|
+    classifications = %w(朝 昼 夜 間食)
+    today_meal = Date.today
+    Meal.create(
+    sugar_amount: rand(100..400),
+    sugar_cube: rand(10..100),
+    classification: classifications.sample,
+    image: File.open("#{Rails.root}/public/menu/menu#{i + 1}.jpg"),
+    start_time: today_meal - i,
+    reading_checks: 'false',
+    remarks: name,
+    user_id: i + 1 
+    )
+  end
+end
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu4.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "d",
-  # user_id: 4
-  # )
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu5.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "e",
-  # user_id: 5
-  # )
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu6.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "f",
-  # user_id: 6
-  # )
-
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu7.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "g",
-  # user_id: 7
-  # )
 
 # OK
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
