@@ -99,7 +99,7 @@ names.each_with_index do |name, i|
     underlying_disease: name,
     intake_per_oneday: rand(100..400),
     examination_ticket_number: rand(100000..999999),
-    image: File.open("#{Rails.root}/public/great_man#{i}.jpg"),
+    # image: File.open("#{Rails.root}/public/great_man#{i}.jpg"),
     remarks: name,
     user_id: i + 1
   )
