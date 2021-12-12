@@ -16,16 +16,16 @@
     <div class="button_login">
     <% unless user_signed_in? %>
       <%= link_to new_user_session_path, class:"btntextchange" do %>
-        <p class="btn btn-info" >ログイン</p>
+        <p class="btn btn-primary">ログイン</p>
       <% end %>
       <%= link_to new_user_registration_path, class:"btntextchange" do %>
-        <p class="btn btn-info">新規登録</p>
+        <p class="btn btn-primary">新規登録</p>
       <% end %>
       <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
-        <p class="btn btn-info">ゲストログイン（閲覧用）</p>
+        <p class="btn btn-primary">ゲストログイン（閲覧用）</p>
       <% end %>
       <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
-        <p class="btn btn-info">ゲストログイン（管理者）</p>
+        <p class="btn btn-primary">ゲストログイン（管理者）</p>
       <% end %>
     <% end %>      
     </div>

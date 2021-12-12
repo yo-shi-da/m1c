@@ -9,10 +9,10 @@
 <% end %>
 
 <br>
-  <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
-<br>
+<%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
 
 <!--csv-->
+<br />
 <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
   <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
     <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
@@ -21,7 +21,7 @@
   <% end %>
 <% end %>
 
-<br>
+<br />
 <div class="mb-3">
   <%= paginate @meals %>
   <%= page_entries_info @meals, entry_name:'食事' %>
@@ -54,8 +54,10 @@
         <%#= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %>
 
         <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
-        <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
-        <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, remote: true, data: { confirm: '削除しますか？' } %></td>
+        <% if current_user.id == meal.user_id %>
+          <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
+          <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, remote: true, data: { confirm: '削除しますか？' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

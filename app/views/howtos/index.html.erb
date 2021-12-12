@@ -1,6 +1,446 @@
-<div class="container">
-  <div class="row">
-    <h1>Howtos#index</h1>
-    <p>Find me in app/views/howtos/index.html.erb</p>
-  </div>
+<h1>・使い方ガイド</h1>
+  <p>
+  ・M1cの目的<br>
+    患者の日々の糖質を管理することで、生活習慣の改善し、健康で笑顔溢れる生活を送ることです。
+  </p>
+
+<h2>・目次（クリックすると内容が表示されます。）</h2>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item"><!--1-->
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <h3>1.基本操作</h3>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <h4>①初期設定</h4>				
+            
+      <h5>・「管理者・患者」共通</h5>			
+        「新規登録」からアカウントを作成する。		
+            
+      <h5>・管理者</h5>			
+        ログイン後、「病院へ参加・一覧」のリンクをクリックします。		
+        現在、お勤めの先の名前で病院名を作成します。		
+        管理したい患者に「M1c」のリンクをお知らせして下さい。		
+            
+      <h5>・患者</h5>
+        管理者から「M1c」について連絡を受けてください。		
+        ログイン後、「病院へ参加・一覧」のリンクをクリックします。		
+        診察券、病院の管理者を確認し、指定の病院に参加します。		
+            
+    <h4>②基本使用方法</h4>				
+            
+      <h5>・「管理者・患者」共通</h5>			
+        「食事投稿」から食事を投稿することができます。		
+        投稿した食事は、月ごとのカレンダーに反映され、グラフ化されることで視覚的に把握することができます。		
+        「みんなの食事」から参考したい食事内容は、詳細ページの「お気に入りボタン」を押すことで、お気に入りすることができます。		
+        是非、日々の食事に役に立ててください。		
+            
+      <h5>・管理者</h5>	
+        「患者一覧」から患者の情報を見て管理します。		
+        患者の食事内容を詳細ページで確認後、コメントをします。		
+        コメントが終わったら、「既読にする（緑色）」ボタンを押すことで、「未読→既読」に変更されます。		
+        これにより、患者は一目で食事内容をチェックしたか否かを判断できます。		
+        日々、管理していくことで、患者の生活習慣の改善を促していきます。		
+        なお、各患者のページには、「CSVエクスポート（緑色）」ボタンが表示されています。		
+        学会、研究に参考資料に使用することができます。		
+
+      </div>
+    </div>
+  </div><!--1-->
+  <div class="accordion-item"><!--2-->
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <h3>2.ボタンの色</h3>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <table class="table table-hover">
+          <thead>	
+            <tr class="table-warning">
+              <th>No.</th>
+              <th colspan="5">色</th>	
+              <th colspan="5">内容</th>	
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td colspan="5">青</td>
+              <td colspan="5">基本となる色</td>
+            </tr>		
+            <tr>
+              <td>2</td>
+              <td colspan="5">赤</td>
+              <td colspan="5">注意、目立って欲しい色</td>
+            </tr>		
+            <tr>
+              <td>3</td>
+              <td colspan="5">緑</td>
+              <td colspan="5">病院の"管理者"であれば、表示される色</td>
+            </tr>		
+          </tbody>
+        </table>		
+      </div>
+    </div>
+  </div><!--2-->
+  <div class="accordion-item"><!--3-->
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <h3>3.あなたの情報</h3>
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      機能：画像、プロフィール情報を登録します。              
+      <h4>・「プロフィール情報」新規作成について</h4>	
+        <table class="table table-hover">
+          <thead>	
+            <tr class="table-warning">
+              <th>No.</th>
+              <th colspan="3">必須の有無</th>	
+              <th colspan="5">内容</th>	
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td colspan="3">〇</td>
+              <td colspan="5">生年月日</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan="3">〇</td>
+              <td colspan="3">身長</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan="3">〇</td>
+              <td colspan="3">体重</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan="3">〇</td>
+              <td colspan="3">性別</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td colspan="3">〇</td>
+              <td colspan="3">BMI：「身長と体重」から自動計算（四捨五入）しております。修正する場合、入力して下さい。	</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td colspan="3">〇</td>
+              <td colspan="5">腹囲</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td colspan="3">×</td>
+              <td colspan="3">HbA1c：不明な場合、管理者にお問い合わせください。	</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td colspan="3">×</td>
+              <td colspan="3">基礎疾患：あればご入力下さい。</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td colspan="3">×</td>
+              <td colspan="3">1食あたりの目安摂取量：不明な場合、管理者にお問い合わせ下さい。	</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td colspan="3">〇</td>
+              <td colspan="3">診察券番号：参加した病院の診察券番号を入力してください。</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td colspan="3">×</td>
+              <td colspan="3">画像：管理者から一目で分かるよう登録して頂きますと助かります。	</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td colspan="3">×</td>
+              <td colspan="3">備考：その他何かあればご入力下さい。	</td>
+            </tr>
+          </tbody>	
+        </table>
+      </div>
+    </div>
+  </div><!--3-->
+  <div class="accordion-item"><!--4-->
+    <h2 class="accordion-header" id="heading4">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+        <h3>4.食事投稿</h3>
+      </button>
+    </h2>
+    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        機能：日々の食事を投稿します。				
+                
+        <h4>・食事一覧</h4>				
+          投稿した食事の内容が表示されます。			
+          糖質量で指定の範囲で検索することができます。			
+          「糖質量（g）」をクリックすると並び替えができます。			
+          病院に参加している場合、詳細のページに管理者からコメントされます。			
+          コメントされると、「check」が「未読→既読」に変更されるので、一目で判断することができます。			
+                
+        <h4>・「管理者から投稿」について（食事一覧の詳細ページにあります。）</h4>	
+          患者の食事を見て、コメントをします。			
+          <table class="table table-hover">
+          <thead>	
+            <tr class="table-warning">
+              <th>No.</th>
+              <th colspan="3">必須の有無</th>	
+              <th colspan="5">内容</th>	
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td colspan="3">〇</td>
+              <td colspan="5">管理者からのコメント：患者の食事を見て、コメントをお願いします。</td>
+            </tr>		
+            <tr>
+              <td>1</td>
+              <td colspan="3">〇</td>
+              <td colspan="5">管理者から見た糖質量(g)</td>
+            </tr>		
+            <tr>
+              <td>1</td>
+              <td colspan="3">〇</td>
+              <td colspan="5">管理者との差(g)：「管理者から見た糖質量(g)-糖質量(g)」で自動計算しております。<br>修正する場合、入力して下さい。</td>
+            </tr>	
+          </tbody>	
+          </table>
+        <h4>「食事投稿」新規作成について</h4>	
+          <table class="table table-hover">
+            <thead>	
+              <tr class="table-warning">
+                <th>No.</th>
+                <th colspan="3">必須の有無</th>	
+                <th colspan="5">内容</th>	
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td colspan="3">〇</td>
+                <td colspan="5">糖質量：自分が食べた食事の糖質量を入力して下さい。</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td colspan="3">〇</td>
+                <td colspan="5">角砂糖：糖質量（g）から「糖質4g＝1角砂糖」で自動計算（四捨五入）しております。<br>修正する場合、入力して下さい。</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="3">〇</td>
+                <td colspan="5">区分：「朝・昼・夜・間食」から選択して下さい。</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td colspan="3">〇</td>
+                <td colspan="5">摂取日：摂取した日を選択して下さい。<br>未来の日付は登録できませんが、過去の日は可能です。</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td colspan="3">〇</td>
+                <td colspan="5">	画像：食事画像を載せて下さい。こちらを参考に管理者からコメントがあります。	</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td colspan="3">×	備考</td>
+                <td colspan="5">何かあれば入力して下さい。</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div><!--4-->
+  <div class="accordion-item"><!--5-->
+    <h2 class="accordion-header" id="heading5">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+        <h3>5.お気に入り一覧</h3>
+      </button>
+    </h2>
+    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          「みんなの食事」でお気に入りした食事が表示されます。画像と糖質量を見て、今後の食事内容の参考にして下さい。		
+        </p>
+      </div>
+    </div>
+  </div><!--5-->
+  <div class="accordion-item"><!--6-->
+    <h2 class="accordion-header" id="heading6">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+        <h3>6.グラフ</h3>
+      </button>
+    </h2>
+    <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          「食事投稿」した食事の糖質量が、日単位で表示されます。
+          カーソルを縦棒グラフに合わせると、「日にちと糖質量」が表示されます。
+          毎日、投稿することで、変化が視覚的に把握しやすくなります。
+        </p>
+      </div>
+    </div>
+  </div><!--6-->
+  <div class="accordion-item"><!--7-->
+    <h2 class="accordion-header" id="heading7">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+        <h3>7.カレンダー</h3>
+      </button>
+    </h2>
+    <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+        「食事投稿」した食事の糖質量が、投稿した日に表示されます。
+          糖質量はリンクになっておりますので、クリックすると詳細を把握することができます。	
+        </p>
+      </div>
+    </div>
+  </div><!--7-->
+  <div class="accordion-item"><!--8-->
+    <h2 class="accordion-header" id="heading8">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+        <h3>8.みんなの食事</h3>
+      </button>
+    </h2>
+    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          M1cで「食事投稿」したものが全て表示されます。
+          糖質量を検索することができますので、ご自身が食べたい食事の参考情報を把握することができます。
+          詳細を見ると、お気に入りボタンが表示されます。
+          今後の食事に参考にしたい場合、お気に入りしておくと便利です。	
+        </p>
+      </div>
+    </div>
+  </div><!--8-->
+  <div class="accordion-item"><!--9-->
+    <h2 class="accordion-header" id="heading9">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+        <h3>9.病院へ参加・作成</h3>
+      </button>
+    </h2>
+    <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <h4>・患者</h4>				
+        患者は診察券を見て、ご自身が通院されている病院に参加することできます。			
+        ※参加間違いが多発しておりますので、参加なさる際は、今一度、「病院名、管理者」を確認が参加して下さい。			
+        参加することで、現在診療を受けている「医師、管理栄養士、保健師等」の管理に置かれます。			
+        管理下に置かれることで、食事投稿することで管理者からコメントが入力されるようになります。			
+        なお、複数の病院に通院している場合でも、1つしか参加できませんのでご了承下さい。
+        <h4>・管理者</h4>
+        こちらから現在、勤務なさっている病院名をで作成して下さい。			
+        作成しませんと、患者が参加することができず、管理下に置くことができません。			
+        作成すると、ご自身もその病院の一員になります。						
+      </div>
+    </div>
+  </div><!--9-->
+  <div class="accordion-item"><!--10-->
+    <h2 class="accordion-header" id="heading10">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+        <h3>10.患者一覧（管理者のみ表示）</h3>
+      </button>
+    </h2>
+    <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          参加している患者一覧が表示されます。
+          名前がリンクになっておりますので、各患者のページに飛ぶことができます。
+          患者のプロフィール画面に飛びますので、「診察券番号」の確認を行ってから、食事に対してコメントして下さい。	
+        </p>
+      </div>
+    </div>
+  </div><!--10-->
+  <div class="accordion-item"><!--11-->
+    <h2 class="accordion-header" id="heading11">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+        <h3>11.ユーザ情報編集</h3>
+      </button>
+    </h2>
+    <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          メールアドレス、パスコードを変更することができます。
+          変更の際は、くれぐれもお忘れのないようご注意ください。		
+        </p>
+      </div>
+    </div>
+  </div><!--11-->
+  <div class="accordion-item"><!--12-->
+    <h2 class="accordion-header" id="heading12">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+        <h3>12.糖質ガイド</h3>
+      </button>
+    </h2>
+    <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          糖質一覧表を見れます。
+          糖質量に困った際、こちらをご覧下さい。
+          なお、「糖質量」をクリックすることで並び替えすることができます。
+        </p>
+      </div>
+    </div>
+  </div><!--12-->
+  <div class="accordion-item"><!--13-->
+    <h2 class="accordion-header" id="heading13">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+        <h3>13.今後の追加機能予定</h3>
+      </button>
+    </h2>
+    <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <table class="table table-hover">
+          <thead>	
+            <tr class="table-warning">
+              <th>No.</th>
+              <th colspan="5">機能</th>	
+              <th colspan="5">内容</th>	
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td colspan="5">ダイレクトメッセージ機能</td>
+              <td colspan="5">管理者同士でのダイレクトメッセージを送付することができる</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan="5">判定連絡機能</td>
+              <td colspan="5">「1食当たりの目安摂取量」が超えた場合、メールで「管理者と患者」の両方への通知。	</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan="5">月別グラフ機能</td>
+              <td colspan="5">月別にグラフの表示を切り替えることができる。</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan="5">既読連絡機能</td>
+              <td colspan="5">Userの投稿が「既読」に変わった通知がメールにて通知される。</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td colspan="5">判定機能</td>
+              <td colspan="5">管理者が1食あたりの摂取量の範囲に応じて、「A～G」判定される。<br>それを患者が見ることで、日々のモチベーションにつながる。また、管理者から見ても、その人の状態をすぐ把握することができる。</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td colspan="5">参加通知機能</td>
+              <td colspan="5">管理者が作成した病院に参加したらメールにて参加した人の情報を通知される。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div><!--13-->
 </div>

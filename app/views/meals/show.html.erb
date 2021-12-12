@@ -1,3 +1,9 @@
+<% if current_user.id == @meal.user_id %>
+  <h1><%= t('button.show') %></h1>
+<% else %>
+  <h1 style="color:#ff0000">現在、「<%= @meal.user.name %>」様の「食事詳細」を見ています。</h1>
+<% end %>
+
 <div class="row">
   <div class="col-sm-6">
     <table class="table">
@@ -22,10 +28,12 @@
   <div class="col-sm-6">
     <%= image_tag @meal.image.url %>
   </div>
-  <%= link_to t('button.edit'), edit_meal_path(id: @meal.id), class:"btn btn-outline-primary" %>
-  <%= link_to t('button.back'), meals_path(id: @meal.user_id), class:"btn btn-outline-primary" %>
-  <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
 </div>
+<%= link_to t('button.back'), meals_path(id: @meal.user_id), class:"btn btn-outline-primary" %>
+<% if current_user.id == @meal.user_id %>
+  <%= link_to t('button.edit'), edit_meal_path(id: @meal.id), class:"btn btn-outline-primary" %>
+  <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
+<% end %>
 
 <% if my_group&.owner_id != nil %>
   <% if current_user.id == my_group.owner_id && @post == nil %>    

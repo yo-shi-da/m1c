@@ -23,6 +23,7 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
 footer {
   margin-top: auto;
 }
@@ -183,7 +184,7 @@ header {
   left: 0;
   // height: calc(100% - 70px);
   // height: 100%;
-  background: #ececec;
+  background: #f0fff0;
   pointer-events: auto;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   transform: translateX(-100%);
@@ -238,10 +239,6 @@ header {
   padding: 0;
 }
 
-// html, body {
-//   height: 100%;
-// }
-
 a,
 a:visited,
 a:focus,
@@ -269,30 +266,4 @@ img {
   vertical-align: middle;
   height: auto;
   width: 100%;
-}
-
-// TopPage
-.top {
-  background-image: image-url("top.jpg");
-  background-size: cover;
-  color: black;
-  font-size: 24px;
-  height: 773px;
-}
-// padding-top: 150px;
-
-.explanation {
-  padding-top: 80px;
-  padding-left: 50px;
-  line-height: 60px;
-}
-
-.button_login {
-  padding-top: 30px;
-  padding-left: 100px;
-}
-
-.alert alert-primary {
-  z-index: 500; //これで重なりを解消できる。
-  position:fixed;
 }
