@@ -52,6 +52,6 @@ class PersonalsController < ApplicationController
     end
 
     def personal_params
-      params.require(:personal).permit(:birth_date, :height, :body_weight, :gender, :bmi, :waist_circumference, :hba_onec, :underlying_disease, :intake_per_oneday, :remarks, :user_id)
+      params.require(:personal).permit(:birth_date, :height, :body_weight, :gender, :bmi, :waist_circumference, :hba_onec, :underlying_disease, :intake_per_oneday, :examination_ticket_number, :image, :remarks, :user_id, :image_cache)
     end
 end

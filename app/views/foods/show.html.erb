@@ -1,28 +1,24 @@
-<div class="container">
-  <h1>作成した食品の糖質</h1>
-  <div class="row">
-
-    <table class="table table-hover">
-      <tr>
-        <th class="table-primary col-4"><%= t('foods.classification') %></th>
-        <td><%= @food.classification %></td>
-      </tr>    
-      <tr>
-        <th class="table-primary col-4"><%= t('foods.food_name') %></th>
-        <td><%= @food.food_name %></td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('foods.food_amount') %></th>
-        <td><%= @food.food_amount %>g</td>
-      </tr>
-      <tr>
-        <th class="table-primary"><%= t('foods.sugar_amount') %></th>
-        <td><%= @food.sugar_amount %>g</td>
-      </tr>
-      <tr>
-    </table>
-  </div>
+<h1>作成した食品の糖質</h1>
+<div class="row">
+  <table class="table table-hover">
+    <tr>
+      <th class="table-primary col-4"><%= t('foods.classification') %></th>
+      <td><%= @food.classification %></td>
+    </tr>    
+    <tr>
+      <th class="table-primary col-4"><%= t('foods.food_name') %></th>
+      <td><%= @food.food_name %></td>
+    </tr>
+    <tr>
+      <th class="table-primary"><%= t('foods.food_amount') %></th>
+      <td><%= @food.food_amount %>g</td>
+    </tr>
+    <tr>
+      <th class="table-primary"><%= t('foods.sugar_amount') %></th>
+      <td><%= @food.sugar_amount %>g</td>
+    </tr>
+    <tr>
+  </table>
+</div>
 
 <%= link_to '糖質一覧へ', foods_path, class:"btn btn-outline-primary" %>
-
-</div>

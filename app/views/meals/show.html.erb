@@ -1,42 +1,44 @@
-<div class="container">
-  <div class="row">
+<% if current_user.id == @meal.user_id %>
+  <h1><%= t('button.show') %></h1>
+<% else %>
+  <h1 style="color:#ff0000">現在、「<%= @meal.user.name %>」様の「食事詳細」を見ています。</h1>
+<% end %>
 
-    <div class="col-sm-6">
-      <table class="table">
-        <tr>
-          <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
-          <td id="user_sugar_amount"><%= @meal.sugar_amount %>g</td>
-        </tr>
-        <tr>
-          <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
-          <td>約<%= @meal.sugar_cube %>個分</td>
-        </tr>
-        <tr>
-          <th class="table-primary col-4"><%= t('meals.classification') %></th>
-          <td><%= @meal.classification %></td>
-        </tr>
-        <tr>
-          <th class="table-primary col-4"><%= t('meals.remarks') %></th>
-          <td><%= @meal.remarks %></td>
-        </tr>
-      </table>
-    </div>
-      
-    <div class="col-sm-6">
-      <%= image_tag @meal.image.url %>
-    </div>
-
-    <%= link_to t('button.edit'), edit_meal_path(id: @meal.id), class:"btn btn-outline-primary" %>
-    <%= link_to t('button.back'), meals_path(id: @meal.user_id), class:"btn btn-outline-primary" %>
-    <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
-
+<div class="row">
+  <div class="col-sm-6">
+    <table class="table">
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
+        <td id="user_sugar_amount"><%= @meal.sugar_amount %>g</td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
+        <td>約<%= @meal.sugar_cube %>個分</td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.classification') %></th>
+        <td><%= @meal.classification %></td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.remarks') %></th>
+        <td><%= @meal.remarks %></td>
+      </tr>
+    </table>
+  </div>    
+  <div class="col-sm-6">
+    <%= image_tag @meal.image.url %>
   </div>
 </div>
+<%= link_to t('button.back'), meals_path(id: @meal.user_id), class:"btn btn-outline-primary" %>
+<% if current_user.id == @meal.user_id %>
+  <%= link_to t('button.edit'), edit_meal_path(id: @meal.id), class:"btn btn-outline-primary" %>
+  <%= link_to t('button.calendar'), meal_calendar_path(current_user.id), class:"btn btn-outline-primary" %>
+<% end %>
 
 <% if my_group&.owner_id != nil %>
   <% if current_user.id == my_group.owner_id && @post == nil %>    
     <hr>
-      <div class="container">
+      <h3 class="text-center">★管理者からの投稿★</h3>
       <%= form_with(model: Post.new, local: true) do |form| %>
 
         <div class="row">
@@ -62,21 +64,18 @@
         </div>
 
       <%= form.hidden_field :meal_id, value: @meal.id %>
-
       <div class="actions">
         <%= form.submit class:"btn btn-outline-success" %>
       </div>
-
-      <%= link_to 'メンバー一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
+      <%= link_to '患者一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
     <% end %>
     <hr>
   <% end %>
 <% end %>
 
 <% if @post.present? %>
-<div class="container">
   <hr>
-  <h1>管理者からの投稿</h1>
+  <h3 class="text-center">★管理者からの投稿★</h3>
   <table class="table">
     <tr>
       <th class="table-primary col-4"><%= t('posts.owner_comment') %></th>
@@ -92,4 +91,3 @@
     </tr>
   </table>
 <% end %>
-</div>

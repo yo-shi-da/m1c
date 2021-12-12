@@ -1,65 +1,64 @@
-<div class="container">
-  <h1>食事一覧</h1>
+<h1>食事一覧</h1>
 
-  <!--ransack-->
-  <%= search_form_for @q do |f| %>
-    <%= f.label :sugar_amount, t('meals.sugar_amount') %>
-    <%= f.number_field :sugar_amount_gteq, min: '0' %>以上～
-    <%= f.number_field :sugar_amount_lteq, min: '0' %>以下
-    <%= f.submit '検索', class:"btn btn-outline-primary" %>
+<!--ransack-->
+<%= search_form_for @q do |f| %>
+  <%= f.label :sugar_amount, t('meals.sugar_amount') %>
+  <%= f.number_field :sugar_amount_gteq, min: '0' %>以上～
+  <%= f.number_field :sugar_amount_lteq, min: '0' %>以下
+  <%= f.submit '検索', class:"btn btn-outline-primary" %>
+<% end %>
+
+<br>
+<%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
+
+<!--csv-->
+<br />
+<% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
+  <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
+    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
+  <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
+    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
   <% end %>
+<% end %>
 
-  <br>
-    <%= link_to '食事投稿', new_meal_path, class:"btn btn-outline-danger" %>
-  <br>
+<br />
+<div class="mb-3">
+  <%= paginate @meals %>
+  <%= page_entries_info @meals, entry_name:'食事' %>
+</div>
+<p>「糖質量（g）」をクリックすると並び替えができます。</p>
 
-  <!--csv-->
-  <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
-    <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
-      <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
-    <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
-      <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
-    <% end %>
-  <% end %>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
+      <th><%= t('meals.sugar_cube') %></th>
+      <th><%= t('meals.classification') %></th>
+      <th><%= view_user_ownser_check_helper %></th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>      
+    <% @meals.each do |meal| %>
+      <tr id="meal_d<%= meal.id %>">
+        <td><%= meal.sugar_amount %>g</td>
+        <td>約<%= meal.sugar_cube %>個分</td>
+        <td><%= meal.classification %></td>
+        <td id="meal_r<%= meal.id %>"><%= view_user_ownser_read_changes_helper(meal) %></td>
 
-  <br>
-  <div class="mb-3">
-    <%= paginate @meals %>
-    <%= page_entries_info @meals, entry_name:'食事' %>
-  </div>
-  <p>「糖質量（g）」をクリックすると並び替えができます。</p>
+      <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
+        <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
+          <td><%= link_to '既読にする', meal_meals_path(meal.id), method: :patch, remote: true, data: { confirm: '既読にしますか？' }, class:"btn btn-outline-success" %></td>
+        <% end %>          
+      <% end %>
+        <%#= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %>
 
-  <table class="table table-hover">
-    <thead>
-      <tr class="table-primary">
-        <th><%= sort_link(@q, :sugar_amount, t('meals.sugar_amount')) %></th>
-        <th><%= t('meals.sugar_cube') %></th>
-        <th><%= t('meals.classification') %></th>
-        <th><%= view_user_ownser_check_helper %></th>
-        <th colspan="5"></th>
-      </tr>
-    </thead>
-    <tbody>      
-      <% @meals.each do |meal| %>
-        <tr id="meal_d<%= meal.id %>">
-          <td><%= meal.sugar_amount %>g</td>
-          <td>約<%= meal.sugar_cube %>個分</td>
-          <td><%= meal.classification %></td>
-          <td id="meal_r<%= meal.id %>"><%= view_user_ownser_read_changes_helper(meal) %></td>
-
-        <% if my_group&.owner_id == current_user.id && params[:id].present? %><!-- GroupOwnerが参加者ページに遷移したとき -->
-          <% if my_group&.owner_id == current_user.id && meal.reading_checks == false %>
-            <td><%= link_to '既読にする', meal_meals_path(meal.id), method: :patch, remote: true, data: { confirm: '既読にしますか？' }, class:"btn btn-outline-success" %></td>
-          <% end %>          
-        <% end %>
-          <%#= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %>
-
-          <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+        <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+        <% if current_user.id == meal.user_id %>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, remote: true, data: { confirm: '削除しますか？' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-</div>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

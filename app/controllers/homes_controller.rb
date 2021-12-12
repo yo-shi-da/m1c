@@ -6,10 +6,10 @@ class HomesController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @meal = Meal.find(params[:id])
-      @favorite = current_user.favorites.find_by(meal_id: @meal.id)
-    end
+    @meal = Meal.find(params[:id])
+    @user = User.find(@meal.user_id)
+    @group = @user&.joined_group
+    @favorite = current_user.favorites.find_by(meal_id: @meal.id)
   end
   
 end

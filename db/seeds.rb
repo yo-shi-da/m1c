@@ -1,8 +1,30 @@
 users = { 
-  a: "a@com.jp", b: "b@com.jp", c: "c@com.jp", d: "d@com.jp", e: "e@com.jp", f: "f@com.jp", g: "g@com.jp", 
-  h: "h@com.jp", i: "i@com.jp", j: "j@com.jp", k: "k@com.jp", l: "l@com.jp", m: "m@com.jp", n: "n@com.jp", 
-  o: "o@com.jp", p: "p@com.jp", q: "q@com.jp", r: "r@com.jp", s: "s@com.jp", t: "t@com.jp", u: "u@com.jp", 
-  v: "v@com.jp", w: "w@com.jp", x: "x@com.jp", y: "y@com.jp", z: "z@com.jp",
+  "チンギス・ハーン(a)": "a@com.jp", 
+  "中大兄皇子(b)": "b@com.jp", 
+  "大塩平八郎(c)": "c@com.jp", 
+  "近松門左衛門(d)": "d@com.jp", 
+  "小野妹子(e)": "e@com.jp", 
+  "卑弥呼(f)": "f@com.jp", 
+  "釈迦(g)": "g@com.jp", 
+  "後醍醐天皇(h)": "h@com.jp", 
+  "イエス・キリスト(i)": "i@com.jp", 
+  "北条政子(j)": "j@com.jp", 
+  "源頼朝(k)": "k@com.jp", 
+  "聖徳太子(l)": "l@com.jp", 
+  "北条時宗(m)": "m@com.jp", 
+  "ニーチェ大先生(n)": "n@com.jp", 
+  "サビエル(o)": "o@com.jp", 
+  "与謝蕪村(p)": "p@com.jp", 
+  "ドストエフスキー(q)": "q@com.jp", 
+  "足利尊氏(r)": "r@com.jp", 
+  "桂太郎(s)": "s@com.jp", 
+  "西園寺公望(t)": "t@com.jp", 
+  "伊藤博文(u)": "u@com.jp", 
+  "紫式部(v)": "v@com.jp", 
+  "ウィトゲンシュタイン(w)": "w@com.jp", 
+  "リットン調査団(x)": "x@com.jp", 
+  "坂上田村麻呂(y)": "y@com.jp", 
+  "リヴァイ兵長(z)": "z@com.jp"
 }
 
 # Users(26)
@@ -13,12 +35,39 @@ end
 # Admin
 User.create(name: 'admin', email: 'admin@com.jp', password: '000000', password_confirmation: '000000', admin: true)
 
-names = %w(a b c d e f g h i j k l m n o p q r s t u v w x y)
+names = %w(
+  チンギス・ハーン(1a)
+  中大兄皇子(2b) 
+  大塩平八郎(3c) 
+  近松門左衛門(4d) 
+  小野妹子(5e) 
+  卑弥呼(6f) 
+  釈迦(7g) 
+  後醍醐天皇(8h) 
+  イエス・キリスト(9i) 
+  北条政子(10j) 
+  源頼朝(11k) 
+  聖徳太子(12l) 
+  北条時宗(13m) 
+  ニーチェ大先生(14n) 
+  サビエル(15o) 
+  与謝蕪村(16p) 
+  ドストエフスキー(17q) 
+  足利尊氏(18r) 
+  桂太郎(19s) 
+  西園寺公望(20t)
+  伊藤博文(21u)
+  紫式部(22v) 
+  ウィトゲンシュタイン(23w) 
+  リットン調査団(24x) 
+  坂上田村麻呂(25y) 
+  リヴァイ兵長(26z)
+)
 # "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
 
-# Personl(26)
 # binding.pry
 # birth_dates = ['Fri, 01 Mar 1975', 'Mon, 02 Mar 1976']
+# Personl(26)
 names.each_with_index do |name, i|
   genders = %w(男 女)
   birth_dates = [
@@ -49,6 +98,8 @@ names.each_with_index do |name, i|
     hba_onec: rand(5..7),
     underlying_disease: name,
     intake_per_oneday: rand(100..400),
+    examination_ticket_number: rand(100000..999999),
+    image: File.open("#{Rails.root}/public/great_man/#{i + 1}.jpg"),
     remarks: name,
     user_id: i + 1
   )
@@ -57,16 +108,16 @@ end
 # # OK
 # Personal.create(birth_date: 'Fri, 02 Mar 1956', height: rand(100..150), body_weight: '65', gender: '男', bmi: '22', waist_circumference: '80', hba_onec: '5', underlying_disease: "test", intake_per_oneday: '10', remarks: "test", user_id: 5);
 
-# Meal
 # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
+# image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+# Meal：各Userに対して1件のみ
 names.each_with_index do |name, i|
   classifications = %w(朝 昼 夜 間食)
   Meal.create(
   sugar_amount: rand(100..400),
   sugar_cube: rand(10..100),
   classification: classifications.sample,
-  image: File.open("#{Rails.root}/public/menu#{rand(1..9)}.jpg"),
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu#{rand(1..9)}.jpg"),
+  image: File.open("#{Rails.root}/public/menu/menu#{i + 1}.jpg"),
   start_time: Date.today,
   reading_checks: 'false',
   remarks: name,
@@ -74,92 +125,45 @@ names.each_with_index do |name, i|
   )
 end
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu1.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "a",
-  # user_id: 1
-  # )
+# Groupに対して5件追加。
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu2.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "b",
-  # user_id: 2
-  # )
+group_owners = %w(
+  チンギス・ハーン(1a)
+  中大兄皇子(2b) 
+  大塩平八郎(3c) 
+  近松門左衛門(4d) 
+  小野妹子(5e) 
+)
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu3.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "c",
-  # user_id: 3
-  # )
+5.times do
+  group_owners.each_with_index do |name, i|
+    classifications = %w(朝 昼 夜 間食)
+    today_meal = Date.today
+    Meal.create(
+    sugar_amount: rand(100..400),
+    sugar_cube: rand(10..100),
+    classification: classifications.sample,
+    image: File.open("#{Rails.root}/public/menu/menu#{i + 1}.jpg"),
+    start_time: today_meal - i,
+    reading_checks: 'false',
+    remarks: name,
+    user_id: i + 1 
+    )
+  end
+end
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu4.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "d",
-  # user_id: 4
-  # )
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu5.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "e",
-  # user_id: 5
-  # )
 
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu6.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "f",
-  # user_id: 6
-  # )
-
-  # Meal.create(
-  # sugar_amount: '100',
-  # sugar_cube: '25',
-  # classification: '朝',
-  # image: File.open("#{Rails.root}/public/menu/image/1/menu7.jpg"),
-  # start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00',
-  # reading_checks: 'false',
-  # remarks: "g",
-  # user_id: 7
-  # )
 
 # OK
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
 
 # Group
-Group.create(name: 'a_group', owner_id: '1')
-Group.create(name: 'b_group', owner_id: '2')
-Group.create(name: 'c_group', owner_id: '3')
-Group.create(name: 'd_group', owner_id: '4')
-Group.create(name: 'e_group', owner_id: '5')
+Group.create(name: '県立A病院', owner_id: '1')
+Group.create(name: '県立B病院', owner_id: '2')
+Group.create(name: '県立C病院', owner_id: '3')
+Group.create(name: '県立D病院', owner_id: '4')
+Group.create(name: '県立E病院', owner_id: '5')
 
 # Member
 Member.create(user_id: '1', group_id: '1')

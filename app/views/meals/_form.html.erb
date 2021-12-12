@@ -1,64 +1,61 @@
-<div class="container">
+<%= form_with(model: meal, local: true) do |form| %>
+  <% if meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meal.errors.count, "件") %> の未入力があります。</h2>
 
-  <%= form_with(model: meal, local: true) do |form| %>
-    <% if meal.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(meal.errors.count, "件") %> の未入力があります。</h2>
-
-        <ul>
-          <% meal.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('meals.sugar_amount') %>
-        <%= form.number_field :sugar_amount, placeholder: "例：100", class: 'form-control' %>
-      </div>
+      <ul>
+        <% meal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-    
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('meals.sugar_cube') %>
-        <p>糖質量（g）から「糖質4g＝1角砂糖」で自動計算（四捨五入）しております。修正する場合、入力して下さい。</p>
-        <%= form.number_field :sugar_cube, placeholder: "例：25個　→　30個", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('meals.classification') %><br />
-        <%= form.select :classification, Meal.classifications.keys, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('meals.start_time') %>
-        <%= form.date_field :start_time, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('meals.remarks') %>
-        <%= form.text_area :remarks, placeholder: "例：何かあれば入力して下さい。", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('meals.image') %><br />
-        <%= form.file_field :image, class:"btn btn-outline-primary" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-        <%= form.submit class:"btn btn-outline-primary" %>
-    </div>
-
   <% end %>
-</div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('meals.sugar_amount') %>
+      <%= form.number_field :sugar_amount, placeholder: "例：100", class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('meals.sugar_cube') %>
+      <p>糖質量（g）から「糖質4g＝1角砂糖」で自動計算（四捨五入）しております。修正する場合、入力して下さい。</p>
+      <%= form.number_field :sugar_cube, placeholder: "例：25個　→　30個", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('meals.classification') %><br />
+      <%= form.select :classification, Meal.classifications.keys, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('meals.start_time') %>
+      <%= form.date_field :start_time, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('meals.remarks') %>
+      <%= form.text_area :remarks, placeholder: "例：何かあれば入力して下さい。", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('meals.image') %><br />
+      <%= form.file_field :image, class:"btn btn-outline-primary" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= form.submit class:"btn btn-outline-primary" %>
+  </div>
+
+<% end %>

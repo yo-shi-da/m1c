@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_050722) do
     t.integer "sugar_amount", null: false
     t.integer "sugar_cube", null: false
     t.integer "classification", null: false
-    t.text "image", null: false
+    t.string "image", null: false
     t.datetime "start_time", null: false
     t.boolean "reading_checks", default: false, null: false
     t.text "remarks"
@@ -71,9 +71,11 @@ ActiveRecord::Schema.define(version: 2021_12_09_050722) do
     t.integer "gender", null: false
     t.float "bmi", null: false
     t.float "waist_circumference", null: false
-    t.float "hba_onec", null: false
-    t.text "underlying_disease", null: false
-    t.float "intake_per_oneday", null: false
+    t.float "hba_onec"
+    t.text "underlying_disease"
+    t.float "intake_per_oneday"
+    t.integer "examination_ticket_number", null: false
+    t.string "image"
     t.text "remarks"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

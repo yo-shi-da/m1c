@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   root to: 'tops#index'
   
+  get 'howtos', to: 'howtos#index'
   resources :foods
   resources :posts, except: [:index, :show]
   resources :groups

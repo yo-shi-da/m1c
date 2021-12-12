@@ -4,9 +4,9 @@
     <title>M1c</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,7 +22,7 @@
             <%= link_to "糖質ガイド", foods_path, class:"btn btn-outline-danger" %>
           </div>
           <div class="header3">
-            <%= link_to "困ったときガイド", foods_path, class:"btn btn-outline-dark" %>
+            <%= link_to "使い方ガイド", howtos_path, class:"btn btn-outline-danger" %>
           </div>
         </header>
       <div id="nav-container">
@@ -67,14 +67,14 @@
               <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary"  %>
             <% end %>
           </ul>
-        </div>
-      </div>
-    </div>
+        </div><!--nav-content-->
+      </div><!--nav-container-->
+    </div><!--wrapper-->
 
     <% if user_signed_in? %>
       <% if Member.find_by(user_id: current_user&.id) == nil %>
         <div class="alert alert-primary" role="alert">
-          <p>現在どの病院に所属していません。診察券を見て病院に参加して医師に食事内容を確認してもらいましょう！</p>
+          <p>現在どの病院に所属していません。診察券を確認後、病院に参加して管理者に食事内容を確認してもらいましょう！</p>
         </div>
       <% end %>
     <% end %>
@@ -91,12 +91,13 @@
       </div>
     <% end %>
 
+    <div class="container">
       <%= yield %>
+    </div>
 
     <footer>
       <p>Copyright ©︎ 2021 M1c All Rights Reserved.</p>
     </footer>
-  </div>
 
   </body>
 

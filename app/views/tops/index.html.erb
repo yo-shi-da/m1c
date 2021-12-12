@@ -1,37 +1,33 @@
 <div class="top">
-
-  <div class="container">
-    <div class="row">
-    <p class="col-sm-8">
+    <div class="explanation">
+    <p>
       ご飯茶碗1杯あたりにどのくらいの角砂糖が含まれているか知っていますか？<br />
-      約17個分と言われています。<br />      
+      約17個分と言われています。<br />
+      驚きではないでしょうか？<br />
       厚生労働省に発表によると、将来的に糖尿病に罹患する確率は、予備軍を含め8人に1人と言われています。<br />
       糖尿病は、合併症を引き起こす重大な疾病です。<br />
       血糖値、HbA1cなどの数値が高い場合、運動・食事などの生活習慣の改善が必要です。<br />
       そのようなことから日々の食事にフォーカスすることで、<br />
-      生活習慣改善をして欲しいという願いから、糖質管理支援ツール「M1c」が生まれました。
+      生活習慣改善をして欲しいという願いから、糖質管理支援ツール「M1c」を作成しました。<br />
+      <div style="color:#ff0000">※　現在、通院されている「医師、管理栄養士、保健師など」からの紹介が必要です。</div>
     </p>
-  </div>  
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-      <% unless user_signed_in? %>
-          <%= link_to new_user_session_path, class:"btntextchange" do %>
-            <p class="btn btn-info" >ログイン</p>
-          <% end %>
-          <%= link_to new_user_registration_path, class:"btntextchange" do %>
-            <p class="btn btn-info">新規登録</p>
-          <% end %>
-          <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
-            <p class="btn btn-info">ゲストログイン（閲覧用）</p>
-          <% end %>
-          <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
-            <p class="btn btn-info">ゲストログイン（管理者）</p>
-          <% end %>
-      <% end %>      
-      </div>
     </div>
-  </div>
 
-</div>
+    <div class="button_login">
+    <% unless user_signed_in? %>
+      <%= link_to new_user_session_path, class:"btntextchange" do %>
+        <p class="btn btn-primary">ログイン</p>
+      <% end %>
+      <%= link_to new_user_registration_path, class:"btntextchange" do %>
+        <p class="btn btn-primary">新規登録</p>
+      <% end %>
+      <%= link_to users_guest_sign_in_path, method: :post, class:"btntextchange" do %>
+        <p class="btn btn-primary">ゲストログイン（閲覧用）</p>
+      <% end %>
+      <%= link_to users_guest_admin_sign_in_path, method: :post, class:"btntextchange" do %>
+        <p class="btn btn-primary">ゲストログイン（管理者）</p>
+      <% end %>
+    <% end %>      
+    </div>
+
+</div><!--top-->

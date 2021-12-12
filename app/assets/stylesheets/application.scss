@@ -16,12 +16,14 @@
  */
 
 
+
  body,
 #wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 footer {
   margin-top: auto;
 }
@@ -182,7 +184,7 @@ header {
   left: 0;
   // height: calc(100% - 70px);
   // height: 100%;
-  background: #ececec;
+  background: #f0fff0;
   pointer-events: auto;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   transform: translateX(-100%);
@@ -236,10 +238,6 @@ header {
   margin: 0;
   padding: 0;
 }
-
-// html, body {
-//   height: 100%;
-// }
 
 a,
 a:visited,
