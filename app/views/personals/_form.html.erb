@@ -1,107 +1,104 @@
-<div class="container">
-  <%= form_with(model: personal, local: true) do |form| %>
-    <% if personal.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(personal.errors.count, "件") %> の未入力があります。</h2>
-
-        <ul>
-          <% personal.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('personals.birth_date') %><br />
-        <%= form.date_select :birth_date, use_month_numbers: true, start_year:1950, end_year: Time.now.year, prompt:"--" %>
-      </div>
+<%= form_with(model: personal, local: true) do |form| %>
+  <% if personal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(personal.errors.count, "件") %> の未入力があります。</h2>
+      <ul>
+        <% personal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-
-    <div class="row">
-      <div class="form-group">
-        <%= form.label t('personals.height') %>
-        <%= form.number_field :height, placeholder: "例：175", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.body_weight') %>
-        <%= form.number_field :body_weight, placeholder: "例：65", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.gender') %><br />
-        <%= form.select :gender, Personal.genders.keys, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.bmi') %>
-        <p>「身長と体重」から自動計算（四捨五入）しております。修正する場合、入力して下さい。</p>
-        <%= form.number_field :bmi, placeholder: "例：22", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.waist_circumference') %>
-        <%= form.text_field :waist_circumference, placeholder: "例：90", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.hba_onec') %>
-        <%= form.text_field :hba_onec, placeholder: "例：5.2", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.underlying_disease') %>
-        <%= form.text_area :underlying_disease, placeholder: "例：糖尿病",class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.intake_per_oneday') %>
-        <%= form.text_field :intake_per_oneday, placeholder: "例：100", class: 'form-control' %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.examination_ticket_number') %>
-        <%= form.number_field :examination_ticket_number, placeholder: "例：123456", class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.image') %><br />
-        <%= form.file_field :image, class:"btn btn-outline-primary" %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <%= form.label t('personals.remarks') %>
-        <%= form.text_area :remarks, placeholder: "例：何かあれば入力して下さい。", class: 'form-control' %>
-      </div>
-    </div>
-
-    <%= form.hidden_field :id, value: personal.id %>
-
-    <div class="actions">
-      <%= form.submit class:"btn btn-outline-primary" %>
-    </div>
-
   <% end %>
-</div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('personals.birth_date') %><br />
+      <%= form.date_select :birth_date, use_month_numbers: true, start_year:1950, end_year: Time.now.year, prompt:"--" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label t('personals.height') %>
+      <%= form.number_field :height, placeholder: "例：175", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.body_weight') %>
+      <%= form.number_field :body_weight, placeholder: "例：65", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.gender') %><br />
+      <%= form.select :gender, Personal.genders.keys, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.bmi') %>
+      <p>「身長と体重」から自動計算（四捨五入）しております。修正する場合、入力して下さい。</p>
+      <%= form.number_field :bmi, placeholder: "例：22", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.waist_circumference') %>
+      <%= form.text_field :waist_circumference, placeholder: "例：90", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.hba_onec') %>
+      <%= form.text_field :hba_onec, placeholder: "例：5.2", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.underlying_disease') %>
+      <%= form.text_area :underlying_disease, placeholder: "例：糖尿病",class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.intake_per_oneday') %>
+      <%= form.text_field :intake_per_oneday, placeholder: "例：100", class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.examination_ticket_number') %>
+      <%= form.number_field :examination_ticket_number, placeholder: "例：123456", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.image') %><br />
+      <%= form.file_field :image, class:"btn btn-outline-primary" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= form.label t('personals.remarks') %>
+      <%= form.text_area :remarks, placeholder: "例：何かあれば入力して下さい。", class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= form.hidden_field :id, value: personal.id %>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-outline-primary" %>
+  </div>
+
+<% end %>

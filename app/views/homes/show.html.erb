@@ -1,44 +1,41 @@
-<div class="container">
-  <h1><%= t('button.show') %></h1>
-    <div class="row">
-      <div class="col-sm-6">
-        <%= image_tag @meal.image.url %>
-      </div>
+<h1><%= t('button.show') %></h1>
+<div class="row">
+  <div class="col-sm-6">
+    <%= image_tag @meal.image.url %>
+  </div>
 
-      <div class="col-sm-6">
-        <table class="table">
-          <tr>
-            <th class="table-primary col-4"><%= t('meals.no') %></th>
-            <td><%= @meal.id %></td>
-          </tr>
-          <tr>
-            <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
-            <td><%= @meal.sugar_amount %>g</td>
-          </tr>
-          <tr>
-            <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
-            <td>約<%= @meal.sugar_cube %>個分</td>
-          </tr>
-          <tr>
-            <th class="table-primary col-4"><%= t('meals.classification') %></th>
-            <td><%= @meal.classification %></td>
-          </tr>
-          <tr>
-            <th class="table-primary col-4"><%= t('groups.name') %></th>
-              <%# binding.pry %>
-            <% if @group.empty? %>
-              <td>病院参加しておりませんので、表示されません。</td>
-            <% else %>
-              <td><%= @group.first.name %></td>
-            <% end %>
-          </tr>
-        </table>
-        <% unless @meal.user_id == current_user.id %>
-          <% if @favorite.nil? %>
-            <%= link_to 'お気に入りする', favorites_path(meal_id: @meal.id), method: :post, class:"btn btn-outline-primary" %>
-          <% end %>
+  <div class="col-sm-6">
+    <table class="table">
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.no') %></th>
+        <td><%= @meal.id %></td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.sugar_amount') %></th>
+        <td><%= @meal.sugar_amount %>g</td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.sugar_cube') %></th>
+        <td>約<%= @meal.sugar_cube %>個分</td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('meals.classification') %></th>
+        <td><%= @meal.classification %></td>
+      </tr>
+      <tr>
+        <th class="table-primary col-4"><%= t('groups.name') %></th>
+          <%# binding.pry %>
+        <% if @group.empty? %>
+          <td>病院参加しておりませんので、表示されません。</td>
+        <% else %>
+          <td><%= @group.first.name %></td>
         <% end %>
-      </div>
-    </div>
+      </tr>
+    </table>
+    <% unless @meal.user_id == current_user.id %>
+      <% if @favorite.nil? %>
+        <%= link_to 'お気に入りする', favorites_path(meal_id: @meal.id), method: :post, class:"btn btn-outline-primary" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
