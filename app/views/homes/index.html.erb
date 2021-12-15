@@ -1,4 +1,4 @@
-<h1 class="text-center">みんなの食事</h1><br />
+<h1 class="text-center"><%= t('homes.all') %></h1><br />
 <%= search_form_for @q, url: homes_path do |f| %>
   <%= f.label :sugar_amount, t('meals.sugar_amount') %>
   <%= f.number_field :sugar_amount_gteq, min: '0' %>以上～

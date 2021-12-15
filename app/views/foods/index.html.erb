@@ -1,4 +1,4 @@
-<h1 class="text-center">糖質一覧表</h1>
+<h1 class="text-center"><%= t('foods.all') %></h1>
 
 <% if current_user.try(:admin?) %>
   <%= link_to t('button.new'), new_food_path, class:"btn btn-outline-primary" %><br>
