@@ -12,7 +12,7 @@ ja:
         image: 画像
         start_time: 摂取日
       group:
-        name: 病院名
+        name: 会社名
       personal:
         birth_date: 生年月日
         height: 身長(cm)
@@ -255,7 +255,7 @@ ja:
     hba_onec: HbA1c
     underlying_disease: 基礎疾患
     intake_per_oneday: 1日あたりの目安摂取量
-    examination_ticket_number: 診察券番号
+    examination_ticket_number: 社員証番号
     image: 画像
     remarks: 備考
     meal_all: 食事一覧へ
@@ -273,11 +273,11 @@ ja:
     calendar: Myカレンダー
     errors: の未入力があります。
   groups:
-    name: 病院名
+    name: 会社名
     owner: 管理者
     join: 参加状況
-    group_all: 病院一覧
-    user_all: 患者一覧
+    group_all: 会社一覧
+    user_all: 社員一覧
   members:
     name: 名前
     email: Email
