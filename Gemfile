@@ -3,23 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
-gem 'pry-byebug'
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'devise'
-gem 'devise-i18n'
-gem 'rexml'
-gem 'rails_admin'
-gem 'cancancan'
-gem 'simple_calendar'
-gem "chartkick"
-gem 'groupdate'
-gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
-gem 'ransack'
-gem 'dotenv-rails'
-gem 'carrierwave'
-gem 'mini_magick'
-
 gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
@@ -51,3 +34,20 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'pry-byebug'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'devise'
+gem 'devise-i18n'
+gem 'rexml'
+gem 'rails_admin'
+gem 'cancancan'
+gem 'simple_calendar'
+gem "chartkick"
+gem 'groupdate'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+gem 'ransack'
+gem 'dotenv-rails'
+gem 'carrierwave'
+gem 'mini_magick'

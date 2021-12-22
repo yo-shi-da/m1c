@@ -6,9 +6,12 @@
 日々の糖質を管理できるアプリケーション。
 
 主に以下の機能があります。
-1. グループ機能：医師と患者といった「管理者とユーザー」に分かれることができる。
+1. 管理機能：上司と部下といった「管理する側と管理される側」に分かれることができる。
 2. お気に入り機能：他のユーザーが投稿した食事をお気に入りすることができる。
 3. グラフ・カレンダー機能：ユーザーは、投稿した食事の情報を視覚的に把握することができる。
+
+## 使用ガイド
+- https://desolate-refuge-41384.herokuapp.com/howtos
 
 ## 開発言語
 - Ruby 3.0.1
@@ -27,7 +30,7 @@
 $ git clone git@github.com:yo-shi-da/m1c.git
 $ cd m1c
 $ bundle install
-$ webpacker:install
+$ rails webpacker:install
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed

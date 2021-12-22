@@ -1,4 +1,4 @@
-<h1>食事一覧</h1>
+<h1><%= t('meals.all') %></h1>
 
 <!--ransack-->
 <%= search_form_for @q do |f| %>
@@ -15,9 +15,9 @@
 <br />
 <% if my_group&.owner_id != nil && current_user.id == my_group.owner_id && @meals.present? %>
   <% if params[:id].present? %> <!-- 他人のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
+    <%= link_to t('meals.csv'), export_csv_path(format: :csv, id: @user.id), class:"btn btn-outline-success" %>
   <% else %> <!-- 自分自身(current_user)のmeal indexを閲覧している場合 -->
-    <%= link_to 'CSVエクスポート', export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
+    <%= link_to t('meals.csv'), export_csv_path(format: :csv, id: current_user.id), class:"btn btn-outline-success" %>
   <% end %>
 <% end %>
 
@@ -53,7 +53,15 @@
       <% end %>
         <%#= button_to '既読にする', {controller: 'meals', action: 'read_changes'}, {method: :patch, params: {id: meal.id}, class:"btn btn-outline-success" } %>
 
+      <% if current_user.id == meal.user_id %>
         <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
+      <% else %>
+        <% if meal.reading_checks == false %>
+          <td><%= link_to "#{meal.user.name}さんにコメントする", meal, class:"btn btn-outline-success" %></td>
+        <% else %>
+          <td><%= link_to "#{meal.user.name}さんにコメント済み", meal, class:"btn btn-outline-success" %></td>
+        <% end %>
+      <% end %>
         <% if current_user.id == meal.user_id %>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>
           <td><%= link_to t('button.destroy'), meal, class:"btn btn-outline-danger", method: :delete, remote: true, data: { confirm: '削除しますか？' } %></td>

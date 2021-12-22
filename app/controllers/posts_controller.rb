@@ -9,7 +9,6 @@ class PostsController < ApplicationController
       redirect_to meal_path(id: @meal.id), notice: '未入力項目があります'
     end
   end
-  # @posts = Post.find_by(meal_id: @meal.id)
 
   private
 
