@@ -159,11 +159,11 @@ end
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )
 
 # Group
-Group.create(name: 'Apple', owner_id: '1')
-Group.create(name: 'Beams', owner_id: '2')
-Group.create(name: 'CClomon', owner_id: '3')
-Group.create(name: 'Dive into code', owner_id: '4')
-Group.create(name: 'En.japan', owner_id: '5')
+Group.create(name: 'ファミリーマート(a)', owner_id: '1')
+Group.create(name: '邪馬台国(b)', owner_id: '2')
+Group.create(name: 'セブンイレブン(c)', owner_id: '3')
+Group.create(name: 'びっくりドンキー(d)', owner_id: '4')
+Group.create(name: 'ローソン(e)', owner_id: '5')
 
 # Member
 Member.create(user_id: '1', group_id: '1')

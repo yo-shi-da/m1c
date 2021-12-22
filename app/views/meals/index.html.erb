@@ -56,7 +56,11 @@
       <% if current_user.id == meal.user_id %>
         <td><%= link_to t('button.show'), meal, class:"btn btn-outline-primary" %></td>
       <% else %>
-        <td><%= link_to "#{meal.user.name}さんにコメントする", meal, class:"btn btn-outline-primary" %></td>
+        <% if meal.reading_checks == false %>
+          <td><%= link_to "#{meal.user.name}さんにコメントする", meal, class:"btn btn-outline-success" %></td>
+        <% else %>
+          <td><%= link_to "#{meal.user.name}さんにコメント済み", meal, class:"btn btn-outline-success" %></td>
+        <% end %>
       <% end %>
         <% if current_user.id == meal.user_id %>
           <td><%= link_to t('button.edit'), edit_meal_path(meal), class:"btn btn-outline-primary" %></td>

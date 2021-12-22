@@ -10,8 +10,9 @@ class Post < ApplicationRecord
 
   private
 
+  # binding.pry
   def post_check
-    first_post = Post.find_by(id: self.meal_id)
+    first_post = Post.find_by(meal_id: self.meal_id)
     if first_post.present?
       errors.add(:base, "1件のみの投稿です。")
       throw :abort

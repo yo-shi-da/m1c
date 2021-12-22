@@ -47,4 +47,4 @@ yarn-debug.log*
 # デプロイまではコメントアウトしない。
 # 手順
 # 1.ここのファイルを削除。　2.画像を設定。　3.コメントアウトする。
-# /public/uploads
+/public/uploads

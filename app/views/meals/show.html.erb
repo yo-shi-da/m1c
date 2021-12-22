@@ -38,7 +38,6 @@
 <% if my_group&.owner_id != nil %>
   <% if current_user.id == my_group.owner_id && @post == nil %>    
     <hr>
-      <h3 class="text-center"><%= t('posts.owner_post') %></h3>
       <%= form_with(model: Post.new, local: true) do |form| %>
 
         <div class="row">
@@ -67,7 +66,7 @@
       <div class="actions">
         <%= form.submit class:"btn btn-outline-success" %>
       </div>
-      <%= link_to '患者一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
+      <%= link_to '社員一覧に戻る', member_all_path(id: current_user.id ), class:"btn btn-outline-success" %>
     <% end %>
     <hr>
   <% end %>
@@ -75,7 +74,7 @@
 
 <% if @post.present? %>
   <hr>
-  <h3 class="text-center"><%= t('posts.owner_post') %></h3>
+  <h3 class="text-center">管理者「<%= my_group.users.first.name %>」さんからのコメント</h3>
   <table class="table">
     <tr>
       <th class="table-primary col-4"><%= t('posts.owner_comment') %></th>
