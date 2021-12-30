@@ -18,12 +18,6 @@
           <div class="header1">
             <a href="/meals">M1c</a>
           </div>
-          <div class="header2">
-            <%= link_to "糖質ガイド", foods_path, class:"btn btn-outline-danger" %>
-          </div>
-          <div class="header3">
-            <%= link_to "使い方ガイド", howtos_path, class:"btn btn-outline-danger" %>
-          </div>
         </header>
       <div id="nav-container">
         <div class="bg"></div>
@@ -34,6 +28,7 @@
         </div>
         <div id="nav-content" tabindex="0">
           <ul>
+            <%= link_to "使い方ガイド", howtos_path, class:"btn btn-outline-danger" %>
             <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-primary"  %>
             <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary"  %>
           </ul>
