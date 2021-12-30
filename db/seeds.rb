@@ -138,22 +138,18 @@ group_owners = %w(
 5.times do
   group_owners.each_with_index do |name, i|
     classifications = %w(朝 昼 夜 間食)
-    today_meal = Date.today
     Meal.create(
     sugar_amount: rand(100..400),
     sugar_cube: rand(10..100),
     classification: classifications.sample,
     image: File.open("#{Rails.root}/public/menu/menu#{i + 1}.jpg"),
-    start_time: today_meal - i,
+    start_time: Date.today - (i + 1),
     reading_checks: 'false',
     remarks: name,
     user_id: i + 1 
     )
   end
 end
-
-
-
 
 # OK
 # Meal.create(sugar_amount: '10', sugar_cube: '25', classification: '朝', image: File.open("#{Rails.root}/public/menu5.jpg"), start_time: 'Sat, 06 Nov 2021 00:00:00 JST +09:00', reading_checks: 'false',remarks: 'name', user_id: 2 )

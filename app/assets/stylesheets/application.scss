@@ -24,18 +24,15 @@
   min-height: 100vh;
 }
 
-footer {
-  margin-top: auto;
-}
-
- body {
+body {
   color: black;
   font-family:'メイリオ', 'Meiryo', sans-serif;
   // color: darkgray;
   font-size:20px;
 }
 
- footer{
+footer{
+  margin-top: auto;
   height: 70px;
   width: 100%;
   display: table;
