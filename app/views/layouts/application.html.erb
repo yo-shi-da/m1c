@@ -58,8 +58,8 @@
 
               <%= link_to "ユーザー情報編集", user_path(current_user.id), class:"btn btn-outline-danger"  %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger"  %>
-            <%# else %>
-              <%#= link_to "使い方ガイド", howtos_path, class:"btn btn-outline-danger" %>
+            <% else %>
+              <%= link_to "使い方ガイド", howtos_path, class:"btn btn-outline-danger" %>
               <%#= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-primary"  %>
               <%#= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary"  %>
             <% end %>
