@@ -3,14 +3,14 @@
 class Users::SessionsController < Devise::SessionsController
 
   def new_guest
-    user = User.guest
-    sign_in user
+    user = User.guest #ここでUserを作成しているので必須。
+    sign_in User.find_by(name: "Guest")
     redirect_to meals_path, notice: 'ゲストユーザーとしてログインしました'
   end
 
   def new_guest_admin
-    user = User.guest_admin
-    sign_in user
+    user = User.guest_admin #ここでUserを作成しているので必須。
+    sign_in User.find_by(name: "Guest Admin")
     redirect_to meals_path, notice: 'ゲスト管理者ユーザーとしてログインしました'
   end
   
