@@ -40,6 +40,7 @@
               <% if current_user.try(:admin?) %>
                 <%= link_to "管理画面へ", rails_admin_path, class:"btn btn-outline-success" %>
               <% end %>
+              <%= link_to "使い方ガイド", howtos_path, class:"btn btn-outline-danger" %>
               <%= link_to "プロフィール", personal_path(id: current_user.id), class:"btn btn-outline-primary" %>
               <%= link_to "食事投稿", meals_path, class:"btn btn-outline-primary"  %>
               <%= link_to "糖質ガイド", foods_path, class:"btn btn-outline-danger" %>
